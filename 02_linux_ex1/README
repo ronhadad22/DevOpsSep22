@@ -4,9 +4,38 @@ trzh55@gmail.com
 
 Kernel System Calls
 -------------------
-< Your Answer >
-m
+the wget command is taking a url file and installing it on the system
+the strace command is giving you full details about the way the output goes
+
+ioctl(0, TIOCGPGRP, [4024])             = 0
+getpgrp()                               = 4024
+write(2, "whatIdo.1                       "..., 151whatIdo.1                             100%[=========================================================================>]   8.45K  --.-KB/s    in 0.004s  ) = 151
+ioctl(0, TIOCGPGRP, [4024])             = 0
+getpgrp()                               = 4024
+write(2, "\n", 1
+)                       = 1
+ioctl(0, TIOCGPGRP, [4024])             = 0
+getpgrp()                               = 4024
+write(2, "\n", 1
+)                       = 1
+close(4)                                = 0
+newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=2388, ...}, 0) = 0
+utimensat(AT_FDCWD, "whatIdo.1", [{tv_sec=1667310943, tv_nsec=0} /* 2022-11-01T15:55:43+0200 */, {tv_sec=1666907847, tv_nsec=0} /* 2022-10-28T00:57:27+0300 */], 0) = 0
+ioctl(0, TIOCGPGRP, [4024])             = 0
+getpgrp()                               = 4024
+write(2, "2022-11-01 15:55:43 (2.01 MB/s) "..., 692022-11-01 15:55:43 (2.01 MB/s) - ‘whatIdo.1’ saved [8648/8648]
+
+) = 69
+ioctl(0, TIOCGPGRP, [4024])             = 0
+getpgrp()                               = 4024
+exit_group(0)                           = ?
++++ exited with 0 +++
+
 
 Binary Numbers
 --------------
-< Your Answer >
+ 1:   111=7    100=4   10110=22
+
+2:  256
+
+
