@@ -4,8 +4,10 @@ name@example.com
 
 Kernel System Calls
 -------------------
-< Your Answer >
-m
+You begin by downloading a file from the web using the wget command, afterwards you make it executable with the chmod
+command for myself (and removing read permissions from group and others). The whatIdo executable opens a directory
+under the name of welcomeToDevOpsMay22 and creates a file in it called goodLuck. That exe also writes
+There you go... tell me what I do into the goodLuck file.
 
 Binary Numbers
 --------------
