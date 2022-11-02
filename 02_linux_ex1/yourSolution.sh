@@ -1,1 +1,5 @@
-devops+"great"
+mkdir blabla
+touch blabla
+...
+rm blabla
+...
