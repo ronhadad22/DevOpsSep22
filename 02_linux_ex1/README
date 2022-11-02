@@ -1,13 +1,22 @@
 name@example.com
 < your secret here >
-Gad
+814c5723c21e7e90a3eae36c8df3c513-
+
 
 Kernel System Calls
 -------------------
-< Your Answer >
+#the programs open readme file named " whatIdo " and save the UTC time with addition of 2 hour
+#also is change the file permissions reading writing and executing belong only to the owner
+
 m
 
 Binary Numbers
 --------------
-< Your Answer >
-01000111 01100001 01100100 00100000
+1. 1942
+2. 11111111=255
+3. first number = 0 -> negative number
+   fist number = 1 -> positive number
+
+4. http://cstl-csm.semo.edu/xzhang/Class%20Folder/CS280/Workbook_HTML/FLOATING_tut.htm
+
+
