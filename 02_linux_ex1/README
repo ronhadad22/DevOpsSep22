@@ -1,15 +1,19 @@
-arikgraif@gmail.com
-<  arik >
+
+mortis1983@gmail.com
+< your secret here >
 
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
-
+< your answer >
+strace command is a debugging tool use to trace system calls and signals, you can use command like strace -c ls -l
+to see how many times a system call got called  and how many time it got failed .
+using strace is a great way to understand why a program you run keep failing.
 
 Binary Numbers
 --------------
-< Your Answer ???>
+< Your Answer >
 
 
-
+7, 4, 22
+0 - 255
