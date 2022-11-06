@@ -16,6 +16,5 @@ Binary Numbers
 --------------
 < 7 4 22
 8 bits 0-255
-negative: fist digit (from left) when 0 is negative when 1 is positive
-float should have a space instead of a dot, the left side is the numbers and the the right side is the exponent,
-the exponent is the decimal sign diveded by the max of nomber of digits plus one>
+float : 3 first digit should be the exponent (after the dot numbers) divided by 8
+the 5 other digits represents the numberbefore the dot>
