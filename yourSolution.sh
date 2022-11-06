@@ -10,4 +10,6 @@ chmod 600 secretDir/.secret
 
 rm important.link
 
-cat ./CONTENT_TO_HASH | xargs | md5sum > secretDir/.secret
+bash generateSecret.sh
+
+cat secretDir/.secret
