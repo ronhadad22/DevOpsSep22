@@ -1,12 +1,33 @@
-name@example.com
-< your secret here >
+Email: ayam99mousa@gmail.com
+
+Secret: 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
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
-m
+After performing the asked commands and following the strace of the
+program I understand that the file in the c code "whatIdo.c" is
+printing the content of "welcomeToDevOpsJan22/goodLuck"
+then the file closes with 0 errors.
+
 
 Binary Numbers
 --------------
-< Your Answer >
+1. 111 = 7, 100 = 4, 10110 = 22
+
+2. 0 through 255
+
+3. With sign magnitude method we designate one of the bits (usually the far left,
+   also known as the most significant bit) to indicate whether a number is
+   positive or negative. Usually a '0' indicates the number is positive and a '1'
+   indicates the number is negative. Example of using this method :
+
+                    100000101 = -5
+                    000000101 = 5
+
+4. eight bit floating-point format can represent positive numbers from about 0.0078(10)
+   to 480(10). In contrast, the eight bit two's-complement representation can only represent
+   positive numbers between 1 and 127, But the floating-point representation can't represent
+   all of the numbers in its range this would be impossible, since eight bits can represent
+   only 2^8  = 256 distinct values, and there are infinitely many real numbers in the range
+   to represent.
