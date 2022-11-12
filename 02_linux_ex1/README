@@ -3,7 +3,7 @@ shaniben5253@gmail.com
 814c5723c21e7e90a3eae36c8df3c513  -
 
 Kernel System Calls
--------------------
+
     We downloaded a file called "whatIdo" from the web using the
     wget command. We gave the user full permissions to that file,
     and we didn't give any permissions to the group and the readers.

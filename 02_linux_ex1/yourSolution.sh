@@ -10,4 +10,4 @@
 #touch secretDir/.secret
 #chmod 600 secretDir/.secret
 #rm important.link #or unlink important.link
-#./generateSecret.sh
+./generateSecret.sh
