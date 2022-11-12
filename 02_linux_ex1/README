@@ -5,12 +5,14 @@ dariakalugny2405@gmail.com
 Kernel System Calls
 -------------------
 < Your Answer >
-The program open the
+
 The command refers to a specific file found on Amazon's website. The reference is made using the WGET command.
 It is not possible to see which ones are taking place, so I will use the command "STRACE -o (name of folder)"
-vi ./(name of folder)
+vi ./(name of folder).
 
-the actions that happen behind the scenes in a clear and non-binary way
+
+The command wget Allows files to be downloaded from the server.
+The command strace allows you to view the text of certain files and identify bugs.
 
 Binary Numbers
 --------------
