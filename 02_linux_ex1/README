@@ -1,15 +1,53 @@
-arikgraif@gmail.com
-<  arik >
-
+shaniben5253@gmail.com
+< your secret here >
+814c5723c21e7e90a3eae36c8df3c513  -
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
+    We downloaded a file called "whatIdo" from the web using the
+    wget command. We gave the user full permissions to that file,
+    and we didn't give any permissions to the group and the readers.
+
+    The trace program shows us what our command is doing in terms of system calls.
+    The “strace” command tool prints how the program operates and communicates with the system.
+    Through this, the user can easily decipher where the errors are occurring while loading the program.
 
 
 Binary Numbers
 --------------
-< Your Answer ???>
+1.  111=7
+    100=4
+    10110=22
 
+2.  (11111111)=255 the range: 0-255 -->256
 
+3.  The leftmost bit (MSB) is the sign bit 0= +  1= -
+    And the rest of the bits are the number
+
+  Another method
+
+    Two's complement
+
+    a.We will write the number in positive form.
+    b.We will add another bit on the left side.
+     0:(+) , 1:(-)
+    c.we will reverse the bits.
+    d.Add 1 to the number.
+
+    5=101 -> 0101 ->(not) 1010 +1 ->     1011 = -5
+
+4.  We will take the floating point and multiply it by 2.
+    We will refer to the number on the left side of the point and write it down on the side.
+    Multiply by 2 again after subtracting the whole (because we have already used it)
+    As we continue to multiply, the level of accuracy will increase
+
+    for example
+    2.7:
+    0.7*2=1.4->1
+    0.4*2=0.8->0
+    0.8*2=1.6->1
+    0.6*2=1.2->1
+
+      2 . 7
+    0010.1011
 
