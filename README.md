@@ -1,6 +1,13 @@
 # DevOpsSep22
 ex 1 
 
+rosindima10092@gmail.com
+814c5723c21e7e90a3eae36c8df3c513  -
+
+
+
+Kernel System Calls
+-------------------
 `
 stat("./welcomeToDevOpsMay22", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
 `
@@ -23,4 +30,35 @@ In "goodLuck" file wrote "There you go... tell me what I do..."
 
 closed the file.
 
+Binary Numbers
+--------------
+Q1 :Convert the following binary numbers to a decimals: 111, 100, 10110
 
+A1:
+    111 = 7
+    100 = 4
+    10110 = 22
+
+Q2: What is the available decimal range represented by a 8 bits binary number?
+
+A2: With 8 bits, the maximum number of values is 256 or 0 through 255.
+
+Q3: Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255
+
+A3: 9 binary number is looks like:
+
+    +/-   128     64     32     16      8      4      2      1
+     0      0      0      0      0      0      0      0      0
+
+The first 0/1 at the left tells us if its a positive or a negative number.
+
+    1 = Negatine
+    0 = Possitive
+
+Example for negative 9 bits binary number: 
+
+    100101010 = -42
+
+
+
+    
