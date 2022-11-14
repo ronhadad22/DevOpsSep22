@@ -4,7 +4,9 @@ name@example.com
 
 Kernel System Calls
 -------------------
-< Your Answer >
+strace command is a debugging tool use to trace system calls and signals, you can use command like strace -c ls -l
+to see how many times a system call got called  and how many time it got failed .
+using strace is a great way to understand why a program you run keep failing.
 m
 
 Binary Numbers
