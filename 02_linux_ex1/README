@@ -14,8 +14,35 @@ vi ./(name of folder).
 The command wget Allows files to be downloaded from the server.
 The command strace allows you to view the text of certain files and identify bugs.
 
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+write(2, "\r", 1)                       = 1
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+write(2, "whatIdo.2                       "..., 196) = 196
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+write(2, "\n", 1)                       = 1
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+write(2, "\n", 1)                       = 1
+close(4)                                = 0
+newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=2388, ...}, 0) = 0
+utimensat(AT_FDCWD, "whatIdo.2", [{tv_sec=1667742193, tv_nsec=0} /* 2022-11-06T15:43:13+0200 */, {tv_sec=1666907847, tv_nsec=0} /* 2022-10-28T00:57:27+0300 */], 0) = 0
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+write(2, "2022-11-06 15:43:13 (937 KB/s) -"..., 68) = 68
+ioctl(0, TIOCGPGRP, [188])              = 0
+getpgrp()                               = 188
+exit_group(0)                               = ?
+++ exited with 0 +++
+
+            +
 Binary Numbers
 --------------
-< Your Answer >
+1) 111=7 , 100=4, 10110=22
+2)
 
-test
+File System Manipulations
+My secret:
+814c5723c21e7e90a3eae36c8df3c513  -
