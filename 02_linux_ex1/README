@@ -9,7 +9,9 @@ Kernel System Calls
 
 Binary Numbers
 --------------
-< Your Answer ???>
+1) 7, 4, 22
+2) 0 through 255
+3) In order to represent a negative 8 bit binary number, we can use the 9th bit to declare whether the number is positive or negative (0 = positive, 1 = negative)
 
 
 
