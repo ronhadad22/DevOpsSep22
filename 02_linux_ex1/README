@@ -9,7 +9,7 @@ Kernel System Calls
 The command refers to a specific file found on Amazon's website. The reference is made using the WGET command.
 It is not possible to see which ones are taking place, so I will use the command "STRACE -o (name of folder)"
 vi ./(name of folder).
-
+Can see the size of the file, the time it was created, the download speed
 
 The command wget Allows files to be downloaded from the server.
 The command strace allows you to view the text of certain files and identify bugs.
@@ -37,11 +37,14 @@ getpgrp()                               = 188
 exit_group(0)                               = ?
 ++ exited with 0 +++
 
-            +
+
 Binary Numbers
 --------------
 1) 111=7 , 100=4, 10110=22
-2)
+2)The decimal range represented by an 8-bit binary number is 256.
+3)We will use the eight bits to represent the number.
+ The ninth bit will be a minus sign, negative binary numbers are represented using a minus sign.
+4)
 
 File System Manipulations
 My secret:
