@@ -42,13 +42,14 @@ Binary Numbers
 --------------
 1) 111=7 , 100=4, 10110=22
 2)The decimal range represented by an 8-bit binary number is 256.
-3)We will use the eight bits to represent the number.
- The ninth bit will be a minus sign, negative binary numbers are represented using a minus sign.
-4)The first bit will show a sign if it is zero the number will be positive and if it is 1 the number will be negative.
-We will convert the next three bits to a decimal number (X) and perform the following calculation: X-3, raise the digit 2 to the power we get.
+3)We will use the 8 bits to represent the number.
+ The 9th bit will be a minus sign, negative binary numbers are represented using a minus sign.
+ 4) The first bit will determine what sign will the number get, if the first bit is "0" the number will be positive ,
+if the bit is "1" the number will be negative.
+We will convert the next three bits to a decimal number (X) and perform the following calculation: 3-X=Y, raise the digit 2 to the power of the number we got (Y).
 The following four numbers are calculated as follows:
 X* 2^0+X*2^-1+X*2^-2+X*2^-3
-The result we get is the decimal number that came out.
+At the end the result of the calculation is the final decimal number .
 
 File System Manipulations
 My secret:
