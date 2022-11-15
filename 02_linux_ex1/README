@@ -16,5 +16,6 @@ Binary Numbers
     1) A sign which indicates whether the number is positive or negative
     2) An exponent that is either positive or negative
     3) A mantissa, which is the fractional portion of the number after it has been normalized in scientific notation
-    In an 8-bit format, one bit is reserved for the sign as always, three bits are used for the biased exponent, and the remaining four bits are used for the mantissa.
-    To convert fraction to binary, start with the fraction in question and multiply it by 2 keeping notice of the resulting integer and fractional part. Continue multiplying by 2 until you get a resulting fractional part equal to zero. Then just write out the integer parts from the results of each multiplication.
+        In an 8-bit format, one bit is reserved for the sign as always, three bits are used for the biased exponent, and the remaining four bits are used for the mantissa.
+    To convert fraction to binary, start with the fraction in question and multiply it by 2 keeping notice of the resulting integer and fractional part.
+    Continue multiplying by 2 until you get a resulting fractional part equal to zero. Then just write out the integer parts from the results of each multiplication.
