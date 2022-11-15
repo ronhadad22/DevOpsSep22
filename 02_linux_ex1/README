@@ -12,6 +12,12 @@ Binary Numbers
 1) 7, 4, 22
 2) 0 through 255
 3) In order to represent a negative 8 bit binary number, we can use the 9th bit to declare whether the number is positive or negative (0 = positive, 1 = negative)
-
-
+4) All floating-point numbers consist of three parts:
+    1) A sign which indicates whether the number is positive or negative
+    2) An exponent that is either positive or negative
+    3) A mantissa, which is the fractional portion of the number after it has been normalized in scientific notation
+    In an 8-bit format, one bit is reserved for the sign as always, three bits are used for the biased exponent, and the remaining four bits are used for the mantissa.
+    With 3 bits available, biased exponent values range between 0 (denormalized numbers, including zero) and 7.
+    For four bits of mantissa, the significant digits of any normalized non-zero binary number will range
+    between 1.0000 and 1.1111.
 
