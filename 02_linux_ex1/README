@@ -1,5 +1,5 @@
-mynameisarkadi@hotmail.com
-<  arkadi >
+arikgraif@gmail.com
+<  arik >
 
 
 Kernel System Calls
@@ -9,7 +9,16 @@ Kernel System Calls
 
 Binary Numbers
 --------------
-< Your Answer ???>
 
+1:)
 
+Binary Value :111  = Decimal Value 7
+Binary Value :100  = Decimal Value 4
+Binary Value :10110  = Decimal Value 22
+
+2:)
+
+For a number of bits in a computer system, the numbers they can represent is 2^n , where “n” is the number of bits.
+
+Thus, with 8 bits you can represent 2^8 = 256 numbers (zero included).
 
