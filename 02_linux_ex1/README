@@ -51,6 +51,8 @@ Now, if we take the 2's complement form of it, we get 110000000 which is also 9 
 If the MSB is a 0, the number is positive. If the MSB is 1, the number is negative
 (Taken From The Network)
 
-4)
+4)Im not Sure I understood the question, But If this explanation is correct then this is the answer:
+https://binary-system.base-conversion.ro/convert-real-numbers-from-decimal-system-to-32bit-single-precision-IEEE754-binary-floating-point.php
+
 
 
