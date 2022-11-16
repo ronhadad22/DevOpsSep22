@@ -1,0 +1,16 @@
+1) execve = is the name of a system call being executed.
+2) The text within the parentheses is the arguments provided to the system call.
+3) The number after the = sign (which is 0 in this case) is a value returned by the execve system call.
+4) brk = change the location of the program break.
+5) access = checks whether the calling process can access the file
+6) openat = open and possibly create a file
+7) fstat = obtains information about an open file known by the file descriptor fildes, obtained from a successful call to a function such as open
+8) mmap = reates a new mapping in the virtual address space of the calling process.
+9) close = closes a file descriptor, so that it no longer refers to any file and may be reused.
+10) read = attempts to read up to count bytes from file descriptor fd into the buffer starting at buf
+11) mprotect = changes the access protections for the calling process's memory pages containing any part of the address range in the interval [addr, addr+len-1]
+12) state = retrieve information about the file pointed to by pathname
+13) write = writes up to count bytes from the buffer starting at buf to the file referred to by the file descriptor fd
+14) exit_group = exit all threads in a process
+
+in other words the file create a new folder named WelcomeToDevOpsMay22 and create a file inside it named good luck that contain the following words: There you go... tell me what I do...
