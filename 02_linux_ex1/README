@@ -18,7 +18,7 @@ Binary Numbers
 method that use 2^0 - 2^8
 for exampale we take 100:
 =1*2^2+0*2^1+0*2^0
-4+0+0=
+4+0+0=4
 
 4) 0.234 we multiple the fraction by 2 for 8 times if we get number last than 1 we write 0 if more we write 1 and subtrac from the outcome)
 
