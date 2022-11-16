@@ -1,10 +1,4 @@
-daneyataal@gmail.com
-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
-
-
-Kernel System Calls
--------------------
-root@cnvrg-job-notebooksession-byoxcwnypwptr5nvlba8-1-56ff94f57lvs79:/cnvrg# strace ./whatIdo
+root@cnvrg-job-notebooksession-byoxcwnypwptr5nvlba8-1-56ff94f57lvs79:/cnvrg# strace ./whatIdo 
 execve("./whatIdo", ["./whatIdo"], 0x7ffd955b9ee0 /* 61 vars */) = 0
 brk(NULL)                               = 0x55a74744e000
 access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
@@ -37,20 +31,3 @@ write(3, "There you go... tell me what I d"..., 36) = 36
 close(3)                                = 0
 exit_group(0)                           = ?
 +++ exited with 0 +++
-
-
-
-Binary Numbers
---------------
-1) see Binary2Decimal Folder there is a solution :-)
-2) 0-255
-3)
-First of all we need 9 bits to write the signed binary representation of +128 which is 010000000.
-Now, if we take the 2's complement form of it, we get 110000000 which is also 9 bits long.
-##The MSB is the most significant bit when representing a sign magnitude negative number.
-If the MSB is a 0, the number is positive. If the MSB is 1, the number is negative
-(Taken From The Network)
-
-4)
-
-
