@@ -7,8 +7,8 @@ Kernel System Calls
 -------------------
 After pulling the remote file using the wget command, we turn it into an executable with the chmod command. The whatIdo file
 creates a directory called "welcomeToDevOpsMay22". Inside the directory is a txt file named "goodLuck". Using the cat
-command we say that it says "There you go... tell me what I do..."
-Essentially the executable creates a directory containing a txt file.
+command we see that it says "There you go... tell me what I do...".
+Essentially, the executable creates a directory containing a txt file.
 
 Binary Numbers
 --------------
