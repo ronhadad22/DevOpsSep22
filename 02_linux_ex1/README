@@ -4,8 +4,10 @@ SECRET = 814c5723c21e7e90a3eae36c8df3c513  -
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
-
+After downloading the file using the wget command, we turn it into an executable with the chmod command. The whatIdo file
+creates a directory called "welcomeToDevOpsMay22". Inside the directory is a txt file named "goodLuck". Using the cat
+command we say that it says "There you go... tell me what I do..."
+Essentially the executable creates a directory containing a txt file.
 
 Binary Numbers
 --------------
