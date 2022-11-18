@@ -38,5 +38,5 @@ echo $ENCRYPTED_MESSAGE | dd of=encSampleMsg.txt
 cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 
 
-# Unable to decrypt as of yet, will figure this out tomorrow
+# Unable to decrypt as of yet, will figure this out tomorrow :\
 #openssl smime -decrypt -in encSampleMsgReady.txt -recip cert.pem
