@@ -37,6 +37,6 @@ echo $ENCRYPTED_MESSAGE | dd of=encSampleMsg.txt
 
 cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 
+
+# Unable to decrypt as of yet, will figure this out tomorrow
 #openssl smime -decrypt -in encSampleMsgReady.txt -recip cert.pem
-#openssl enc -d -aes-256-cbc -pbkdf2 -k $RANDOM_KEY -in encSampleMsgReady.txt -out decrypted_secret
-openssl smime -decrypt -in encSampleMsgReady.txt -recip cert.pem -inkey masterKey.txt
