@@ -4,7 +4,7 @@ Arkadi
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
+< 3.3.6-341.x86_64>
 
 
 Binary Numbers
@@ -14,7 +14,7 @@ Binary Numbers
 
 Binary Value :111  = Decimal Value 7
 Binary Value :100  = Decimal Value 4
-Binary Value :10110  = Decimal Value 22
+Binary Value :10110 := Decimal Value 22
 
 2:)
 
