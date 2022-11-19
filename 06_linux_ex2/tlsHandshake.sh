@@ -11,8 +11,9 @@ VERIFICATION_RESULT=$( openssl verify -CAfile cert-ca-aws.pem cert.pem )
 RANDOM_KEY=$(openssl rand -hex 32)
 echo $RANDOM_KEY | dd of=masterKey.txt
 
+echo "RANDOM KEY IS $RANDOM_KEY"
 
-echo $SESSION_ID
+echo " SESSION KEY IS $SESSION_ID"
 
 if [ "$VERIFICATION_RESULT" != "cert.pem: OK" ]; then
   echo "Server Certificate is invalid."
@@ -20,18 +21,16 @@ if [ "$VERIFICATION_RESULT" != "cert.pem: OK" ]; then
 fi
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt cert.pem | base64 -w 0)
-#MASTER_KEY=$(openssl rsa -aes256 -in masterKey.txt -outform DER cert.pem | base64 -w 0)
 
-#echo $MASTER_KEY
+echo "MASTER KEY IS $MASTER_KEY"
 
 RESPONSE2=$(curl -d '{ "sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt me and send to client!"  }' -H "Content-Type: application/json" -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange)
 
 
 ENCRYPTED_MESSAGE=$(echo $RESPONSE2 | jq -r '.encryptedSampleMessage')
 
-#echo \n$RESPONSE2\n
 
-#echo $ENCRYPTED_MESSAGE
+echo "ENCRYPTED MESSAGE IS $ENCRYPTED_MESSAGE"
 
 echo $ENCRYPTED_MESSAGE | dd of=encSampleMsg.txt
 
@@ -39,4 +38,3 @@ cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 
 
 # Unable to decrypt as of yet, will figure this out tomorrow :\
-#openssl smime -decrypt -in encSampleMsgReady.txt -recip cert.pem
