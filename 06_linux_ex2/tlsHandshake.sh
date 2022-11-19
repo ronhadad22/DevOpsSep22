@@ -1,4 +1,5 @@
 #!/bin/bash
+# Code by Dean Sorie
 
 RESPONSE1=$(curl -d '{ "clientVersion": "3.2", "message": "Client Hello" }' -H "Content-Type: application/json" -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/clienthello)
 
