@@ -1,5 +1,7 @@
 # deansorie@icloud.com
 
+## Processes handling
+
 ### Q1: bg
 ### Q2: False
 ### Q3: jobs
@@ -11,6 +13,8 @@
 ### Q9: kill -CHLD 4828
 ### Q10: k
 ### Q11: The program has implemented a custom signal handler for the SIGINT signal.
+
+## Process states
 
 ```bash
 dean       16332  0.4  0.0   8752  3152 pts/2    D    15:50   0:00 /bin/bash ./write_to_file_sequentially.sh
