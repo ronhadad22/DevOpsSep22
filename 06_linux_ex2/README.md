@@ -24,5 +24,5 @@ dean       16337  0.2  0.0   8752  3132 pts/2    D    15:50   0:00 /bin/bash ./w
 dean       16384  0.0  0.0  10616  3440 pts/0    R+   15:51   0:00 ps aux
 ```
 
-#### According to the man page, D means uninterruptible sleep (usually IO)
+#### According to the ps aux man page, D means uninterruptible sleep (usually IO)
 
