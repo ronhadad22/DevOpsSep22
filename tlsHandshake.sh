@@ -1,6 +1,8 @@
 #!/bin/bash
 # Code by Dean Sorie
 
+wget https://devops-course-sep-22.s3.sa-east-1.amazonaws.com/ex2/cert-ca-aws.pem
+
 RESPONSE1=$(curl -d '{ "clientVersion": "3.2", "message": "Client Hello" }' -H "Content-Type: application/json" -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/clienthello)
 
 
