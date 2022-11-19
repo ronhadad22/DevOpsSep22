@@ -2,17 +2,17 @@
 
 ## Processes handling
 
-### Q1: bg
-### Q2: False
-### Q3: jobs
-### Q4: CTRL+c
-### Q5: CTRL+z
-### Q6: sleep 10
-### Q7: kill 4846
-### Q8: kill -9 4846
-### Q9: kill -CHLD 4828
-### Q10: k
-### Q11: The program has implemented a custom signal handler for the SIGINT signal.
+###### Q1: bg
+###### Q2: False
+###### Q3: jobs
+###### Q4: CTRL+c
+###### Q5: CTRL+z
+###### Q6: sleep 10
+###### Q7: kill 4846
+###### Q8: kill -9 4846
+###### Q9: kill -CHLD 4828
+###### Q10: k
+###### Q11: The program has implemented a custom signal handler for the SIGINT signal.
 
 ## Process states
 
