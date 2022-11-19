@@ -1,5 +1,3 @@
-devops+"great"
-
 tar -xf secretGenerator.tar.gz
 cd src
 rm -rf maliciousFiles
