@@ -1,15 +1,29 @@
-arikgraif@gmail.com
-<  arik >
+avijw96@gmail.com<  aviyaaqov >
 
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
+<strace - trace system calls and signals
+ Strace is one of the most powerful process monitoring, diagnostic, instructional tool of Linux. It also acts as a debugging tool that helps in troubleshooting issues. It is majorly used for the following purposes:
+
+* Debugging Programs
+* Troubleshooting Programs
+* Intercept System calls by a process
+* Record system calls by a process
+* Signals received by a process
+* Trace running processes
+* In case the source code is not available, strace is used to analyze how a program interacts with the system to debug the executing of program. It returns the name of each system call along with its argument enclosed in parenthesis and its return value to standard error.>
 
 
 Binary Numbers
 --------------
-< Your Answer ???>
+1 - 7,4,22
+2 - 0 to 255
+3 - we can represent the negative symbol by the number 0 in the beginning (example 01100 is negative 12)
+4 - split the numbers exaple 10.75 we will take the 10 and make it binary and the the 0.75
+
+File System Manipulations
+814c5723c21e7e90a3eae36c8df3c513
 
 
 
