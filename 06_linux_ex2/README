@@ -1,6 +1,6 @@
 ayam99mousa@gmail.com
 
-Ansewrs :
+Answers (Processes handling) :
 
 Q1) nohup
 
@@ -26,4 +26,12 @@ Q11) The program ignores the SIGINT signal.
 
 
 
+Answer (Process states) :
 
+5 lines maximum which indicating that some processes are waiting and some are running :
+
+ayam99    4104  0.1  0.0  10096  3584 pts/0    D    15:29   0:00 /bin/bash ./write_to_file_sequentially.sh
+ayam99    4105  0.1  0.0  10096  3544 pts/0    D    15:29   0:00 /bin/bash ./write_to_file_sequentially.sh
+ayam99    4357  0.1  0.0  10096  3632 pts/0    S+   15:29   0:00 /bin/bash ./multi_process_file_writing.sh
+ayam99    4359  0.3  0.0  10096  3480 pts/0    D+   15:29   0:00 /bin/bash ./write_to_file_sequentially.sh
+ayam99    3931  0.1  0.0  10096  3320 pts/0    R    15:29   0:00 /bin/bash ./write_to_file_sequentially.sh
