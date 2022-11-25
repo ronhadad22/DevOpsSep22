@@ -2,9 +2,15 @@ vitvizel@gmail.com
 < your secret here >
 
 
-Kernel System Calls
--------------------
-< Your Answer >
+Kernel System calls
+באמצעות שימוש ב פקודה STRACE
+ניתן לראות שתכנת WHATIDO
+יוצרת תיקיה welcomeToDevOpsMay22
+mkdir("./welcomeToDevOpsMay22", 0700)   = 0
+בתוך התיקיה הנ"ל נוצר קובץ goodLuck
+openat(AT_FDCWD, "welcomeToDevOpsMay22/goodLuck", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+ובתוך הקובץ נכתב There you go... tell me what I do...
+write(3, "There you go... tell me what I d"..., 36) = 36
 
 
 Binary Numbers
