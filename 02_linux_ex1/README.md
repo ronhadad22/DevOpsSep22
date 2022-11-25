@@ -3,8 +3,11 @@ my secret: 814c5723c21e7e90a3eae36c8df3c513
 
 
 Kernel System calls
+
 באמצעות שימוש ב פקודה STRACE
+
 ניתן לראות שתכנת WHATIDO
+
 יוצרת תיקיה welcomeToDevOpsMay22
 
 mkdir("./welcomeToDevOpsMay22", 0700)   = 0
@@ -12,7 +15,9 @@ mkdir("./welcomeToDevOpsMay22", 0700)   = 0
 בתוך התיקיה הנ"ל נוצר קובץ goodLuck
 
 openat(AT_FDCWD, "welcomeToDevOpsMay22/goodLuck", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+
 ובתוך הקובץ נכתב There you go... tell me what I do...
+
 
 write(3, "There you go... tell me what I d"..., 36) = 36
 
