@@ -5,7 +5,7 @@ dariakalugny2405@gmail.com
 Kernel System Calls
 -------------------
 < Your Answer >
-
+#need to explain whatido script -5
 The command refers to a specific file found on Amazon's website. The reference is made using the WGET command.
 It is not possible to see which ones are taking place, so I will use the command "STRACE -o (name of folder)"
 vi ./(name of folder).
@@ -54,3 +54,5 @@ At the end the result of the calculation is the final decimal number .
 File System Manipulations
 My secret:
 814c5723c21e7e90a3eae36c8df3c513  -
+
+#greate job but u need to run generate script only -5
