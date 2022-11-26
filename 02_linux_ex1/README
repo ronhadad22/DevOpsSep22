@@ -9,7 +9,8 @@ Kernel System Calls
 #also is change the file permissions reading writing and executing belong only to the owner
 
 m
-
+#missing 4 -5
+#need to run generate.sh -5
 Binary Numbers
 --------------
 1. 1942
