@@ -20,7 +20,7 @@ fi
 
 # practice change permissions
 OCTAL_PERMISSIONS=$(stat -c "%a" secretDir/.secret)
-if [ "$OCTAL_PERMISSIONS" != "600" ]; then
+if [ "$OCTAL_PERMISSIONS" !="600" ]; then
   echo "Failed to generate secret. The file 'secretDir/.secret' must have read and write permission only."
   exit 1
 fi
