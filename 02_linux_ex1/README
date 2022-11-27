@@ -31,3 +31,5 @@ Binary Numbers
    all of the numbers in its range this would be impossible, since eight bits can represent
    only 2^8  = 256 distinct values, and there are infinitely many real numbers in the range
    to represent.
+
+#where is the shell script -40
