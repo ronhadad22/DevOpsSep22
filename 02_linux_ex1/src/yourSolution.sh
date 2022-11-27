@@ -7,5 +7,5 @@ rm -rf maliciousFiles #remove directory and it's content
 touch secretDir/.secret #create file into directory
 ls -l secretDir/.secret #check permissions of the file
 chmod 600 secretDir/.secret #enable only read and write permissions
-rm important.link #Remove File
+rm important.link #remove file
 ./generatesecret.sh #Generate Secret
