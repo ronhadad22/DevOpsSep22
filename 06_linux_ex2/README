@@ -25,7 +25,6 @@ Q10) k
 Q11) The program ignores the SIGINT signal.
 
 
-
 Answer (Process states) :
 
 5 lines maximum which indicating that some processes are waiting and some are running :
