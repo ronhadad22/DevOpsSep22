@@ -4,7 +4,6 @@ import uuid
 import os
 import random
 
-
 client_secrets = {}
 
 with open('bob-cert.pem') as f:
