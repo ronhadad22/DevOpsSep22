@@ -1,2 +1,46 @@
-name@example.com
+Processes handling
 
+Q1
+nohup (a command immune to hangups)
+
+Q2
+False (SIGTERM is default and may not work at some cases. SIGKILL may be required)
+
+Q3
+jobs
+
+Q4
+^C
+
+Q5
+^Z (fg to start it again)
+
+Q6
+sleep 10
+
+Q7
+kill 4846
+
+Q8
+kill -9 4846
+
+Q9
+kill -CHLD 4828
+
+Q10
+k (You will be prompted for a PID and then the signal to send)
+
+Q11
+The program ignores the SIGINT signal (spits out a syntax error)
+
+Process states
+
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+happyto+  5182  0.1  0.0   8752  3052 pts/0    R    09:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+happyto+  5235  0.1  0.0   8752  3136 pts/0    R    09:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+happyto+  5316  0.1  0.0   8752  3128 pts/0    R    09:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+happyto+  4158  0.1  0.0   8752  3072 pts/0    D    09:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+happyto+  4159  0.1  0.0   8752  3144 pts/0    D    09:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+State code D means uninterruptible sleep (usually IO)
+State code R means running or runnable (on run queue)
