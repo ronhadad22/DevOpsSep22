@@ -1,2 +1,44 @@
-name@example.com
+Daneyataal@gmail.com
 
+1.nohup
+2.FALSE
+3.jobs
+4.CTRL+c
+5.CTRL+z
+6.sleep 10
+7.kill 4846
+8.kill -9 4846
+9.kill -CHLD 4828
+10.k
+11.The program has implemented a custom signal handler for the SIGINT signal.
+
+
+top:
+
+ PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                
+ 2172 root      20   0    5840   3256   2880 D   0.7   0.0   0:00.04 write_to_file_s                                        
+ 2238 root      20   0    5840   3288   2912 D   0.7   0.0   0:00.04 write_to_file_s                                        
+   86 root      20   0  420484 102820  18884 S   0.3   0.6   0:03.07 jupyter-lab                                            
+  101 root      20   0   10032   4740   3200 R   0.3   0.0   0:00.99 top                                                    
+ 1297 root      20   0    5840   3264   2888 D   0.3   0.0   0:00.04 write_to_file_s                                        
+ 1319 root      20   0    5840   3260   2880 D   0.3   0.0   0:00.03 write_to_file_s                                        
+ 1379 root      20   0    5840   3332   2960 D   0.3   0.0   0:00.04 write_to_file_s                                        
+ 1389 root      20   0    5840   3280   2904 D   0.3   0.0   0:00.03 write_to_file_s    
+
+'D' = uninterruptible sleep - IO
+
+
+
+
+watch ps aux:
+
+root        86  0.5  0.6 420752 103000 pts/0   Rl+  17:08   0:03 /usr/local/bin/python /usr/local/bin/jupyter-lab --ip=0.0.0
+root        96  0.0  0.0   6052  3828 pts/1    Ss+  17:08   0:00 /bin/bash
+root       100  0.1  0.0   6052  3772 pts/2    Ss   17:09   0:00 /bin/bash
+root       101  0.3  0.0  10032  4740 pts/2    S+   17:09   0:01 top
+root       102  0.1  0.0   6052  3856 pts/3    Ss   17:10   0:00 /bin/bash
+root      1293  0.0  0.0   5840  3240 pts/1    D    17:12   0:00 /bin/bash ./write_to_file_sequentially.sh
+root      1294  0.0  0.0   5840  3072 pts/1    D    17:12   0:00 /bin/bash ./write_to_file_sequentially.sh
+root      1295  0.0  0.0   5840  3444 pts/1    D    17:12   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+processes are waiting IO to finish
