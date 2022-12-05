@@ -6,6 +6,7 @@ def sum_of_element(elements):
     :return: Return int - the sum of all elements.
     """
     s = 0
+
     for num in elements:
         s = s + num
 
@@ -15,7 +16,7 @@ def sum_of_element(elements):
 def verbing(word):
     """
     1 Kata
-
+cg6emh
     Given a string 'word', if its length is at least 3, add 'ing' to its end.
     Unless it already ends in 'ing', in which case add 'ly' instead.
     If the string length is less than 3, leave it unchanged.
@@ -28,6 +29,8 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+
+
     return None
 
 
