@@ -1,6 +1,3 @@
-import math
-
-
 def sum_of_element(elements):
     """
     1 Kata
@@ -51,10 +48,7 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    result = ""
-    for word in words:
-        result += f"{word} "
-    return result
+    return " ".join(words)
 
 
 def reverse_words_concatenation(words):
@@ -69,10 +63,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    result = ""
-    for word in reversed(words):
-        result += f"{word} "
-    return result
+    words.reverse()
+    return " ".join(words)
 
 
 def is_unique_string(some_str):
@@ -113,11 +105,15 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+
     int_list = []
     if not elements:
         return elements
-    for i in range(len(elements) - 1):
-        int_list.append(elements[i + 1] - elements[i])
+    for i in range(0,len(elements),1):
+        if i == 0:
+            int_list.append(None)
+        else:
+            int_list.append(int(elements[i] - elements[i-1]))
     return int_list
 
 
@@ -131,7 +127,10 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    for i in range(2, int(num / 2), 1):
+    if num == 1 or type(num) == float:
+        return False
+
+    for i in range(2, int(abs(num) / 2), 1):
         if num % i == 0:
             return False
     return True
@@ -204,6 +203,7 @@ def bad_average(a, b, c):
 
     :return:
     """
+    pass
     return (a + b + c) / 3
 
 
@@ -262,10 +262,11 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    print("Key     Value\n-------------")
+    #print("Key     Value\n-------------")
+    result=""
     for key, val in some_dict.items():
-        print("{0:10}{1}".format(key, val))
-
+        result += ("{:<10} {:<10}".format(key, val) + "\n")
+    return result
 
 def merge_dicts(dict1, dict2):
     """
@@ -302,7 +303,7 @@ def seven_boom(n):
     :return: list of integers
     """
     boom_list = []
-    for i in range(1, n, 1):
+    for i in range(1, n + 1, 1):
         if i % 7 == 0 or "7" in str(i):
             boom_list.append(i)
     return boom_list
