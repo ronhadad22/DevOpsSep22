@@ -1,0 +1,10 @@
+# saving request output to the exercise.json file
+#extract sessionID ServerVersion and public key
+# download CA for authentication
+#verify public key with CA
+# create 32 byte random key
+# encrypt symetric key with public key
+# send encrypted symetric key to server
+#extract the recieved encrypted messeage from server
+# convert from base64 to Binary
+# decrypt the sample message
