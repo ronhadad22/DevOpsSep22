@@ -1,6 +1,3 @@
-import math
-
-
 def sum_of_element(elements):
     """
     1 Kata
