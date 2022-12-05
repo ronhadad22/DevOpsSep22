@@ -1,13 +1,13 @@
 arikgraif@gmail.com
 
-(Q1) nokill
-(Q2) True
-(Q3) list
-(Q4) CTRL+z
-(Q5) CTRL+c
-(Q6)fg - sleep 10
+(Q1) nohup - keep processes running even after exiting the shell or terminal.
+(Q2) False -signal command can be used to specify a signal that isn't SIGTERM.
+(Q3) jobs - used to list the jobs that you are running in the background and in the foreground
+(Q4) CTRL+cis used to kill a process with the signal SIGINT, and can be intercepted by a program so it can clean its self up before exiting, or not exit at all.
+(Q5) CTRL+z is used for suspending a process by sending it the signal SIGTSTP, which cannot be intercepted by the program.
+(Q6)sleep 10 - is foreground process by default
 (Q7) kill 4846
-(Q8)kill -9 4846
+(Q8)kill -9 4846 -Use the kill -9 [ID] command to kill the process immediately using the SIGKILL signal
 (Q9)kill -17 ssh-agent
 (Q10)None of the above
 (Q11)
