@@ -1,15 +1,36 @@
-shulamit arikgraif@gmail.com
+shulamit9000@gmail.com
 <  arik >
 
+shulamit9000@gmail.com
 
 Kernel System Calls
 -------------------
 < x86_64 linux 5.15.0-52-generic >
 
+############################################
+
+mkdir welcomeToDevOpsMay22
+cd welcomeToDevOpsMay22
+nano goodLuck
+echo “There you go… tell me what I do…”
+
+############################################
+
+
+
 
 Binary Numbers
 --------------
-< Your Answer ???>
+16,4,7
+
+While an unsigned 8-bit number ranges from 0 to 255, a signed 8-bit number can express
+
+
+
+echo "hello"
+
+
+
 
 
 
