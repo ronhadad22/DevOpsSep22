@@ -12,35 +12,15 @@ Processes handling
 8.kill -9 4846
 9.kill -17 ssh-agent
 10.k
-11.The program ignores the SIGINT signal.
+11.The program has implemented a custom signal handler for the SIGINT signal.
 
 Process states
-top
-7527 shani     20   0   22164   5592   1600 R  16.8   0.0   0:56.88 top
- 7528 shani     20   0   15932   1888   1864 R   5.0   0.0   0:00.20 multi_process_f
- 7039 shani     20   0   15932   1900   1680 R   2.0   0.0   0:03.73 write_to_file_s
- 4364 shani     20   0   15932   1904   1688 R   1.8   0.0   0:04.79 write_to_file_s
- 5438 shani     20   0   15932   1904   1684 S   1.8   0.0   0:04.28 write_to_file_s
- 3043 shani     20   0   15932   1904   1684 S   1.5   0.0   0:05.05 write_to_file_s
- 4883 shani     20   0   15932   1904   1684 S   1.5   0.0   0:03.83 write_to_file_s
- 5612 shani     20   0   15932   1904   1684 R   1.5   0.0   0:04.06 write_to_file_s
- 1742 shani     20   0   15932   1904   1684 S   1.2   0.0   0:05.16 write_to_file_s
- 1817 shani     20   0   15932   1900   1680 R   1.2   0.0   0:04.98 write_to_file_s
- 1902 shani     20   0   15932   1904   1684 R   1.2   0.0   0:05.20 write_to_file_s
- 1912 shani     20   0   15932   1904   1688 R   1.2   0.0   0:05.02 write_to_file_s
- 2301 shani     20   0   15932   1904   1688 R   1.2   0.0   0:05.24 write_to_file_s
- 2503 shani     20   0   15932   1896   1680 R   1.2   0.0   0:05.10 write_to_file_s
+ top
+2150 shani     20   0   15932   2192   2108 S   2.0   0.0   0:00.06 multi_process_f
+2168 shani     20   0   15932   1904   1688 R   2.0   0.0   0:00.06 write_to_file_s
+   1 root      20   0    8948    400    328 S   0.0   0.0   0:00.12 init
 
-top
- PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-   74 shani     20   0   15932   1924   1900 R  28.3   0.0   0:00.86 multi_process_f
-   77 shani     20   0   15932   1900   1680 R   3.3   0.0   0:00.10 write_to_file_s
-   89 shani     20   0   15932   1904   1684 R   3.0   0.0   0:00.09 write_to_file_s
-   80 shani     20   0   15932   1904   1684 R   2.3   0.0   0:00.07 write_to_file_s
-   84 shani     20   0   15932   1900   1680 R   2.3   0.0   0:00.07 write_to_file_s
-  101 shani     20   0   15932   1904   1684 R   2.3   0.0   0:00.07 write_to_file_s
-  102 shani     20   0   15932   1904   1684 R   2.3   0.0   0:00.07 write_to_file_s
-  116 shani     20   0   15932   1900   1680 R   2.3   0.0   0:00.07 write_to_file_s
-  213 shani     20   0   15932   1904   1684 R   2.3   0.0   0:00.07 write_to_file_s
-  254 shani     20   0   15932   1900   1680 R   2.3   0.0   0:00.07 write_to_file_s
-  274 shani     20   0   15932   1904   1684 R   2.3   0.0   0:00.07 write_to_file_s
+shani     2126  0.0  0.0  17264  3900 tty3     S    20:17   0:00 -bash
+shani     2150  1.2  0.0  15932  2192 tty2     S    20:19   0:00 /bin/bash ./multi_process_file_writing.sh
+shani     2614  0.0  0.0  15932  1900 tty2     R    20:20   0:00 /bin/bash ./write_to_file_sequentially.sh
+shani     2616  0.0  0.0  18500  1944 tty3     R    20:20   0:00 ps aux
