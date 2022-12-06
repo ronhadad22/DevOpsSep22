@@ -113,8 +113,8 @@ class TestIsUniqueString(unittest.TestCase):
         self.assertEqual(questions.is_unique_string(some_str), True)
 
 
-#BIBI
-
+#BIBI - START
+###################################################################################################################
 class TestListDiff(unittest.TestCase):
     """
     1 Katas
@@ -220,6 +220,8 @@ class TestBadAverage(unittest.TestCase):
         self.assertNotEqual(questions.bad_average(10, 20, 30), 30)
 
 
+#BIBI - END
+###################################################################################################################
 class TestBestStudent(unittest.TestCase):
     """
     1 Katas
