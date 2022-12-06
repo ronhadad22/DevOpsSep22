@@ -37,7 +37,17 @@ class TestVerbing(unittest.TestCase):
     1 Katas
     """
     def test_sample(self):
-        # your code here
+        shortStringTest = "ha"
+        self.assertEqual(questions.verbing(shortStringTest), "ha")
+
+        addIngTest = "spray"
+        self.assertEqual(questions.verbing(addIngTest), "spraying")
+
+        addLyTest = "amazing"
+        self.assertEqual(questions.verbing(addLyTest), "amazingly")
+
+        testEmptyString = ""
+        self.assertEqual(questions.verbing(testEmptyString), "")
         pass
 class TestWordsConcatenation(unittest.TestCase):
     """
@@ -45,7 +55,14 @@ class TestWordsConcatenation(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        testWords = ["take", "on", "me"]
+        self.assertEqual(questions.words_concatenation(testWords), "take on me")
+
+        testWords = ["hi", "mom"]
+        self.assertEqual(questions.words_concatenation(testWords), "hi mom")
+
+        testWords = []
+        self.assertEqual(questions.words_concatenation(testWords), "")
         pass
 
 
@@ -55,7 +72,14 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        testReverseWord = ["hello", "my", "friend"]
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "friend my hello")
+
+        testReverseWord = ["go", "to", "the", "gym"]
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "gym the to go")
+
+        testReverseWord = []
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "")
         pass
 
 class TestIsUniqueString(unittest.TestCase):
@@ -64,7 +88,17 @@ class TestIsUniqueString(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        testUnique = "abcdef"
+        self.assertEqual(questions.is_unique_string(testUnique), True)
+
+        testUnique = "aa"
+        self.assertEqual(questions.is_unique_string(testUnique), False)
+
+        testUnique = "ENJOY THIS-PARK"
+        self.assertEqual(questions.is_unique_string(testUnique), True)
+
+        testUnique = "asdfghjklzxcvbnma"
+        self.assertEqual(questions.is_unique_string(testUnique), False)
         pass
 
 
@@ -74,7 +108,14 @@ class TestListDiff(unittest.TestCase):
     1 Katas
     """
     def test_sample(self):
-        # your code here
+        listToDiff = [1, 3, 6, 10, 14, 25]
+        self.assertEquals(questions.list_diff(listToDiff), [2, 3, 4, 4, 11])
+
+        listToDiff = [4, 1, 7, 2, 11, 0]
+        self.assertEqual(questions.list_diff(listToDiff), [-3, 6, -5, 9, -11])
+
+        listToDiff = [5000, 1, 10000, 10]
+        self.assertEqual(questions.list_diff(listToDiff), [-4999, 9999, -9990])
         pass
 
 class TestPrimeNumber(unittest.TestCase):
