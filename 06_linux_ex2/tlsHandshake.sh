@@ -4,8 +4,8 @@
 #sudo apt -get install jq
 
 
-## if run the second time
-   #rm cert-ca-aws.pem
+## if run the second time and more
+#rm cert-ca-aws.pem
 
 
 ## get  reposetory
