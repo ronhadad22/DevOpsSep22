@@ -11,3 +11,14 @@ arikgraif@gmail.com
 (Q9)kill -17 ssh-agent
 (Q10)None of the above
 (Q11)
+
+
+
+2219 arikg     20   0 6083992 517028 150120 S  11.3   4.7  13:47.01 gnome-shell                                                                                                                                 
+11724 arikg     20   0  577848  67452  49328 S   2.6   0.6   0:14.35 gnome-terminal-  
+2219 arikg     20   0 6083992 517028 150120 S  11.3   4.7  13:47.01 gnome-shell                                                                                                                                 
+root         332  0.0  0.0      0     0 ?        S    19:37   0:00 [card0-crtc2]
+root         333  0.0  0.0      0     0 ?        S    19:37   0:00 [card0-crtc3]
+root         334  0.0  0.0      0     0 ?        S    19:37   0:00 [card0-crtc4]
+root         335  0.0  0.0      0     0 ?        S    19:37   0:00 [card0-crtc5]
+root         336  0.0  0.0      0     0 ?        S    19:37   0:00 [card0-crtc6]
