@@ -11,3 +11,17 @@ Q8: kill -9 4846
 Q9: kill -CHLD 4828
 Q10: k
 Q11: The program has implemented a custom signal handler for the SIGINT signal.
+
+
+
+
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   1840  1196 ?        Sl   21:57   0:00 /init
+root         9  0.0  0.0   2172   388 ?        Ss   21:57   0:00 /init
+root        10  0.0  0.0   2180   388 ?        S    21:57   0:00 /init
+root        11  0.0  0.0  11600  5784 pts/0    Ss+  21:57   0:00 -bash
+root        61  0.0  0.0   2188   404 ?        Ss   22:19   0:00 /init
+
+
+
+
