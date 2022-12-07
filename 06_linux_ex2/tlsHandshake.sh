@@ -19,9 +19,9 @@ echo $RANDOM_KEY | dd of=masterKey.txt
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
 
-RESPONSE2=$(curl -d '{ "sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt me and send to client!"  }' -H "Content-Transfer-Encoding: base64" -H "Content-Type: application/json" -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange)
+ANSWER=$(curl -d '{ "sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt me and send to client!"  }' -H "Content-Transfer-Encoding: base64" -H "Content-Type: application/json" -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange)
 
-ENCRYPTED_MESSAGE=$(echo $RESPONSE2 | jq -r '.encryptedSampleMessage')
+ENCRYPTED_MESSAGE=$(echo $ANSWER | jq -r '.encryptedSampleMessage')
 
 echo $ENCRYPTED_MESSAGE | dd of=encSampleMsg.txt
 
