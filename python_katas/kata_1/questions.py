@@ -124,12 +124,14 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    if num <= 1:
-        return False
-    for i in range(2, num):
-        if num%i == 0:
+    if isinstance(num, int):
+        if num <= 1:
             return False
-    return True
+        for i in range(2, num):
+            if num%i == 0:
+                return False
+        return True
+    return False
 
 
 def palindrome_num(num):
