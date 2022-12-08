@@ -92,7 +92,6 @@ def is_unique_string(some_str):
 
     if castSet == castList:
         return True
-
     return False
 
 
