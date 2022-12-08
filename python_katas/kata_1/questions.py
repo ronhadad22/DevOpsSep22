@@ -28,7 +28,14 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+
+    if word.endswith("ing"):
+        return word + "ly"
+
+    if len(word) >= 3:
+        return word + "ing"
+    else:
+        return word
 
 
 def words_concatenation(words):
@@ -43,7 +50,8 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    return " ".join(words)
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +66,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words.reverse()
+    return " ".join(words)
 
 
 def is_unique_string(some_str):
@@ -75,7 +84,16 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    castSet = list(set(some_str))
+    castList = list(some_str)
+
+    castSet.sort()
+    castList.sort()
+
+    if castSet == castList:
+        return True
+
+    return False
 
 
 def list_diff(elements):
@@ -93,8 +111,8 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
-
+    diffList = [elements[i+1] - elements[i] for i in range(len(elements)-1)]
+    return diffList
 
 def prime_number(num):
     """
@@ -106,7 +124,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    if num <= 1:
+        return False
+    for i in range(2, num):
+        if num%i == 0:
+            return False
+    return True
 
 
 def palindrome_num(num):
@@ -122,7 +145,9 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    if str(num) == str(num)[::-1]:
+        return True
+    return False
 
 
 def pair_match(men, women):
@@ -312,12 +337,20 @@ if __name__ == '__main__':
     print(list_diff([1, 2, 3, 8, 77, 0]))
 
     print('\nprime_number:\n--------------------')
+    print(prime_number(2))
     print(prime_number(5))
     print(prime_number(22))
+    print(prime_number(5))
+    print(prime_number(11))
+    print(prime_number(12))
+    print(prime_number(7))
 
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
+    print(palindrome_num(5775))
+    print(palindrome_num(123456))
+    print(palindrome_num(123456654321))
 
     print('\npair_match:\n--------------------')
     print(pair_match(
