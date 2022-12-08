@@ -8,7 +8,6 @@ def sum_of_element(elements):
     s = 0
     for num in elements:
         s = s + num
-
     return s
 
 
