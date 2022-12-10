@@ -1,2 +1,84 @@
 vitvizel@gmail.com
 
+(Q1) A user started a process and logged out from the terminal.
+Which command he used if the process still running in the background:
+
+( )nokill
+(X)nohup
+( )nofg
+( )bg
+
+(Q2) The kill command always terminates a process.
+
+( )True
+(X)False
+
+(Q3) Which command could be used to know how many processes are running in the background terminal session?
+
+( )process
+(X)jobs
+( )work
+( )list
+
+(Q4) Given a terminal session with long process running in it, how will you ask this process to terminate?
+
+( )CTRL+z
+(X)CTRL+c
+( )CTRL+l
+( )CTRL+c twice
+
+(Q5) Given a terminal session with long process running in it, how will you ask this process the stop?
+
+(X)CTRL+z
+( )CTRL+c
+( )CTRL+l
+( )CTRL+c twice
+
+(Q6) How would you run the sleep 10 command as a foreground process?
+
+( )fg sleep 10
+(X)sleep 10 &
+( )foreground sleep 10
+( )sleep 10
+
+Given the following output
+
+(Q7) Which of the following command would deliver a SIGTERM to the xscreensaver process?
+
+( )kill TERM xscreensaver
+(X)kill 4846
+( )kill xscreensaver
+( )kill -9 4846
+( )None of the above
+
+(Q8) Which of the following would deliver a SIGKILL to the xscreensaver command?
+
+(X)kill -9 4846
+( )kill xscreensaver
+( )kill -KILL xscreensaver
+( )kill -15 4846
+( )None of the above
+
+(Q9) Which of the following would send a SIGCHLD (signal number 17) to the ssh-agent process?
+
+( )kill -CHLD ssh-agent
+( )kill -17 ssh-agent
+(X)kill -CHLD 4828
+( )All of the above
+( )A and C only
+
+(Q10) Which key pressed within the top command allows the user to send a signal to a process?
+
+( )s
+( )z
+( )t
+(X)k
+( )None of the above
+
+(Q11) Open a new terminal session and type the command python. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing exit() in the python console)
+
+( )The program ignores the SIGINT signal.
+(X)The program has implemented a custom signal handler for the SIGINT signal.
+( )The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+( )The program implements the kernel default signal handler for the SIGINT signal, which is to stop (suspend) the process.
+( )None of the above
