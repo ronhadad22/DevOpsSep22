@@ -1,2 +1,20 @@
-name@example.com
+dariakalugny2405@gmail.com
+Question 2
+1. nohup
+2. True
+3. process
+4. CTRL+c
+5. CTRL+z
+6. fg sleep 10
+7. kill 4846
+8. kill -9 4846
+9. kill -CHLD 4828
+10. k
 
+Question 3
+
+root      6777  0.1  0.0  11664  3868 pts/0    D    23:48   0:00 -bash
+root      6778  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
+root      6779  0.0  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
+root      6780  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
+root      6781  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
