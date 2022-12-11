@@ -22,7 +22,7 @@ ANSWER=$(curl -d '{ "sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", 
 
 ENCRYPTED_MESSAGE=$(echo $ANSWER | jq -r '.encryptedSampleMessage')
 
-echo $ENCRYPTED_MESSAGE |tee encSampleMsg.txt
+echo $ENCRYPTED_MESSAGE | tee encSampleMsg.txt
 
 
 cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
