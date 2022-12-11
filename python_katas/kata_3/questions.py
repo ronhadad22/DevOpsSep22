@@ -30,7 +30,49 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    return None
+    wi = []
+    vi = []
+    itemsi = []
+    for i in items:
+        wi.append(items[i][0])
+        vi.append(items[i][1])
+        itemsi.append(i)
+    num = len(items)
+    Weight = knapsack_limit
+
+    def my_knapsack(n, v, w, W, ii):
+        t = []
+        iit = []
+        for i in range(n+1):
+            row = []
+            irow = []
+            for j in range(W+1):
+                row.append(0)
+                irow.append([])
+            t.append(row)
+            iit.append(irow)
+        for j in range(W+1):
+            t[0][j] = 0
+
+        for i in range(1, n+1):
+            for j in range(W+1):
+                if w[i-1] > j:
+                    t[i][j] = t[i - 1][j]
+                    iit[i][j] = iit[i - 1][j]
+                else:
+                    t[i][j] = max(t[i - 1][j], t[i - 1][j - w[i-1]] + v[i-1])
+                    if t[i][j] == t[i - 1][j]:
+                        iit[i][j] = iit[i - 1][j]
+                    else:
+                        iit[i][j] = []
+                        for k in (iit[i - 1][j - w[i-1]]):
+                            iit[i][j].append(k)
+                        iit[i][j].append(ii[i-1])
+
+        return iit[n][W]
+
+    max_items_list = my_knapsack(num, vi, wi, Weight, itemsi)
+    return set(max_items_list)
 
 
 def time_me(func):
@@ -204,13 +246,20 @@ def valid_dag(edges):
 
         # no back edges
         return True
+
     int_edges = []
     for i in edges:
         t_edge = ()
         for j in i:
-            t_edge += ((ord(j)-97),)
+            t_edge += ((ord(j) - 97),)
         int_edges.append(t_edge)
-    n = 5
+
+    vrtices_dict = {}
+    for i in int_edges:
+        for j in i:
+            vrtices_dict[j] = True
+
+    n = len(vrtices_dict)
 
     # build a graph from the given edges
     graph = Graph(int_edges, n)
@@ -487,7 +536,7 @@ if __name__ == '__main__':
     print(valid_dag([('a', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e')]))
 
     # invalid
-    print(valid_dag([('a', 'b'), ('c', 'a'), ('d', 'a'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e')]))
+    print(valid_dag([('a', 'b'), ('c', 'a'), ('d', 'a'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e'), ('d', 'f')]))
 
     print('\nrotate_img\n--------------------')
     rotate_img('67203.jpeg')
