@@ -109,7 +109,7 @@ class TestListDiff(unittest.TestCase):
     """
     def test_sample(self):
         listToDiff = [1, 3, 6, 10, 14, 25]
-        self.assertEquals(questions.list_diff(listToDiff), [2, 3, 4, 4, 11])
+        self.assertEqual(questions.list_diff(listToDiff), [2, 3, 4, 4, 11])
 
         listToDiff = [4, 1, 7, 2, 11, 0]
         self.assertEqual(questions.list_diff(listToDiff), [-3, 6, -5, 9, -11])
