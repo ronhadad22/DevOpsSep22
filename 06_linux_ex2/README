@@ -12,8 +12,18 @@ Processes handling
 8. kill -9 4846
 9. kill -CHLD 4828
 10. k
+11.The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+
 
 Process states
+
+TOP:
+
+ 1 root      20   0     896    528    464 S   0.0   0.0   0:00.06 init
+ 8 root      20   0     896     84     20 S   0.0   0.0   0:00.00 init
+ 9 root      20   0     896     84     20 S   0.0   0.0   0:00.07 init
+
+The Process Runing
 
 root      6777  0.1  0.0  11664  3868 pts/0    D    23:48   0:00 -bash
 root      6778  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
@@ -21,8 +31,9 @@ root      6779  0.0  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 root      6780  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 root      6781  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 
-   The Process waiting:
- root      2974  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
+The Process waiting
+
+root      2974  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
 root      4332  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
 root      4394  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
 root      4460  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
