@@ -8,7 +8,7 @@ wget https://devops-course-sep-22.s3.sa-east-1.amazonaws.com/ex2/cert-ca-aws.pem
 SESSION_ID=$(cat AWS.txt | jq -r '.sessionID')
 SERVER_CERT=$(cat AWS.txt | jq -r '.serverCert' | tee cert.pem)
 
-VERIFICATION_RESULT= openssl verify -CAfile cert-ca-aws.pem cert.pem\
+VERIFICATION_RESULT= openssl verify -CAfile cert-ca-aws.pem cert.pem
 cert.pem: OK
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
