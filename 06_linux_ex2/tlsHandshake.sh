@@ -1,4 +1,4 @@
-R1=$(curl -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/clienthello -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}')
+(curl -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/clienthello -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}')
 
 SESSION_ID=$(echo $R1 | jq -r '.sessionID')
 SERVER_CERT=$(echo $R1 | jq -r '.serverCert' | tee cert.pem)
