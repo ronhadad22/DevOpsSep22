@@ -261,10 +261,19 @@ class TestPrintDictAsTable(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
 
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
 
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
 
 
 
