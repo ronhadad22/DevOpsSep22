@@ -1,5 +1,7 @@
 dariakalugny2405@gmail.com
-Question 2
+
+Processes handling
+
 1. nohup
 2. True
 3. process
@@ -11,7 +13,7 @@ Question 2
 9. kill -CHLD 4828
 10. k
 
-Question 3
+Process states
 
 root      6777  0.1  0.0  11664  3868 pts/0    D    23:48   0:00 -bash
 root      6778  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
@@ -19,4 +21,9 @@ root      6779  0.0  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 root      6780  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 root      6781  0.1  0.0  11664  3896 pts/0    D    23:48   0:00 -bash
 
-The command is : ps aux | grep wait
+   the proccess waiting:
+ root      2974  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
+root      4332  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
+root      4394  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
+root      4460  0.1  0.0  11384  3692 pts/2    R    11:43   0:00 -bash
+root      4621  0.0  0.0   9208  2204 pts/0    S+   11:44   0:00 grep --color=auto    R
