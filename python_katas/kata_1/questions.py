@@ -28,6 +28,16 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+
+
+        if len(s) >= 3:
+            if s[-3:] == "ing":
+                s += "ly"
+            else:
+                s += "ing"
+            return s
+        else:
+            return s
     return None
 
 
