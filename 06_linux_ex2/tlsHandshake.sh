@@ -26,7 +26,6 @@ echo $ENCRYPTED_MESSAGE |tee encSampleMsg.txt
 
 
 cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
-
 DECRYPTED_SAMPLE_MESSAGE=$(cat encSampleMsgReady.txt | openssl enc -d -aes-256-cbc -pbkdf2 -k $RANDOM_KEY)
 
 if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
