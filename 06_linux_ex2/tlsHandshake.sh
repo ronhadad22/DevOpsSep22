@@ -1,3 +1,28 @@
+curl -k -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/clienthello -d '{"clientVersion":"3.2","message": "Client Hello"}' \ -H "Content-Type: application/json" | jq > linux_ex2.json
+
+# to connect to the server and recive the SessionID , serverVersion and the Certificate to a json format
+
+cat linux_ex2.json| jq -r '.serverCert' > cert.pem
+
+# to extract the server cert
+
+SERVER_CERT=$(cat cert.pem)
+
+# to set the cert value
+
+cat lunux_ex2.json | jq -r '.sessionID' > sessionID.json
+
+# to extract the session id 
+
+SESSION_ID=$(cat sessionID.json)
+
+# to set the session id value
+
+cat linux_ex2.json| jq -r '.serverVersion' > serverVersion.json
+
+# to extract the server version
+
+SERVER_VERSION=$(cat serverVersion.json)
 
 # to set the server version value
 
