@@ -1,3 +1,4 @@
+#!/bin/bash
 SESSION_ID=$(curl -X POST -H "Content-Type: application/json" -d '{
   "clientVersion": "3.2",
   "message": "Client Hello"
@@ -21,7 +22,7 @@ fi
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -b 0)
 
-curl -X POST -H "Content-Type: application/json" -d
+curl - k -X POST -H "Content-Type: application/json" -d
 '{
     "sessionID": "'$SESSION_ID'",
     "masterKey": "'$MASTER_KEY'",
