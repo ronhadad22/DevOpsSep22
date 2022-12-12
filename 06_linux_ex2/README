@@ -86,7 +86,7 @@ Given the following output
 Process states
 
 TOP:
-rocesses: 1192 total, 773 running, 42 stuck, 377 sleeping, 2581 threads
+processes: 1192 total, 773 running, 42 stuck, 377 sleeping, 2581 threads
 
 ps aux:
 STAT S - interruptible sleep (waiting for an event tocomplete)
