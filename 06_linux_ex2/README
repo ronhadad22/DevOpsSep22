@@ -82,3 +82,17 @@ Given the following output
 ( )The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
 ( )The program implements the kernel default signal handler for the SIGINT signal, which is to stop (suspend) the process.
 ( )None of the above
+
+Process states
+
+TOP:
+rocesses: 1192 total, 773 running, 42 stuck, 377 sleeping, 2581 threads
+
+ps aux:
+STAT S - interruptible sleep (waiting for an event tocomplete)
+VV                 586   0.0  0.0 34179340   3528   ??  S    Sat03PM   0:00.03 SafeEjectGPUAgen
+VV                 584   0.0  0.0 34188972   4972   ??  S    Sat03PM   0:00.14 /usr/libexec/Sid
+VV                 582   0.0  0.2 36344640  34080   ??  S    Sat03PM   0:03.07 /System/Library/
+VV                 581   0.0  0.0 33723840   3536   ??  S    Sat03PM   0:00.05 /Applications/Go
+VV                 579   0.0  0.0 33721772   5928   ??  S    Sat03PM   0:00.04 /System/Library/
+VV                 577   0.0  0.0 33759640   7668   ??  S    Sat03PM   0:00.17 /usr/libexec/dia
