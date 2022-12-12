@@ -12,7 +12,7 @@ q5.ctrl+z
 q6.sleep 10
 q7.None of the above (need to use kill -15 [pid].)
 q8.kill -9 4846
-q9.
+q9.A and  c
 
 q10.k
 q11.The program has implemented a custom signal handler for the SIGINT signal
