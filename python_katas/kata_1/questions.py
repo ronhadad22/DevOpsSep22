@@ -1,131 +1,83 @@
-def sum_of_element(elements):
-    """
-    1 Kata
 
-    :param elements: list of integers
-    :return: Return int - the sum of all elements.
-    """
+def sum_of_element(elements):
+
     s = 0
     for num in elements:
         s = s + num
 
     return s
 
-
 def verbing(word):
-    """
-    1 Kata
 
-    Given a string 'word', if its length is at least 3, add 'ing' to its end.
-    Unless it already ends in 'ing', in which case add 'ly' instead.
-    If the string length is less than 3, leave it unchanged.
+    length = len(word)
 
-    e.g.
-    teach -> teaching
-    do -> do
-    swimming -> swimmingly
+    if length >= 3:
+        if word[-3:] == 'ing':
+            word = word + 'ly'
+        else:
+            word = word + 'ing'
 
-    :param word: str
-    :return: Return the resulting string.
-    """
-
-    return None
+    return word
 
 
 def words_concatenation(words):
-    """
-    1 Kata
 
-    Given a list of words, write a program that concatenates the words.
-
-    For example:
-    words_concatenation(['take', 'me', 'home']) returns 'take me home'
-
-    :param words: list of str
-    :return: Return the resulting string.
-    """
-    return None
+    concatenation = ' '
+    for i in words:
+        concatenation = concatenation + ' '+i
+    return concatenation
 
 
 def reverse_words_concatenation(words):
-    """
-    1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
-
-    For example:
-    reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
-
-    :param words: list of str
-    :return: Return the resulting string.
-    """
-    return None
+    words.reverse()
+    return " ".join(words)
 
 
 def is_unique_string(some_str):
-    """
-    2 Kata
 
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
-
-    e.g
-    'abcd' -> True
-    'aaabcd' -> False
-    '' -> True      (empty string)
-
-    :param some_str:
-    :return: bool
-    """
-    return None
+    for i in range(len(some_str)):
+        for j in range(i + 1, len(some_str)):
+            if (some_str[i] == some_str[j]):
+                return False;
+    return True;
 
 
 def list_diff(elements):
-    """
-    1 Kata
 
-    Given a list of integers as an input, return the "diff" list - each element is
-    reduces by its previous one. The first element should be None
-
-    e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
-    [] -> []
-    [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
-
-    :param elements: list of integers
-    :return: the diff list
-    """
-    return None
+    new_list = []
+    if elements == ' ':
+        return elements
+    for i in range(0, len(elements), 1):
+        if i == 0:
+            new_list.append(None)
+        else:
+            new_list.append(int(elements[i] - elements[i - 1]))
+    return new_list
 
 
 def prime_number(num):
-    """
-    1 Kata
 
-    Check if the given number is prime or not.
 
-    hint: use the built-in function "range"
-    :param num: the number to check
-    :return: bool. True if prime, else False
-    """
-    return None
+    for i in range(2, num):
+        if (num  % i) == 0:
+            return False
+        return True
 
 
 def palindrome_num(num):
-    """
-    1 Kata
 
-    Check whether a number is palindrome or not
+    temp = num
+    rev = 0
+    while num > 0:
+        dig = num % 10
+        rev = rev * 10 + dig
+        num = num // 10
+    if temp == rev:
+        return True
+    return False
 
-    e.g.
-    1441 -> True
-    123 -> False
-
-    :param num: int
-    :return: bool. True is palindrome, else False
-    """
-    return None
-
-
+'''
 def pair_match(men, women):
     """
     3 Kata
@@ -154,108 +106,41 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
 
+    return None
+'''
 
 def bad_average(a, b, c):
-    """
-    1 Kata
 
-    This function gets 3 numbers and calculates the average.
-    There is a mistake in the following implementation, you are required to fix it
-
-    :return:
-    """
-    return a + b + c / 3
-
+    return (a + b + c) / 3
 
 def best_student(grades):
-    """
-    1 Kata
 
-    This function gets a dict of students -> grades mapping, and returns the student with the highest grade
-
-    e.g.
-    {
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }
-
-    will return "Natan"
-
-    :param grades: dict of name -> grade mapping
-    :return: str. some key from the dict
-    """
-    return None
+    return max(zip(grades.values(), grades.keys()))[1]
 
 
 def print_dict_as_table(some_dict):
-    """
-    1 Kata
 
-    Prints dictionary keys and values as the following format. For:
-    {
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }
-
-    The output will be:
-
-    Key     Value
-    -------------
-    Ben     78
-    Hen     88
-    Natan   99
-    Efraim  65
-    Rachel  95
-
-    :param some_dict:
-    :return:
-    """
-    return None
-
+    final = ""
+    print("{:<10} {:<10}".format('KEY', 'VALUE'))
+    for key, value in some_dict.items():
+        final += (("{:<10} {:<10}".format(key, value)) + "\n")
+    return final
 
 def merge_dicts(dict1, dict2):
-    """
-    1 Kata
 
-    This functions merges dict2's keys and values into dict1, and returns dict1
-
-    e.g.
-    dict1 = {'a': 1}
-    dict2 = {'b': 2}
-
-    The results will by
-    dict1 = {'a': 1, 'b': 2}
-
-    :param dict1:
-    :param dict2:
-    :return:
-    """
+    dict1.update(dict2)
     return dict1
 
-
 def seven_boom(n):
-    """
-    1 Kata
 
-    This functions returns a list of all "Booms" for a 7-boom play starting from 1 to n
+    SevenBoomList = []
+    for j in range(1, n+1, 1):
+        if j % 7 == 0 or "7" in str(j):
+            SevenBoomList.append(j)
+    return SevenBoomList
 
-    e.g. For n = 30
-    The return value will be [7, 14, 17, 21, 27, 28]
-
-    :param n: int. The last number for count for a 7-boom play
-    :return: list of integers
-    """
-    return None
-
-
+'''
 def caesar_cipher(str_to_encrypt):
     """
     2 Kata
@@ -269,31 +154,21 @@ def caesar_cipher(str_to_encrypt):
     :return:
     """
     return None
-
+'''
 
 def sum_of_digits(digits_str):
-    """
-    1 Kata
 
-    Calculates the sum of digits in a string (you can assume the input is a string containing numeric digits only)
-
-    e.g.
-    '2524' -> 13
-    '' -> 0
-    '00232' -> 7
-
-
-    :param digits_str: str of numerical digits only
-    :return: int representing the sum of digits
-    """
-    return None
+    sum_of_digits= 0
+    for i in digits_str:
+        sum_of_digits = sum_of_digits + int(i)
+    return sum_of_digits
 
 
 if __name__ == '__main__':
 
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
-
+    
     print('\nverbing:\n--------------------')
     print(verbing('walk'))
     print(verbing('swimming'))
@@ -319,18 +194,6 @@ if __name__ == '__main__':
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-
-    print('\npair_match:\n--------------------')
-    print(pair_match(
-        {
-            "John": 20,
-            "Abraham": 45
-        },
-        {
-            "July": 18,
-            "Kim": 26
-        }
-    ))
 
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
@@ -359,9 +222,22 @@ if __name__ == '__main__':
     print('\nseven_boom:\n--------------------')
     print(seven_boom(30))
 
-    print('\ncaesar_cipher:\n--------------------')
-    print(caesar_cipher('Fly Me To The Moon'))
-
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
 
+'''
+    print('\npair_match:\n--------------------')
+    print(pair_match(
+        {
+            "John": 20,
+            "Abraham": 45
+        },
+        {
+            "July": 18,
+            "Kim": 26
+        }
+    ))
+    
+    print('\ncaesar_cipher:\n--------------------')
+    print(caesar_cipher('Fly Me To The Moon'))
+'''
