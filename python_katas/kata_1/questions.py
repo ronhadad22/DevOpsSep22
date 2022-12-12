@@ -5,11 +5,13 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
+    elements = input("Enter list of integers:\n")
+    elements = elements.split()
     s = 0
+    type(elements)
     for num in elements:
-        s = s + num
-
-    return s
+        s = s + int(num)
+    print(f'The sum is {s}')
 
 
 def verbing(word):
