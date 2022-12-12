@@ -95,6 +95,7 @@ Processes: 366 total, 2 running, 364 sleeping, 1445 threads
 ps aux:
 STAT R - running or runnable (on run queue)
 STAT S - interruptible sleep (waiting for an event tocomplete)
+
 VV                1438   4.5  0.0 34160236   1476 s001  R+    2:55AM   0:00.02 /bin/bash ./writ
 VV                1361   4.5  0.0 34160236   1508 s001  R+    2:55AM   0:00.04 /bin/bash ./writ
 VV                 586   0.0  0.0 34179340   3528   ??  S    Sat03PM   0:00.03 SafeEjectGPUAgen
