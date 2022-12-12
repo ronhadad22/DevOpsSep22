@@ -1,47 +1,14 @@
 import unittest
-from python_katas.kata_1 import questions
+from python_katas.kata_2 import questions
 from python_katas.utils import unittest_runner
 
 
-testers = ['arikgraif', 'Dean Sorie', 'Rosin1992','gad', 'bibi']
 
 
-class TestSumOfElements(unittest.TestCase):
+
+class TestValidParentheses(unittest.TestCase):
     """
-    1 Katas
-    """
-
-    def sum_of_element(elements):
-        return sum(elements)
-
-    def test_empty_list(self):
-        lst = []
-        self.assertEqual(questions.sum_of_element(lst), 0)
-
-
-    def test_integers_list(self):
-        lst = [1, 2, 3, 4, 5]
-        self.assertEqual(questions.sum_of_element(lst), 15)
-
-    def test_negative_numbers(self):
-        lst = [1, -6, 7, 0, 99]
-        self.assertEqual(questions.sum_of_element(lst), 101)
-
-    def test_all_zeros(self):
-        lst = [0] * 50000
-        self.assertEqual(questions.sum_of_element(lst), 0)
-
-
-class TestVerbing(unittest.TestCase):
-    """
-    1 Katas
-    """
-    def test_sample(self):
-        # your code here
-        pass
-class TestWordsConcatenation(unittest.TestCase):
-    """
-    1 Katas
+    3 Katas
     """
 
     def test_sample(self):
@@ -49,16 +16,35 @@ class TestWordsConcatenation(unittest.TestCase):
         pass
 
 
-class TestReverseWordsConcatenation(unittest.TestCase):
+
+class TestFibonacciFixme(unittest.TestCase):
     """
-    1 Katas
+    2 Katas
     """
 
     def test_sample(self):
         # your code here
         pass
 
-class TestIsUniqueString(unittest.TestCase):
+class TestMostFrequentName(unittest.TestCase):
+    """
+    2 Katas
+    """
+    def test_sample(self):
+        # your code here
+        pass
+
+class TestFilesBackup(unittest.TestCase):
+    """
+    3 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestReplaceInFile(unittest.TestCase):
     """
     2 Katas
     """
@@ -68,18 +54,9 @@ class TestIsUniqueString(unittest.TestCase):
         pass
 
 
-
-class TestListDiff(unittest.TestCase):
+class TestJsonConfigsMerge(unittest.TestCase):
     """
-    1 Katas
-    """
-    def test_sample(self):
-        # your code here
-        pass
-
-class TestPrimeNumber(unittest.TestCase):
-    """
-    1 Katas
+    2 Katas
     """
 
     def test_sample(self):
@@ -87,17 +64,67 @@ class TestPrimeNumber(unittest.TestCase):
         pass
 
 
-
-
-class TestPalindromeNum(unittest.TestCase):
+class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
     """
+
     def test_sample(self):
         # your code here
         pass
 
-class TestPairMatch(unittest.TestCase):
+
+class TestMatrixAvg(unittest.TestCase):
+    """
+    2 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestMergeSortedLists(unittest.TestCase):
+    """
+    1 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestLongestCommonSubstring(unittest.TestCase):
+    """
+    4 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestLongestCommonPrefix(unittest.TestCase):
+    """
+    1 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestRotateMatrix(unittest.TestCase):
+    """
+    2 Katas
+    """
+
+    def test_sample(self):
+        # your code here
+        pass
+
+
+class TestIsValidEmail(unittest.TestCase):
     """
     3 Katas
     """
@@ -106,18 +133,10 @@ class TestPairMatch(unittest.TestCase):
         # your code here
         pass
 
-class TestBadAverage(unittest.TestCase):
-    """
-    1 Katas
-    """
 
-    def test_sample(self):
-        # your code here
-        pass
-
-class TestBestStudent(unittest.TestCase):
+class TestPascalTriangle(unittest.TestCase):
     """
-    1 Katas
+    3 Katas
     """
 
     def test_sample(self):
@@ -125,29 +144,9 @@ class TestBestStudent(unittest.TestCase):
         pass
 
 
-class TestPrintDictAsTable(unittest.TestCase):
+class TestListFlatten(unittest.TestCase):
     """
-    1 Katas
-    """
-
-    def test_sample(self):
-        # your code here
-        pass
-
-
-
-class TestMergeDicts(unittest.TestCase):
-    """
-    1 Katas
-    """
-
-    def test_sample(self):
-        # your code here
-        pass
-
-class TestSevenBoom(unittest.TestCase):
-    """
-    1 Katas
+    2 Katas
     """
 
     def test_sample(self):
@@ -155,15 +154,17 @@ class TestSevenBoom(unittest.TestCase):
         pass
 
 
-class TestCaesarCipher(unittest.TestCase):
+class TestStrCompression(unittest.TestCase):
     """
-    1 Katas
+    2 Katas
     """
 
     def test_sample(self):
         # your code here
         pass
-class TestSumOfDigits(unittest.TestCase):
+
+
+class TestStrongPass(unittest.TestCase):
     """
     1 Katas
     """
