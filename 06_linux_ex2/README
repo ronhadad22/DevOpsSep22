@@ -86,7 +86,11 @@ Given the following output
 Process states
 
 TOP:
+before the script running:
 processes: 1192 total, 773 running, 42 stuck, 377 sleeping, 2581 threads
+
+during the script running:
+Processes: 366 total, 2 running, 364 sleeping, 1445 threads
 
 ps aux:
 STAT S - interruptible sleep (waiting for an event tocomplete)
