@@ -5,7 +5,7 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    elements = input("Enter list of integers:\n")
+    elements = input("Enter a list of integers with spaces in between:\n")
     elements = elements.split()
     s = 0
     type(elements)
@@ -13,6 +13,7 @@ def sum_of_element(elements):
         s = s + int(num)
     print(f'The sum is {s}')
 
+    return s
 
 def verbing(word):
     """
@@ -30,6 +31,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+    word = input("Enter a word, please:\n")
+    word_ing = word[-3:]
+    if word_ing == 'ing':
+        print(word + 'ly')
+    elif len(word) >= 3:
+        print(word + 'ing')
+    if len(word) <= 2:
+        print(word)
+
     return None
 
 
