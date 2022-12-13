@@ -22,10 +22,8 @@ fi
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -b 0)
 
-curl - k -X POST -H "Content-Type: application/json" -d
-'{
-    "sessionID": "'$SESSION_ID'",
-    "masterKey": "'$MASTER_KEY'",
-    "sampleMessage": "Hi server, please encrypt me and send to client!"
-}' http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange
+curl  -d '{"sessionID": "'$SESSION_ID'" , "masterKey": "'$MASTER_KEY'",
+    "sampleMessage": "Hi server, please encrypt me and send to client!"}'
+  -H "Content-Transfer-Encoding: base64"  -H "Content-Type: application/json"
+   -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange
 
