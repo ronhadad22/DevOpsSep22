@@ -55,6 +55,12 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+    input_list = input("Enter a list of words separated by comma:\n")
+    list = input_list.split(",")
+    print(f"The list you added is this:", list)
+    x = ' '.join(list)
+    print(f"The concatenated list you added is this:", x)
+
     return None
 
 
@@ -70,6 +76,13 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+    input_list = input("Enter a list of words seperated by comma:\n")
+    list = input_list.split(",")
+    print(f"The list you added is this:", list)
+    list.reverse()
+    x = ' '.join(list)
+    print(f"The concatenated reversed list you added is this:", x)
+
     return None
 
 
