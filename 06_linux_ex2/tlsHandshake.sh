@@ -1,4 +1,3 @@
-#!/bin/bash
 SESSION_ID=$(curl -X POST -H "Content-Type: application/json" -d '{
   "clientVersion": "3.2",
   "message": "Client Hello"
