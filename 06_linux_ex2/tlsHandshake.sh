@@ -21,8 +21,13 @@ fi
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -b 0)
 
-curl  -d '{"sessionID": "'$SESSION_ID'" , "masterKey": "'$MASTER_KEY'",
-    "sampleMessage": "Hi server, please encrypt me and send to client!"}'
-  -H "Content-Transfer-Encoding: base64"  -H "Content-Type: application/json"
-   -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange
+curl -k -X POST http://ec2-54-207-102-47.sa-east-1.compute.amazonaws.com:8081/keyexchange --data '{"sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt me and send to client!"}'  -H "Content-Transfer-Encoding: base64" -H "Content-Type: application/json" | tee > encrypted_file.json
 
+cat encrypted_file.json  | jq -r '.encryptedSampleMessage' > encSampleMsg.txt
+
+cat encSampleMsg.txt | base64 -d > decryptedmessage.txt
+
+DECRYPTED_SAMPLE_MESSAGE=$(openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in decryptedmessage.txt)
+
+if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then   echo "Server symmetric encryption using the exchanged master-key has failed.";   exit 1; else   echo "Client-Server TLS handshake has been completed
+successfully"; fi
