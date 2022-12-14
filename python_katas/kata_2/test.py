@@ -2,7 +2,14 @@ import unittest
 from python_katas.kata_2 import questions
 from python_katas.utils import unittest_runner
 
-
+testers = ['dariakalugny',
+ 'gilberger1234',
+ 'trzh55',
+ 'mortis1983',
+ 'vitvizel',
+ 'shaniben1',
+ 'daniataal',
+ 'HappyToast17']
 
 
 
