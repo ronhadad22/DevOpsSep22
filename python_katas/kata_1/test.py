@@ -48,7 +48,6 @@ class TestVerbing(unittest.TestCase):
 
         testEmptyString = ""
         self.assertEqual(questions.verbing(testEmptyString), "")
-        pass
 class TestWordsConcatenation(unittest.TestCase):
     """
     1 Katas
@@ -63,7 +62,6 @@ class TestWordsConcatenation(unittest.TestCase):
 
         testWords = []
         self.assertEqual(questions.words_concatenation(testWords), "")
-        pass
 
 
 class TestReverseWordsConcatenation(unittest.TestCase):
@@ -80,7 +78,6 @@ class TestReverseWordsConcatenation(unittest.TestCase):
 
         testReverseWord = []
         self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "")
-        pass
 
 class TestIsUniqueString(unittest.TestCase):
     """
@@ -99,7 +96,9 @@ class TestIsUniqueString(unittest.TestCase):
 
         testUnique = "asdfghjklzxcvbnma"
         self.assertEqual(questions.is_unique_string(testUnique), False)
-        pass
+
+        testUnique = ""
+        self.assertEqual(questions.is_unique_string(testUnique), True)
 
 
 
@@ -109,14 +108,13 @@ class TestListDiff(unittest.TestCase):
     """
     def test_sample(self):
         listToDiff = [1, 3, 6, 10, 14, 25]
-        self.assertEqual(questions.list_diff(listToDiff), [2, 3, 4, 4, 11])
+        self.assertEqual(questions.list_diff(listToDiff), [None, 2, 3, 4, 4, 11])
 
         listToDiff = [4, 1, 7, 2, 11, 0]
-        self.assertEqual(questions.list_diff(listToDiff), [-3, 6, -5, 9, -11])
+        self.assertEqual(questions.list_diff(listToDiff), [None, -3, 6, -5, 9, -11])
 
         listToDiff = [5000, 1, 10000, 10]
-        self.assertEqual(questions.list_diff(listToDiff), [-4999, 9999, -9990])
-        pass
+        self.assertEqual(questions.list_diff(listToDiff), [None, -4999, 9999, -9990])
 
 
 #BIBI - START
@@ -262,6 +260,20 @@ class TestPrintDictAsTable(unittest.TestCase):
 
     def test_sample(self):
 
+
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
+
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
+
         dict1 = {
             "Ben": 78,
             "Hen": 88,
@@ -276,7 +288,6 @@ class TestPrintDictAsTable(unittest.TestCase):
         self.assertEqual(questions.print_dict_as_table(dict1), newString)
 
 
-
 class TestMergeDicts(unittest.TestCase):
     """
     1 Katas
@@ -284,19 +295,19 @@ class TestMergeDicts(unittest.TestCase):
 
     def test_merge_dicts(self):
         # Test two empty dictionaries
-        self.assertEqual(merge_dicts({}, {}), {})
+        self.assertEqual(questions.merge_dicts({}, {}), {})
 
         # Test a dictionary with keys and values and an empty dictionary
-        self.assertEqual(merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
 
         # Test an empty dictionary and a dictionary with keys and values
-        self.assertEqual(merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
+        self.assertEqual(questions.merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
 
         # Test two dictionaries with the same keys
-        self.assertEqual(merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
 
         # Test two dictionaries with different keys
-        self.assertEqual(merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
 
 
 class TestSevenBoom(unittest.TestCase):
@@ -306,16 +317,16 @@ class TestSevenBoom(unittest.TestCase):
 
     def test_seven_boom(self):
         # Test a number that is not a multiple of 7
-        self.assertEqual(seven_boom(10), [])
+        self.assertEqual(questions.seven_boom(10), [])
 
         # Test a number that is a multiple of 7
-        self.assertEqual(seven_boom(49), ["Boom!"])
+        self.assertEqual(questions.seven_boom(49), ["Boom!"])
 
         # Test a number that is a multiple of 7 and has a 7 in it
-        self.assertEqual(seven_boom(77), ["Boom!", "Boom!"])
+        self.assertEqual(questions.seven_boom(77), ["Boom!", "Boom!"])
 
         # Test a number that is a multiple of 7 and has a 7 in it and ends in 7
-        self.assertEqual(seven_boom(707), ["Boom!", "Boom!", "Boom!"])
+        self.assertEqual(questions.seven_boom(707), ["Boom!", "Boom!", "Boom!"])
 
 
 
@@ -326,16 +337,16 @@ class TestCaesarCipher(unittest.TestCase):
 
     def test_caesar_cipher(self):
         # Test a string with only lowercase letters
-        self.assertEqual(caesar_cipher("hello", 3), "khoor")
+        self.assertEqual(questions.caesar_cipher("hello", 3), "khoor")
 
         # Test a string with only uppercase letters
-        self.assertEqual(caesar_cipher("HELLO", 3), "KHOOR")
+        self.assertEqual(questions.caesar_cipher("HELLO", 3), "KHOOR")
 
         # Test a string with both lowercase and uppercase letters
-        self.assertEqual(caesar_cipher("Hello, World!", 3), "Khoor, Zruog!")
+        self.assertEqual(questions.caesar_cipher("Hello, World!", 3), "Khoor, Zruog!")
 
         # Test a string with a shift value of 0
-        self.assertEqual(caesar_cipher("Hello, World!", 0), "Hello, World!")
+        self.assertEqual(questions.caesar_cipher("Hello, World!", 0), "Hello, World!")
 
 
 class TestSumOfDigits(unittest.TestCase):
@@ -345,13 +356,13 @@ class TestSumOfDigits(unittest.TestCase):
 
     def test_sum_of_digits(self):
         # Test a string with only digits
-        self.assertEqual(sum_of_digits("12345"), 15)
+        self.assertEqual(questions.sum_of_digits("12345"), 15)
 
         # Test a string with digits and non-digit characters
-        self.assertEqual(sum_of_digits("a1b2c3d4e5"), 15)
+        self.assertEqual(questions.sum_of_digits("a1b2c3d4e5"), 15)
 
         # Test an empty string
-        self.assertEqual(sum_of_digits(""), 0)
+        self.assertEqual(questions.sum_of_digits(""), 0)
 
 
 if __name__ == '__main__':
