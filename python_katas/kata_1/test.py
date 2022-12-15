@@ -153,6 +153,7 @@ class TestPalindromeNum(unittest.TestCase):
     """
     1 Katas
     """
+    # fixed
     def test_pal1True(self):
         num = 1441
         self.assertEqual(questions.palindrome_num(num), True)
