@@ -131,14 +131,17 @@ def list_diff(elements):
     elements = input("Enter list of integers:\n")
     elements = elements.split()
     diff_list = [None]
+    mpty_list = []
     x = 0
-    index = 0
     type(elements)
     for num in elements:
         diff_list.append(int(num) - x)
         x = int(num)
-    diff_list.pop(1)
-    print(diff_list)
+    if elements != []:
+        diff_list.pop(1)
+        print(diff_list)
+    else:
+        print(mpty_list)
 
     return None
 
