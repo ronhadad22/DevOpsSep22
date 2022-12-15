@@ -62,11 +62,10 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
-
-    return a
+    return b
 
 
 def most_frequent_name(file_path):
@@ -355,6 +354,11 @@ if __name__ == '__main__':
     print(valid_parentheses('[[{()}](){}]'))
 
     print('\nfibonacci_fixme:\n--------------------')
+    print(fibonacci_fixme(1))
+    print(fibonacci_fixme(2))
+    print(fibonacci_fixme(3))
+    print(fibonacci_fixme(4))
+    print(fibonacci_fixme(5))
     print(fibonacci_fixme(6))
 
     print('\nmost_frequent_name:\n--------------------')
