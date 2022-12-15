@@ -100,6 +100,16 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
+    some_str = input("Enter some string:\n")
+    x3 = True
+    for x1 in some_str:
+        if x3 == True:
+            for x2 in some_str:
+                if x1 != x2:
+                    x3 = False
+                    break
+    print({x3})
+
     return None
 
 
@@ -118,6 +128,18 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+    elements = input("Enter list of integers:\n")
+    elements = elements.split()
+    diff_list = [None]
+    x = 0
+    index = 0
+    type(elements)
+    for num in elements:
+        diff_list.append(int(num) - x)
+        x = int(num)
+    diff_list.pop(1)
+    print(diff_list)
+
     return None
 
 
