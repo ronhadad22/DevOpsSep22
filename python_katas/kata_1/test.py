@@ -155,19 +155,19 @@ class TestPalindromeNum(unittest.TestCase):
     """
     def test_pal1True(self):
         num = 1441
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal2True(self):
         num = 11
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal1False(self):
         num = 113
-        self.assertFalse(questions.palindrome_num(num),"the num is not palindrome but you return True")
+        self.assertEqual(questions.palindrome_num(num),False)
 
     def test_pal1Zero(self):
         num = 0
-        self.assertTrue(questions.palindrome_num(num)," 0 is palindrom num but you return False")
+        self.assertEqual(questions.palindrome_num(num),True)
 
 
 class TestPairMatch(unittest.TestCase):
