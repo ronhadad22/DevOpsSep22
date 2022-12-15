@@ -178,7 +178,8 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    menList = list(men.keys()) + list(men.values())
+    print(menList)
 
 
 def bad_average(a, b, c):
@@ -190,7 +191,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -213,7 +214,9 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    for key in grades:
+        return list(grades.keys())[list(grades.values()).index(max(grades.values()))]
+
 
 
 def print_dict_as_table(some_dict):
@@ -242,8 +245,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
-
+    print("Key      Value")
+    print("--------------")
+    for key, value in some_dict.items():
+        print("{:<10} {:<10} ".format(key, value))
 
 def merge_dicts(dict1, dict2):
     """

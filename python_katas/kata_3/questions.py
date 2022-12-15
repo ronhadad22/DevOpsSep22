@@ -21,7 +21,8 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    return None
+
+
 
 
 def time_me(func):
