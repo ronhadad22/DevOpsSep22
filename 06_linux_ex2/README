@@ -1,2 +1,65 @@
-name@example.com
+Q1 nohup
+
+Q2  nope
+
+Q3  jobs
+
+Q4  ctrl+c    - 1
+
+Q5  ctrl+z
+
+Q6  sleep 10
+
+Q7  kill 4846   - 1
+
+Q8  kill -9 4846
+
+Q9  kill -CHLD 4828
+
+Q10  k
+
+Q11  The program has implemented a custom signal handler for the SIGINT signal.
+
+
+
+
+snapshop - top
+
+top - 20:52:57 up 17 min,  0 users,  load average: 539.21, 379.22, 211.10
+Tasks: 1011 total,   2 running, 1009 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.9 us,  2.5 sy,  0.0 ni, 95.0 id,  0.1 wa,  0.0 hi,  1.5 si,  0.0 st
+MiB Mem :  15868.4 total,  14929.1 free,    821.3 used,    117.9 buff/cache
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  14827.5 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 8620 avi       20   0    4908   3204   2948 D   0.7   0.0   0:00.06 write_to_file_s
+ 8708 avi       20   0    4908   3272   3020 D   0.7   0.0   0:00.06 write_to_file_s
+ 8781 avi       20   0    4908   3124   2868 D   0.7   0.0   0:00.06 write_to_file_s
+ 9254 avi       20   0    4908   3248   2996 D   0.7   0.0   0:00.06 write_to_file_s
+ 9267 avi       20   0    4908   3316   3072 D   0.7   0.0   0:00.05 write_to_file_s
+ 9839 avi       20   0    4908   3300   3052 D   0.7   0.0   0:00.05 write_to_file_s
+ 8091 avi       20   0    8876   4768   3128 R   0.3   0.0   0:00.06 top
+ 8098 avi       20   0    4908   3252   3000 D   0.3   0.0   0:00.04 write_to_file_s
+ 8099 avi       20   0    4908   3272   3016 D   0.3   0.0   0:00.05 write_to_file_s
+ 8100 avi       20   0    4908   3260   3004 D   0.3   0.0   0:00.04 write_to_file_s
+ 8102 avi       20   0    4908   3252   2996 D   0.3   0.0   0:00.04 write_to_file_s
+
+
+ps aux
+
+avi       6090  0.0  0.0   4908  3196 pts/1    D    20:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+avi       6091  0.0  0.0   4908  3208 pts/1    D    20:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+avi       6092  0.0  0.0   4908  3168 pts/1    D    20:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+avi       6093  0.0  0.0   4908  3200 pts/1    D    20:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+avi       6094  0.0  0.0   4908  3292 pts/1    D    20:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+
+
+status ps aux
+
+root         9  0.0  0.0   2172   364 ?        S    20:35   0:00 /init
+root        65  0.0  0.0   2172   364 ?        R    20:42   0:00 /init
+avi       8091  0.0  0.0   8876  4768 pts/0    S+   20:51   0:00 top
+avi      12098  0.0  0.0   7476  3140 pts/2    R+   20:59   0:00 ps aux
+
 
