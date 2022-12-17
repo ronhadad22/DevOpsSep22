@@ -207,7 +207,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -230,7 +230,9 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+
+    highest_grade = max([(grade, student) for student, grade in grades.items()])
+    return highest_grade[1]
 
 
 def print_dict_as_table(some_dict):
@@ -259,7 +261,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("Key     Value")
+    print("-------------")
+    for key, value in some_dict.items():
+        print(f"{key:<8} {value}")
 
 
 def merge_dicts(dict1, dict2):
@@ -279,6 +284,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1.update(dict2)
     return dict1
 
 
@@ -294,10 +300,14 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    result = []
+    for i in range(1, n + 1):
+        if "7" in str(i) or i % 7 == 0:
+            result.append(i)
+    return result
 
 
-def caesar_cipher(str_to_encrypt):
+def caesar_cipher(str_to_encrypt, shift):
     """
     2 Kata
 
@@ -309,7 +319,18 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    encrypted_str = ""
+    for ch in str_to_encrypt:
+        if ch == " ":
+            encrypted_str += " "
+        else:
+            ascii_code = ord(ch)
+            if ch.isupper():
+                ascii_code = (ascii_code - 65 + shift) % 26 + 65
+            else:
+                ascii_code = (ascii_code - 97 + shift) % 26 + 97
+            encrypted_str += chr(ascii_code)
+    return encrypted_str
 
 
 def sum_of_digits(digits_str):
@@ -327,7 +348,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    total = 0
+    for ch in digits_str:
+        total += int(ch)
+    return total
 
 
 if __name__ == '__main__':
@@ -401,7 +425,7 @@ if __name__ == '__main__':
     print(seven_boom(30))
 
     print('\ncaesar_cipher:\n--------------------')
-    print(caesar_cipher('Fly Me To The Moon'))
+    print(caesar_cipher('Fly Me To The Moon', 3))
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
