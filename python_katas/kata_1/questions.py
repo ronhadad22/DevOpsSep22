@@ -282,7 +282,15 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    if n < 7:
+        return []
+    boomList = []
+    for num in range(7, n + 1):
+        if "7" in str(num) or num % 7 == 0:
+            boomList.append(num)
+    return boomList
+
+
 
 
 def caesar_cipher(str_to_encrypt):
@@ -297,7 +305,19 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    shift = 3
+
+    ans = ""
+    for i in range(len(str_to_encrypt)):
+        ch = str_to_encrypt[i]
+
+        if ch == " ":
+            ans += " "
+        elif (ch.isupper()):
+            ans += chr((ord(ch) + shift - 65) % 26 + 65)
+        else:
+            ans += chr((ord(ch) + shift - 97) % 26 + 97)
+    return ans
 
 
 def sum_of_digits(digits_str):
