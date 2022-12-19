@@ -316,19 +316,10 @@ class TestSevenBoom(unittest.TestCase):
     """
 
     def test_seven_boom(self):
-        # Test a number that is not a multiple of 7
-        self.assertEqual(questions.seven_boom(10), [])
-
-        # Test a number that is a multiple of 7
-        self.assertEqual(questions.seven_boom(49), ["Boom!"])
-
-        # Test a number that is a multiple of 7 and has a 7 in it
-        self.assertEqual(questions.seven_boom(77), ["Boom!", "Boom!"])
-
-        # Test a number that is a multiple of 7 and has a 7 in it and ends in 7
-        self.assertEqual(questions.seven_boom(707), ["Boom!", "Boom!", "Boom!"])
-
-
+        self.assertEqual(questions.seven_boom(10), [7])
+        self.assertEqual(questions.seven_boom(49), [7, 14, 17, 21, 27, 28, 35, 37, 42, 47, 49])
+        self.assertEqual(questions.seven_boom(5), [])
+        self.assertEqual(questions.seven_boom(17), [7, 14, 17])
 
 class TestCaesarCipher(unittest.TestCase):
     """
@@ -336,18 +327,9 @@ class TestCaesarCipher(unittest.TestCase):
     """
 
     def test_caesar_cipher(self):
-        # Test a string with only lowercase letters
-        self.assertEqual(questions.caesar_cipher("hello", 3), "khoor")
-
-        # Test a string with only uppercase letters
-        self.assertEqual(questions.caesar_cipher("HELLO", 3), "KHOOR")
-
-        # Test a string with both lowercase and uppercase letters
-        self.assertEqual(questions.caesar_cipher("Hello, World!", 3), "Khoor, Zruog!")
-
-        # Test a string with a shift value of 0
-        self.assertEqual(questions.caesar_cipher("Hello, World!", 0), "Hello, World!")
-
+        self.assertEqual(questions.caesar_cipher("This is encrypted"), "Wklv lv hqfubswhg")
+        self.assertEqual(questions.caesar_cipher("SPIRITED AWAY"), "VSLULWHG DZDB")
+        self.assertEqual(questions.caesar_cipher("Hello World"), "Khoor Zruog")
 
 class TestSumOfDigits(unittest.TestCase):
     """
