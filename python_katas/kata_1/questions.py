@@ -245,6 +245,13 @@ def bad_average(a, b, c):
 
     :return:
     """
+    input_nums = input("Enter a list of numbers seperated by comma:\n")
+    list = input_nums.split(",")
+    a = int(list.pop(2))
+    b = int(list.pop(1))
+    c = int(list.pop(0))
+    (a + b + c) / 3
+
     return a + b + c / 3
 
 
