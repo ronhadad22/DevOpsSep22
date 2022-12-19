@@ -11,6 +11,7 @@ def sum_of_element(elements):
 
     return s
 
+test
 
 def verbing(word):
     """
