@@ -156,6 +156,20 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    number = input("Enter a whole number:\n")
+    number = int(number)
+    bool_out = False
+    if number > 1:
+        for n in range(2, number):
+            if number % n == 0:
+                bool_out = True
+                break
+
+    if bool_out:
+        print("Not prime")
+    else:
+        print("Prime")
+
     return None
 
 
@@ -172,6 +186,22 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
+    number = input("Check if a number is a palindrome:\n")
+    number = list(number)
+    bool_out = False
+    l1 = int(len(number))
+    l2 = l1 // 2
+    if l1 % 2 != 0:
+        number.pop(l2)
+    number1 = number[:l2]
+    number2 = number[l2:]
+    number2.reverse()
+    if (number1 == number2):
+        bool_out = True
+        print(bool_out)
+    else:
+        print(bool_out)
+
     return None
 
 
