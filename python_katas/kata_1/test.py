@@ -3,7 +3,7 @@ from python_katas.kata_1 import questions
 from python_katas.utils import unittest_runner
 
 
-testers = ['']
+testers = ['arikgraif', 'Dean Sorie', 'Rosin1992','gad', 'bibi']
 
 
 class TestSumOfElements(unittest.TestCase):
@@ -36,45 +36,32 @@ class TestVerbing(unittest.TestCase):
     """
     1 Katas
     """
+    def test_sample(self):
+        shortStringTest = "ha"
+        self.assertEqual(questions.verbing(shortStringTest), "ha")
 
-    def test_two_char(self):
-        test_word = 'mu'
-        self.assertEqual(questions.verbing(test_word), "mu")
+        addIngTest = "spray"
+        self.assertEqual(questions.verbing(addIngTest), "spraying")
 
-    def test_gaming(self):
-        test_word = 'gaming'
-        self.assertEqual(questions.verbing(test_word), "gamingly")
+        addLyTest = "amazing"
+        self.assertEqual(questions.verbing(addLyTest), "amazingly")
 
-    def test_ing(self):
-        test_word = 'ing'
-        self.assertEqual(questions.verbing(test_word), "ingly")
-
-    def test_in(self):
-        test_word = 'cartin'
-        self.assertEqual(questions.verbing(test_word), "cartining")
-
-
+        testEmptyString = ""
+        self.assertEqual(questions.verbing(testEmptyString), "")
 class TestWordsConcatenation(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_daft_funk(self):
-        lyrics=['one', 'more', 'time']
-        self.assertEqual(questions.words_concatenation(lyrics), 'one more time')
+    def test_sample(self):
+        testWords = ["take", "on", "me"]
+        self.assertEqual(questions.words_concatenation(testWords), "take on me")
 
-    def test_bob_marley(self):
-        lyrics=["don't", 'worry', 'about', 'a', 'thing,', 'cause', 'every', 'little', 'thing', 'is', 'gonna', 'be', 'alright']
-        self.assertEqual(questions.words_concatenation(lyrics), "don't worry about a thing, cause every little thing is gonna be alright")
+        testWords = ["hi", "mom"]
+        self.assertEqual(questions.words_concatenation(testWords), "hi mom")
 
-    def test_dolly_parton(self):
-        lyrics=["working", "9", "to", "5"]
-        self.assertEqual(questions.words_concatenation(lyrics), 'working 9 to 5')
-
-    def test_queen(self):
-        lyrics=['we', 'are', 'the', 'champions', 'my', 'friend']
-        self.assertEqual(questions.words_concatenation(lyrics), 'we are the champions my friend')
-
+        testWords = []
+        self.assertEqual(questions.words_concatenation(testWords), "")
 
 
 class TestReverseWordsConcatenation(unittest.TestCase):
@@ -82,22 +69,15 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def test_reverse_original_example(self):
-        lst = ['take', 'me', 'home']
-        self.assertEqual(questions.reverse_words_concatenation(lst), "home me take")
+    def test_sample(self):
+        testReverseWord = ["hello", "my", "friend"]
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "friend my hello")
 
-    def test_reverse_empty_list(self):
-        lst = []
-        self.assertEqual(questions.reverse_words_concatenation(lst), "")
+        testReverseWord = ["go", "to", "the", "gym"]
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "gym the to go")
 
-    def test_reverse_one_string(self):
-        lst = ['me']
-        self.assertEqual(questions.reverse_words_concatenation(lst), "me")
-
-    def test_reverse_same_strings(self):
-        lst = ['me', 'me', 'me']
-        self.assertEqual(questions.reverse_words_concatenation(lst), "me me me")
-
+        testReverseWord = []
+        self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "")
 
 class TestIsUniqueString(unittest.TestCase):
     """
@@ -105,13 +85,20 @@ class TestIsUniqueString(unittest.TestCase):
     """
 
     def test_sample(self):
-        some_str = ('MynameIsmMax')
-        self.assertEqual(questions.is_unique_string(some_str), False)
-        some_str = ('aNuke')
-        self.assertEqual(questions.is_unique_string(some_str), True)
-        some_str = ('IAmDeath')
-        self.assertEqual(questions.is_unique_string(some_str), True)
+        testUnique = "abcdef"
+        self.assertEqual(questions.is_unique_string(testUnique), True)
 
+        testUnique = "aa"
+        self.assertEqual(questions.is_unique_string(testUnique), False)
+
+        testUnique = "ENJOY THIS-PARK"
+        self.assertEqual(questions.is_unique_string(testUnique), True)
+
+        testUnique = "asdfghjklzxcvbnma"
+        self.assertEqual(questions.is_unique_string(testUnique), False)
+
+        testUnique = ""
+        self.assertEqual(questions.is_unique_string(testUnique), True)
 
 
 
@@ -120,21 +107,18 @@ class TestListDiff(unittest.TestCase):
     1 Katas
     """
     def test_sample(self):
-        test_list = [1, 5, 0, 4, 1, 1, 1]
-        expected = [None, 4, -5, 4, -3, 0, 0]
-        result = questions.list_diff(test_list)
-        self.assertEqual(result, expected)
+        listToDiff = [1, 3, 6, 10, 14, 25]
+        self.assertEqual(questions.list_diff(listToDiff), [None, 2, 3, 4, 4, 11])
 
-    def test_empty(self):
-        test_list = []
-        expected = []
-        self.assertEqual(questions.list_diff(test_list), expected)
+        listToDiff = [4, 1, 7, 2, 11, 0]
+        self.assertEqual(questions.list_diff(listToDiff), [None, -3, 6, -5, 9, -11])
 
-    def test_one(self):
-        test_list = [1]
-        expected = [None]
-        self.assertEqual(questions.list_diff(test_list), expected)
+        listToDiff = [5000, 1, 10000, 10]
+        self.assertEqual(questions.list_diff(listToDiff), [None, -4999, 9999, -9990])
 
+
+#BIBI - START
+###################################################################################################################
 class TestPrimeNumber(unittest.TestCase):
     """
     1 Katas
@@ -171,19 +155,19 @@ class TestPalindromeNum(unittest.TestCase):
     """
     def test_pal1True(self):
         num = 1441
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal2True(self):
         num = 11
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal1False(self):
         num = 113
-        self.assertFalse(questions.palindrome_num(num),"the num is not palindrome but you return True")
+        self.assertEqual(questions.palindrome_num(num),False)
 
     def test_pal1Zero(self):
         num = 0
-        self.assertTrue(questions.palindrome_num(num)," 0 is palindrom num but you return False")
+        self.assertEqual(questions.palindrome_num(num),True)
 
 
 class TestPairMatch(unittest.TestCase):
@@ -208,16 +192,16 @@ class TestBadAverage(unittest.TestCase):
     """
 
     def test_easy_peasy(self):
-        self.assertEqual(questions.bad_average((10, 20, 30), 20))
+        self.assertEqual(questions.bad_average(10, 20, 30), 20)
 
     def test_zeros(self):
         self.assertEqual(questions.bad_average(0, 3, 0), 1)
 
     def test_fractions_in_answer(self):
-        self.assertEqual(questions.bad_average((1, 1, 1), 1))
+        self.assertEqual(questions.bad_average(1, 1, 1), 1)
 
     def test_mistake(self):
-        self.assertNotEqual(questions.bad_average((10, 20, 30), 30))
+        self.assertNotEqual(questions.bad_average(10, 20, 30), 30)
 
 
 class TestBestStudent(unittest.TestCase):
@@ -266,20 +250,42 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Rachel')
 
+#BIBI - END
+###################################################################################################################
 
 class TestPrintDictAsTable(unittest.TestCase):
     """
     1 Katas
     """
 
+    def test_sample(self):
 
-    def test_DictTable(self):
-        resutls =''
-        dict = {"Yuval": 23, "alex": 59}
-        for key, value in dict.items():
-            resutls += ("{:<10} {:<10}".format(key, value) + "\n")
-        self.assertEqual(questions.print_dict_as_table(dict), resutls)
 
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
+
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
+
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
+
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
 
 
 class TestMergeDicts(unittest.TestCase):
@@ -287,81 +293,58 @@ class TestMergeDicts(unittest.TestCase):
     1 Katas
     """
 
-    def test_basic(self):
-        dict1 = {'a': 5, 'b': 2}
-        dict2 = {'c': 5, 'd': 2}
+    def test_merge_dicts(self):
+        # Test two empty dictionaries
+        self.assertEqual(questions.merge_dicts({}, {}), {})
 
-        expected_dict = {'a': 5, 'b': 2, 'c': 5, 'd': 2}
-        result = questions.merge_dicts(dict1, dict2)
-        self.assertEqual(result, expected_dict)
+        # Test a dictionary with keys and values and an empty dictionary
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
 
-    def test_one_empty(self):
-        dict1 = {'a': 5, 'b': 2}
-        dict2 = {}
+        # Test an empty dictionary and a dictionary with keys and values
+        self.assertEqual(questions.merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
 
-        expected_dict = {'a': 5, 'b': 2}
+        # Test two dictionaries with the same keys
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
 
-        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
+        # Test two dictionaries with different keys
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
 
-    def test_both_empty(self):
-        dict1 = {}
-        dict2 = {}
-
-        expected_dict = {}
-
-        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
-
-    def test_common_key(self):
-        dict1 = {'a': 5, 'b': 2}
-        dict2 = {'a': 7, 'd': 2}
-
-        expected_dict = {'a': 7, 'b': 2, 'd': 2}
-
-        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
 
 class TestSevenBoom(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_if_contains_7(self):
-        n = 7
-        self.assertEqual(questions.seven_boom(n), [7])
-
-    def test_if_modulo_7(self):
-        n = 30
-        self.assertEqual(questions.seven_boom(n), [7, 14, 17, 21, 27, 28])
-
+    def test_seven_boom(self):
+        self.assertEqual(questions.seven_boom(10), [7])
+        self.assertEqual(questions.seven_boom(49), [7, 14, 17, 21, 27, 28, 35, 37, 42, 47, 49])
+        self.assertEqual(questions.seven_boom(5), [])
+        self.assertEqual(questions.seven_boom(17), [7, 14, 17])
 
 class TestCaesarCipher(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_1(self):
-        string = "hey my friend"
-        self.assertEqual(questions.caesar_cipher(string), "khb pb iulhqg")
-
-    def test_2(self):
-        string = "Learn python code"
-        self.assertEqual(questions.caesar_cipher(string), "Ohduq sbwkrq frgh")
-
-    def test_3(self):
-        string = "Fly Me To The Moon"
-        self.assertEqual(questions.caesar_cipher(string), "Iob Ph Wr Wkh Prrq")
-
+    def test_caesar_cipher(self):
+        self.assertEqual(questions.caesar_cipher("This is encrypted"), "Wklv lv hqfubswhg")
+        self.assertEqual(questions.caesar_cipher("SPIRITED AWAY"), "VSLULWHG DZDB")
+        self.assertEqual(questions.caesar_cipher("Hello World"), "Khoor Zruog")
 
 class TestSumOfDigits(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_1(self):
-        num = "546312"
-        self.assertEqual(questions.sum_of_digits(num), 21)
-    def test_2(self):
-        num = "123456789"
-        self.assertEqual(questions.sum_of_digits(num), 45)
+    def test_sum_of_digits(self):
+        # Test a string with only digits
+        self.assertEqual(questions.sum_of_digits("12345"), 15)
+
+        # Test a string with digits and non-digit characters
+        self.assertEqual(questions.sum_of_digits("a1b2c3d4e5"), 15)
+
+        # Test an empty string
+        self.assertEqual(questions.sum_of_digits(""), 0)
 
 
 if __name__ == '__main__':
