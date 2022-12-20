@@ -48,7 +48,6 @@ class TestVerbing(unittest.TestCase):
 
         testEmptyString = ""
         self.assertEqual(questions.verbing(testEmptyString), "")
-        pass
 class TestWordsConcatenation(unittest.TestCase):
     """
     1 Katas
@@ -63,7 +62,6 @@ class TestWordsConcatenation(unittest.TestCase):
 
         testWords = []
         self.assertEqual(questions.words_concatenation(testWords), "")
-        pass
 
 
 class TestReverseWordsConcatenation(unittest.TestCase):
@@ -80,7 +78,6 @@ class TestReverseWordsConcatenation(unittest.TestCase):
 
         testReverseWord = []
         self.assertEqual(questions.reverse_words_concatenation(testReverseWord), "")
-        pass
 
 class TestIsUniqueString(unittest.TestCase):
     """
@@ -99,7 +96,9 @@ class TestIsUniqueString(unittest.TestCase):
 
         testUnique = "asdfghjklzxcvbnma"
         self.assertEqual(questions.is_unique_string(testUnique), False)
-        pass
+
+        testUnique = ""
+        self.assertEqual(questions.is_unique_string(testUnique), True)
 
 
 
@@ -109,14 +108,13 @@ class TestListDiff(unittest.TestCase):
     """
     def test_sample(self):
         listToDiff = [1, 3, 6, 10, 14, 25]
-        self.assertEqual(questions.list_diff(listToDiff), [2, 3, 4, 4, 11])
+        self.assertEqual(questions.list_diff(listToDiff), [None, 2, 3, 4, 4, 11])
 
         listToDiff = [4, 1, 7, 2, 11, 0]
-        self.assertEqual(questions.list_diff(listToDiff), [-3, 6, -5, 9, -11])
+        self.assertEqual(questions.list_diff(listToDiff), [None, -3, 6, -5, 9, -11])
 
         listToDiff = [5000, 1, 10000, 10]
-        self.assertEqual(questions.list_diff(listToDiff), [-4999, 9999, -9990])
-        pass
+        self.assertEqual(questions.list_diff(listToDiff), [None, -4999, 9999, -9990])
 
 
 #BIBI - START
@@ -157,19 +155,19 @@ class TestPalindromeNum(unittest.TestCase):
     """
     def test_pal1True(self):
         num = 1441
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal2True(self):
         num = 11
-        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+        self.assertEqual(questions.palindrome_num(num), True)
 
     def test_pal1False(self):
         num = 113
-        self.assertFalse(questions.palindrome_num(num),"the num is not palindrome but you return True")
+        self.assertEqual(questions.palindrome_num(num),False)
 
     def test_pal1Zero(self):
         num = 0
-        self.assertTrue(questions.palindrome_num(num)," 0 is palindrom num but you return False")
+        self.assertEqual(questions.palindrome_num(num),True)
 
 
 # class TestPairMatch(unittest.TestCase):
@@ -261,46 +259,92 @@ class TestPrintDictAsTable(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
 
 
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
 
-class TestMergeDicts(unittest.TestCase):
-    """
-    1 Katas
-    """
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
 
-    def test_sample(self):
-        # your code here
-        pass
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+            }
+        newString = ""
+        for k, v in dict1.items():
+            newString = newString + ("{:<10} {:<10}\n".format(k, v))
+
+        self.assertEqual(questions.print_dict_as_table(dict1), newString)
+
+
+# class TestMergeDicts(unittest.TestCase):
+#     """
+#     1 Katas
+#     """
+#
+#     def test_merge_dicts(self):
+#         # Test two empty dictionaries
+#         self.assertEqual(questions.merge_dicts({}, {}), {})
+#
+#         # Test a dictionary with keys and values and an empty dictionary
+#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
+#
+#         # Test an empty dictionary and a dictionary with keys and values
+#         self.assertEqual(questions.merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
+#
+#         # Test two dictionaries with the same keys
+#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
+#
+#         # Test two dictionaries with different keys
+#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
+#
 
 class TestSevenBoom(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
-
+    def test_seven_boom(self):
+        self.assertEqual(questions.seven_boom(10), [7])
+        self.assertEqual(questions.seven_boom(49), [7, 14, 17, 21, 27, 28, 35, 37, 42, 47, 49])
+        self.assertEqual(questions.seven_boom(5), [])
+        self.assertEqual(questions.seven_boom(17), [7, 14, 17])
 
 class TestCaesarCipher(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_caesar_cipher(self):
+        self.assertEqual(questions.caesar_cipher("This is encrypted"), "Wklv lv hqfubswhg")
+        self.assertEqual(questions.caesar_cipher("SPIRITED AWAY"), "VSLULWHG DZDB")
+        self.assertEqual(questions.caesar_cipher("Hello World"), "Khoor Zruog")
+
 class TestSumOfDigits(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_sum_of_digits(self):
+        # Test a string with only digits
+        self.assertEqual(questions.sum_of_digits("12345"), 15)
+
+        # Test a string with digits and non-digit characters
+        self.assertEqual(questions.sum_of_digits("1357130857"), 40)
+
+        # Test an empty string
+        self.assertEqual(questions.sum_of_digits(""), 0)
 
 
 if __name__ == '__main__':

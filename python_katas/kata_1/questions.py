@@ -248,8 +248,10 @@ def print_dict_as_table(some_dict):
     """
     print("Key      Value")
     print("--------------")
+    newString = ""
     for key, value in some_dict.items():
-        print("{:<10} {:<10} ".format(key, value))
+            newString = newString + ("{:<10} {:<10}\n".format(key, value))
+    return newString
 
 def merge_dicts(dict1, dict2):
     """
@@ -336,7 +338,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    sum = 0
+    for i in digits_str:
+        sum += int(i)
+    return sum
 
 
 if __name__ == '__main__':
