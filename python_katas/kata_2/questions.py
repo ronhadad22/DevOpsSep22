@@ -1,5 +1,5 @@
-def valid_parentheses(s):
-    """
+#def valid_parentheses(s):
+"""
     3 Kata
 
     This function gets a string containing just the characters '(', ')', '{', '}', '[' and ']',
@@ -13,33 +13,27 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = ']}'          -> False
     """
+
+
+
+
+
+def valid_parentheses(s: str) -> bool:
+   # s = input("your bracects here: ")
+    if len(s) % 2 != 0:
+        return False
+    dict = {'(' : ')', '[' : ']', '{' : '}'}
     stack = []
-    for char in s:
-        if char in '([{':
-            stack.append(char)
-        elif not stack:  # closing char
-            top = stack.pop(-1)
-            if top == '(' and char != ')':
-                return False
-            if top == '[' and char != ']':
-                return False
-            if top == '{' and char != '}':
-                return False
-        else:
-            return False
-    return True
-
-    # David's solution
-    while True:
-        if '()' in s:
-            s = s.replace('()', '')
-        elif '{}' in s:
-            s = s.replace('{}', '')
-        elif '[]' in s:
-            s = s.replace('[]', '')
-        else:
-            return not s
-
+    for i in s:
+            if i in dict.keys():
+                stack.append(i)
+            else:
+                if stack == []:
+                    return False
+                s = stack.pop()
+                if i != dict[s]:
+                    return False
+    return stack == []
 
 def fibonacci_fixme(n):
     """
@@ -81,7 +75,45 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+
+    file_path = open("names.txt", "r")
+    frequent_name = ""
+    frequency = 0
+    words = []
+
+    # Traversing file line by line
+    for line in file_path:
+
+        # splits each line into
+        # words and removing spaces
+        # and punctuations from the input
+        line_word = line.lower().replace(',', '').replace('.', '').split(" ");
+
+        # Adding them to list words
+        for w in line_word:
+            words.append(w);
+
+    # Finding the max occurred word
+    for i in range(0, len(words)):
+
+        # Declaring count
+        count = 1;
+
+        # Count each word in the file
+        for j in range(i + 1, len(words)):
+            if (words[i] == words[j]):
+                count = count + 1;
+
+        # If the count value is more
+        # than highest frequency then
+        if (count > frequency):
+            frequency = count;
+            frequent_name = words[i];
+    file_path.close();
+    return ("Most repeated name: " + frequent_name +"Frequency: " + str(frequency))
+
+
+
 
 
 def files_backup(dir_path):
@@ -174,7 +206,13 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    # using merge() to combine two sorted lists
+    from heapq import merge
+    res = list(merge(l1, l2))
+
+    # printing result
+    return ("The combined sorted list is : " + str(res))
+
 
 
 def longest_common_substring(str1, str2):

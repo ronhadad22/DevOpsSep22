@@ -28,7 +28,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    length = len(word)
+
+    if length > 2:
+        if word[-3:] == 'ing':
+            word += 'ly'
+        else:
+            word += 'ing'
+
+    return word
 
 
 def words_concatenation(words):
@@ -43,7 +51,9 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    return  " ".join(words)
+
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +68,7 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    return " ".join(reversed(words))
 
 
 def is_unique_string(some_str):
@@ -75,7 +85,11 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    for a in range(len(some_str)):
+        for b in range(a + 1, len(some_str)):
+            if (some_str[a] == some_str[b]):
+                return False;
+    return True;
 
 
 def list_diff(elements):
@@ -93,7 +107,24 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    '''
+    list_diff = [ ]
+    for i in range(0, len(elements), 1):
+        if i == 0:
+            list_diff.append(None)
+        else:
+            list_diff.append(int(elements[i] - elements[i - 1]))
+    return list_diff
+    '''
+    list_diff = []
+    for i in range(0, len(elements), 1):
+        if i != 0:
+            list_diff.append(int(elements[i] - elements[i - 1]))
+        else:
+            list_diff.append(None)
+    return list_diff
+
+
 
 
 def prime_number(num):
@@ -106,7 +137,14 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+
+    for i in range(2, num):
+        if (num % i) == 0:
+            return False
+
+    return True
+
 
 
 def palindrome_num(num):
@@ -298,11 +336,14 @@ if __name__ == '__main__':
     print(verbing('swimming'))
     print(verbing('do'))
 
+
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
 
+
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
+
 
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
@@ -311,9 +352,11 @@ if __name__ == '__main__':
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
 
+
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
+
 
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
