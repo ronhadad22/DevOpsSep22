@@ -117,8 +117,21 @@ class TestLongestCommonPrefix(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+        str1 = 'The Linux kernel is an amazing software'
+        str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
+        self.assertEqual(questions.longest_common_prefix(str1, str2),"The Linux kernel is a")
+
+        str1 = 'Hello World'
+        str2 = 'Have a wonderful day'
+        self.assertEqual(questions.longest_common_prefix(str1, str2), "H")
+
+        str1 = 'Wonder'
+        str2 = 'Wonderful'
+        self.assertEqual(questions.longest_common_prefix(str1, str2), "Wonder")
+
+        str1 = "What's going on"
+        str2 = 'Hi everybody'
+        self.assertEqual(questions.longest_common_prefix(str1, str2), "")
 
 
 class TestRotateMatrix(unittest.TestCase):
@@ -126,9 +139,10 @@ class TestRotateMatrix(unittest.TestCase):
     2 Katas
     """
 
+
+
     def test_sample(self):
-        # your code here
-        pass
+
 
 
 class TestIsValidEmail(unittest.TestCase):
