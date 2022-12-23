@@ -194,6 +194,9 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
+
+
+
     return None
 
 
@@ -213,7 +216,22 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    flag=0
+    x=0
+    y=0
+    str3=''
+    for x in range(0,len(str2)):
+        for y in range(0,len(str1)):
+            if str1[y]==str2[x] and str1[y+1]==str2[x+1]:
+                flag=1
+                while(flag):
+                    if (str1[y]==str2[x]):
+                        str3+=str1[y]+' '
+                        x=x+1
+                        y=y+1
+                    flag=0
+                return str3
+
 
 
 def rotate_matrix(mat):
