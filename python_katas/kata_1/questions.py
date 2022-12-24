@@ -89,7 +89,7 @@ def is_unique_string(some_str):
         for b in range(a + 1, len(some_str)):
             if (some_str[a] == some_str[b]):
                 return False;
-    return True;
+    return True
 
 
 def list_diff(elements):
@@ -140,7 +140,7 @@ def prime_number(num):
 
 
     for i in range(2, num):
-        if (num % i) == 0:
+        if (num % i/2) == 0:
             return False
 
     return True
@@ -160,7 +160,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    reverse = int(str(num)[::-1])
+
+    if num == reverse:
+        return True
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -203,7 +208,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -226,7 +231,7 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    return (max(grades, key=grades.get))
 
 
 def print_dict_as_table(some_dict):
@@ -255,7 +260,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("Key   |  Value")
+    print("--------------")
+    table = ""
+    for key, value in some_dict.items():
+        table = table + ("{:<10} {:<10}\n".format(key, value))
+    return table
 
 
 def merge_dicts(dict1, dict2):
@@ -275,6 +285,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    for i in dict2.keys():
+        dict1[i] = dict2[i]
     return dict1
 
 
@@ -290,7 +302,11 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boom = []
+    for x in range (1, n+1):
+        if x % 7 == 0 or '7' in str(x):
+         boom.append(x)
+    return boom
 
 
 def caesar_cipher(str_to_encrypt):
@@ -305,7 +321,15 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    result = ""
+    s = 3
+    for i in range(len(str_to_encrypt)):
+        char = str_to_encrypt[i]
+        if (char.isupper()):
+             result += chr((ord(char) + s - 65) % 26 + 65)
+        else:
+             result += chr((ord(char) + s - 97) % 26 + 97)
+    return result
 
 
 def sum_of_digits(digits_str):
@@ -323,7 +347,8 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    sum_of_digits = sum(int(char) for char in digits_str if char.isdigit())
+    return sum_of_digits
 
 
 if __name__ == '__main__':
@@ -362,6 +387,7 @@ if __name__ == '__main__':
     print(palindrome_num(12221))
     print(palindrome_num(577))
 
+
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
@@ -376,6 +402,7 @@ if __name__ == '__main__':
 
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
+
 
     print('\nbest_student:\n--------------------')
     print(best_student({
