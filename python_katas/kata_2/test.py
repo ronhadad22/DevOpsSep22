@@ -19,9 +19,45 @@ class TestValidParentheses(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
 
+       testparentheses = ["[[{()}](){}]"]
+       self.assertEqual(questions.valid_parentheses(testparentheses), True)
+
+       testparentheses = [""]
+       self.assertEqual(questions.valid_parentheses(testparentheses), False)
+
+       testparentheses = ["]}"]
+       self.assertEqual(questions.valid_parentheses(testparentheses), False)
+
+       testparentheses = ["[]}"]
+       self.assertEqual(questions.valid_parentheses(testparentheses), False)
+
+
+
+pass
+pass
+'''
+    self.testparentheses = ('[[{()}](){}]')
+self.bool = questions.valid_parentheses('testparentheses')
+
+if self.bool is 'true':
+    print("the sting '[[{()}](){}]' is pass")
+
+self.testparentheses = ('')
+bool = questions .valid_parentheses('testparentheses')
+if self.testparentheses is 'true':
+    print("the sting ' ' is none")
+
+self.testparentheses = (']}')
+bool = questions.valid_parentheses('testparentheses')
+
+if self.bool is 'false':
+    print("The is faild")
+
+    pass
+
+pass
+'''
 
 
 class TestFibonacciFixme(unittest.TestCase):
@@ -30,8 +66,19 @@ class TestFibonacciFixme(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        number = 6
+        self.assertEqual(questions.fibonacci_fixme(number), 8)
+
+        number = 5
+        self.assertEqual(questions.fibonacci_fixme(number), 8)
+
+        number = 0
+        self.assertEqual(questions.fibonacci_fixme(number), 0)
+
+        number = 7
+        self.assertEqual(questions.fibonacci_fixme(number), 8)
         pass
+    pass
 
 class TestMostFrequentName(unittest.TestCase):
     """

@@ -1,5 +1,30 @@
-def valid_parentheses(s):
-    """
+#from python_katas.kata_2.test import print
+
+#class Soul:
+
+
+
+def valid_parentheses(s: str) -> bool:
+#    s = input("your bracects here: ")
+    if len(s) % 2 != 0:
+        return False
+    dict = {'(' : ')', '[' : ']', '{' : '}'}
+    stack = []
+    for i in s:
+            if i in dict.keys():
+                stack.append(i)
+            else:
+                if stack == []:
+                    return False
+                s = stack.pop()
+                if i != dict[s]:
+                    return False
+    return stack == []
+
+
+
+'''
+    
     3 Kata
 
     This function gets a string containing just the characters '(', ')', '{', '}', '[' and ']',
@@ -12,8 +37,9 @@ def valid_parentheses(s):
     e.g.
     s = '[[{()}](){}]'  -> True
     s = ']}'          -> False
-    """
-    stack = []
+    
+    
+   stack = []
     for char in s:
         if char in '([{':
             stack.append(char)
@@ -40,8 +66,36 @@ def valid_parentheses(s):
         else:
             return not s
 
+'''
+
+
+
 
 def fibonacci_fixme(n):
+
+    # n = input("your n here: ")
+    #  n = int(input("your n:"))
+    # print(type(n))
+
+    # Check if input is 0 then it will
+    # print incorrect input
+    if n < 0:
+        print("Incorrect input")
+
+    # Check if n is 0
+    # then it will return 0
+    elif n == 0:
+        return 0
+
+    # Check if n is 1,2
+    # it will return 1
+    elif n == 1 or n == 2:
+        return 1
+
+    else:
+        return fibonacci_fixme(n - 1) + fibonacci_fixme(n - 2)
+
+
     """
     2 Kata
 
@@ -59,6 +113,7 @@ def fibonacci_fixme(n):
     But it doesn't (it has some bad lines in it...)
     You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
     """
+    '''
     a = 0
     b = 1
     for i in range(1, n):
@@ -67,6 +122,8 @@ def fibonacci_fixme(n):
         b = tmp
 
     return a
+'''
+
 
 
 def most_frequent_name(file_path):
