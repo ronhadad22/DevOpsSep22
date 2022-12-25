@@ -128,10 +128,29 @@ class TestMergeSortedLists(unittest.TestCase):
     """
     1 Katas
     """
+     def merge_sorted_lists(l1, l2):
+        return ("The combined sorted list is : " + str(res))
 
-    def test_sample(self):
-        # your code here
-        pass
+
+     def test_empty_lists(self):
+          l1 = []
+          l2 = []
+     self.assertEqual(questions.merge_sorted_lists(l1, l2), [ ])
+
+     def test_zero_lists(self):
+          l1 = [0]
+          l2 = [0]
+     self.assertEqual(questions.merge_sorted_lists(l1, l2), [0,0])
+
+     def test_same.num_lists(self):
+         l1 = [1, 3, 8]
+         l2 = [2, 3, 9]
+     self.assertEqual(questions.merge_sorted_lists(l1, l2), [1, 2, 3, 3, 8, 9])
+
+      def test_negative.num_lists(self):
+         l1 = [-8, -3, 8]
+         l2 = [-2, 3, 9]
+      self.assertEqual(questions.merge_sorted_lists(l1, l2), [-8, -3, -2, 3, 8, 9])
 
 
 class TestLongestCommonSubstring(unittest.TestCase):
