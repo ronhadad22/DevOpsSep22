@@ -60,10 +60,28 @@ class TestFilesBackup(unittest.TestCase):
     """
     3 Katas
     """
+    def files_backup(dir_path):
+        return dir_path
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_infolder_directory(self):
+        dir_path = "files_to_backup"
+        self.assertEqual(questions.files_backup(dir_path), "files_to_backup")
+        return dir_path
+
+    def test_out_of_folder_directory(self):
+        dir_path = "/Users/dannyatalla/katas/DevOpsSep22/python_katas"
+        self.assertEqual(questions.files_backup(dir_path), "/Users/dannyatalla/katas/DevOpsSep22/python_katas")
+        return dir_path
+
+    def test_empty_path(self):
+        dir_path = ''
+        self.assertRaises(FileNotFoundError, questions.files_backup, dir_path)
+        return dir_path
+
+    def test_Capital_Letters(self):
+        dir_path = "TRALLALLA"
+        self.assertEqual(questions.files_backup(dir_path), "TRALLALLA")
+        return dir_path
 
 
 class TestReplaceInFile(unittest.TestCase):
@@ -242,6 +260,7 @@ class TestStrongPass(unittest.TestCase):
     def test_sample(self):
         # your code here
         pass
+
 
 
 
