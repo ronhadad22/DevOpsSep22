@@ -138,10 +138,18 @@ class TestRotateMatrix(unittest.TestCase):
     """
     2 Katas
     """
+    def TestRotateMatrix(self):
+        mat=[[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+        self.assertEqual(questions.TestRotateMatrix(mat), [[10, 7, 4, 1], [11, 8, 5, 2], [12, 9, 6, 3]])
+
+        mat=[]
+        self.assertEqual(questions.TestRotateMatrix(mat), [])
+
+        mat = [[1, 8, 9], [20, 60, 5], [2, 39, 5], [19, 100, 12]]
+        self.assertEqual(questions.TestRotateMatrix(mat), [[19, 2, 20, 1],[100, 39, 60, 8],[12, 5, 5, 9]])
 
 
-
-    def test_sample(self):
+    #def test_sample(self):
 
 
 
