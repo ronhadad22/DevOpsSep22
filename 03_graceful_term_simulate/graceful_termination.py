@@ -3,7 +3,7 @@ import signal
 import sys
 import time
 
-
+#
 def signal_handler(sig, frame):
     print(f'Got signal number {sig} {frame}')
     print('Handling the last server requests...')
