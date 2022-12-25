@@ -18,18 +18,17 @@ class TestValidParentheses(unittest.TestCase):
     3 Katas
     """
     def test_sample(self):
-        def test_sample(self):
-            testparentheses = ["[[{()}](){}]"]
-            self.assertEqual(questions.valid_parentheses(testparentheses), True)
+        testparentheses = ["[[{()}](){}]"]
+        self.assertEqual(questions.valid_parentheses(testparentheses), True)
 
-            testparentheses = [""]
-            self.assertEqual(questions.valid_parentheses(testparentheses), False)
+        testparentheses = [""]
+        self.assertEqual(questions.valid_parentheses(testparentheses), False)
 
-            testparentheses = ["]}"]
-            self.assertEqual(questions.valid_parentheses(testparentheses), False)
+        testparentheses = ["]}"]
+        self.assertEqual(questions.valid_parentheses(testparentheses), False)
 
-            testparentheses = ["[]}"]
-            self.assertEqual(questions.valid_parentheses(testparentheses), False)
+        testparentheses = ["[]}"]
+        self.assertEqual(questions.valid_parentheses(testparentheses), False)
 
 #Dria
 class TestFibonacciFixme(unittest.TestCase):
