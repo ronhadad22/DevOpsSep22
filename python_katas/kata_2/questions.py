@@ -1,4 +1,5 @@
-def valid_parentheses(s):
+def valid_parentheses(s: str):
+
     """
     3 Kata
 
@@ -13,12 +14,27 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = ']}'          -> False
     """
+   # s = input("print")
     stack = []
+    opening = set('([{')
+    closing = set(')]}')
+    pair = {')' : '(' , ']' : '[' , '}' : '{'}
     for char in s:
-        if char in '([{':
+        if char in opening:
             stack.append(char)
-        elif not stack:  # closing char
-            top = stack.pop(-1)
+            if char in closing:
+                if not stack:
+                    return False
+                elif stack.pop() != pair[char]:
+                    return False
+                else:
+                    continue
+            if not stack:
+             return True
+            else:
+                return False
+    return stack
+'''
             if top == '(' and char != ')':
                 return False
             if top == '[' and char != ']':
@@ -40,7 +56,25 @@ def valid_parentheses(s):
         else:
             return not s
 
-
+    stack = []
+    opening = set('([{')
+    closing = set(')]}')
+    pair = {')' : '(' , ']' : '[' , '}' : '{'}
+    for i in s :
+        if i in opening :
+            stack.append(i)
+        if i in closing :
+               if not stack :
+                   return False
+               elif stack.pop() != pair[i] :
+                   return False
+               else :
+                   continue
+       if not stack :
+            return True
+       else :
+           return False
+'''
 def fibonacci_fixme(n):
     """
     2 Kata
@@ -69,7 +103,9 @@ def fibonacci_fixme(n):
     return a
 
 
-def most_frequent_name(file_path):
+#def most_frequent_name(file_path):
+    #pass
+    '''
     """
     2 Kata
 
@@ -79,10 +115,76 @@ def most_frequent_name(file_path):
     You can assume file_path exists in the file system
 
     :param file_path: str - absolute or relative file to read names from
-    :return: str - the mose frequent name. If there are many, return one of them
+    :return: str - the most frequent name. If there are many, return one of them
     """
-    return None
 
+    file_path = open("names.txt", "r")
+    frequent_word = ""
+    frequency = 0
+    words = []
+
+    # Traversing file line by line
+    for line in file_path:
+
+        # splits each line into
+        # words and removing spaces
+        # and punctuations from the input
+        line_word = line.lower().replace(',', '').replace('.', '').split(" ");
+
+        # Adding them to list words
+        for w in line_word:
+            words.append(w);
+
+    # Finding the max occurred word
+    for i in range(0, len(words)):
+
+        # Declaring count
+        count = 1;
+
+        # Count each word in the file
+        for j in range(i + 1, len(words)):
+            if (words[i] == words[j]):
+                count = count + 1;
+
+        # If the count value is more
+        # than highest frequency then
+        if (count > frequency):
+            frequency = count;
+            frequent_word = words[i];
+
+    #print("Most Frequent Name: " + frequent_word)
+    print("Frequency: " + str(frequency))
+    file_path.close();
+
+    return frequent_word
+'''
+
+def most_frequent_name(file_path):
+        #file_path = input("put your filename here:",)
+        file_location = open(file_path, "r")
+        file_path = file_location
+        frequent_name = ""
+        frequency = 0
+        words = []
+
+        for line in file_path:
+            line_word = line.lower().replace(',', '').replace('.', '').split(" ");
+
+            for w in line_word:
+                words.append(w);
+
+        for i in range(0, len(words)):
+            count = 1;
+
+            for j in range(i + 1, len(words)):
+                if (words[i] == words[j]):
+                    count = count + 1;
+
+            if (count > frequency):
+                frequency = count;
+                frequent_name = words[i];
+                file_path.close();
+        return ("Most repeated name: " + frequent_name).rstrip()
 
 def files_backup(dir_path):
     """
@@ -101,7 +203,16 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    import shutil
+    import datetime
+    #dir_path = input("place your path here:", )
+    #print("Current working dir : %s" % os.getcwd())
+    date_str = datetime.datetime.now().strftime('%Y-%m-%d')
+    dir_str = dir_path
+    dir_name = ("backup_{}".format(dir_str+"_"+ date_str))
+    shutil.make_archive(dir_name, 'gztar',dir_str )
+
+    return (dir_str)
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -160,7 +271,7 @@ def matrix_avg(mat, rows=None):
     """
     return None
 
-
+#Vitaly
 def merge_sorted_lists(l1, l2):
     """
     1 Kata
@@ -174,7 +285,10 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    from heapq import merge
+    res = list(merge(l1, l2))
+    return ("The combined sorted list is : " + str(res))
+
 
 
 def longest_common_substring(str1, str2):
@@ -241,7 +355,7 @@ def rotate_matrix(mat):
     """
     return None
 
-
+#Dani
 def is_valid_email(mail_str):
     """
     3 Kata
@@ -258,9 +372,56 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+    import socket
+    import re
+    import dns.resolver
+    import smtplib
+    #mail_str= input("Insert email Adress for verification: ")
 
+    # Step 1: Check email
+    # Check using Regex that an email meets minimum requirements, throw an error if not
+    addressToVerify = mail_str
+    match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', addressToVerify)
 
+    if match == None:
+        print('Bad Syntax in ' + addressToVerify)
+        raise ValueError('Bad Syntax')
+
+    # Step 2: Getting MX record
+    # Pull domain name from email address
+    domain_name = mail_str.split('@')[1]
+
+    # get the MX record for the domain
+    records = dns.resolver.resolve(domain_name, 'MX')
+    mxRecord = records[0].exchange
+    mxRecord = str(mxRecord)
+
+    # Step 3: ping email server
+    # check if the email address exists
+    # Get local server hostname
+    host = socket.gethostname()
+
+    # SMTP lib setup (use debug level for full output)
+    server = smtplib.SMTP()
+    server.set_debuglevel(0)
+
+    # SMTP Conversation
+    server.connect(mxRecord)
+    server.helo(host)
+    server.mail('me@domain.com')
+    code, message = server.rcpt(str(addressToVerify))
+    server.quit()
+
+    # Assume 250 as Success
+    if code == 250:
+        print('this Email Is valid')
+        return True
+    else:
+        print('this Email is Invalid')
+        return False
+    return mail_str
+
+#Dani
 def pascal_triangle(lines):
     """
     3 Kata
@@ -294,7 +455,22 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    from math import factorial
+
+    # if you desire to put the input manually uncomment below
+    #lines = input("Insert amount of rows for Pascal triangle: ")
+    lines = int(lines)
+    for i in range(lines):
+        for j in range(lines - i + 1):
+            #for left spacing
+           print(end=" ")
+
+        for j in range(i + 1):
+             #nCr = n!/((n-r)!*r!)
+         print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
+        # for new line
+        print()
+    return (lines)
 
 
 def list_flatten(lst):
@@ -392,7 +568,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+    print(pascal_triangle(10))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
