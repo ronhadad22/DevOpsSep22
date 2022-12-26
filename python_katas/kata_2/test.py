@@ -1,6 +1,6 @@
 import unittest
-from python_katas.kata_2 import questions
-from python_katas.utils import unittest_runner
+from DevOpsSep22.python_katas.kata_2 import questions
+from DevOpsSep22.python_katas.utils import unittest_runner
 
 testers = ['dariakalugny',
  'gilberger1234',
@@ -47,14 +47,32 @@ class TestFibonacciFixme(unittest.TestCase):
 
             number = 7
             self.assertEqual(questions.fibonacci_fixme(number), 8)
-
+#Gil
 class TestMostFrequentName(unittest.TestCase):
-    """
-    2 Katas
-    """
-    def test_sample(self):
-        # your code here
-        pass
+
+
+
+   def most_frequent_name(file_path):
+       return file_path
+
+   def test_out_of_folder_directory(self):
+       file_path = "names2.txt"
+       self.assertEqual(questions.most_frequent_name(file_path), "Most repeated name: danny")
+       return file_path
+
+   def test_in_folder_directory(self):
+       file_path = "names.txt"
+       self.assertEqual(questions.most_frequent_name(file_path), "Most repeated name: Tawsha")
+       return file_path
+   def test_emptyinput(self):
+       file_path = "No_file_here.txt"
+       self.assertRaises(FileNotFoundError, questions.most_frequent_name, file_path)
+       return file_path
+
+   def test_None_inputut(self):
+       file_path = None
+       self.assertRaises(TypeError, questions.most_frequent_name,  None)
+       return file_path
 #Gil
 class TestFilesBackup(unittest.TestCase):
     """
@@ -69,8 +87,8 @@ class TestFilesBackup(unittest.TestCase):
         return dir_path
 
     def test_out_of_folder_directory(self):
-        dir_path = "/Users/dannyatalla/katas/DevOpsSep22/python_katas"
-        self.assertEqual(questions.files_backup(dir_path), "/Users/dannyatalla/katas/DevOpsSep22/python_katas")
+        dir_path = "/Users/gil/katas/DevOpsSep22/python_katas"
+        self.assertEqual(questions.files_backup(dir_path), "/Users/gil/katas/DevOpsSep22/python_katas")
         return dir_path
 
     def test_empty_path(self):
