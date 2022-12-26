@@ -260,7 +260,7 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    print("Key   |  Value")
+    print("Key      Value")
     print("--------------")
     table = ""
     for key, value in some_dict.items():

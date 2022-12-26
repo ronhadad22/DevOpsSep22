@@ -55,11 +55,10 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
-        tmp = a + b
-        b = tmp
-
+    for i in range(1, n+1):
+          tmp = a + b
+          a = b
+          b = tmp
     return a
 
 
@@ -75,44 +74,32 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-
+'''
     file_path = open("names.txt", "r")
     frequent_name = ""
     frequency = 0
     words = []
 
-    # Traversing file line by line
     for line in file_path:
-
-        # splits each line into
-        # words and removing spaces
-        # and punctuations from the input
         line_word = line.lower().replace(',', '').replace('.', '').split(" ");
 
-        # Adding them to list words
         for w in line_word:
             words.append(w);
 
-    # Finding the max occurred word
     for i in range(0, len(words)):
-
-        # Declaring count
         count = 1;
 
-        # Count each word in the file
         for j in range(i + 1, len(words)):
             if (words[i] == words[j]):
                 count = count + 1;
 
-        # If the count value is more
-        # than highest frequency then
         if (count > frequency):
             frequency = count;
             frequent_name = words[i];
     file_path.close();
-    return ("Most repeated name: " + frequent_name +"Frequency: " + str(frequency))
+    return ("Most repeated name: " + frequent_name)
 
-
+'''
 
 
 
@@ -176,8 +163,14 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
-
+    x, y = [], []
+    x.extend(lst)
+    y.extend(lst)
+    x.sort()
+    y.sort(reverse=True)
+    if (x == lst or y == lst):
+        return True
+    return False
 
 def matrix_avg(mat, rows=None):
     """
@@ -206,11 +199,8 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    # using merge() to combine two sorted lists
     from heapq import merge
     res = list(merge(l1, l2))
-
-    # printing result
     return ("The combined sorted list is : " + str(res))
 
 
@@ -232,8 +222,17 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    answer = ""
+    len1, len2 = len(str1), len(str2)
+    for i in range(len1):
+        match = ""
+        for j in range(len2):
+            if (i + j < len1 and str1[i + j] == str2[j]):
+                match += str2[j]
+            else:
+                if (len(match) > len(answer)): answer = match
 
+    return (answer)
 
 def longest_common_prefix(str1, str2):
     """
@@ -251,7 +250,22 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    result = ""
+    n1 = len(str1)
+    n2 = len(str2)
+
+    i = 0
+    j = 0
+    while i <= n1 - 1 and j <= n2 - 1:
+
+        if (str1[i] == str2[j]):
+            break
+
+        result += str1[i]
+        i += 1
+        j += 1
+
+    return (result)
 
 
 def rotate_matrix(mat):
@@ -410,6 +424,7 @@ if __name__ == '__main__':
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
 
+
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
@@ -417,11 +432,14 @@ if __name__ == '__main__':
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
+
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
+
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('abcd', 'abtty'))
 
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
