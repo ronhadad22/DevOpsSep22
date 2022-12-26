@@ -55,7 +55,7 @@ class TestMostFrequentName(unittest.TestCase):
     def test_sample(self):
         # your code here
         pass
-
+#Gil
 class TestFilesBackup(unittest.TestCase):
     """
     3 Katas
@@ -123,7 +123,7 @@ class TestMatrixAvg(unittest.TestCase):
         # your code here
         pass
 
-
+#Vitaly
 class TestMergeSortedLists(unittest.TestCase):
     """
     1 Katas
@@ -152,15 +152,22 @@ class TestMergeSortedLists(unittest.TestCase):
          l2 = [-2, 3, 9]
       self.assertEqual(questions.merge_sorted_lists(l1, l2), [-8, -3, -2, 3, 8, 9])
 
-
+#Vitaly
 class TestLongestCommonSubstring(unittest.TestCase):
     """
     4 Katas
     """
+    def test_empty_strings(self):
+       str1, str2 = ('','')
+    self.assertEqual(questions.longest_common_substring(str1, str2), )
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_CapitalwithRegular_strings(self):
+        str1, str2 = ('AbbZD', 'abZd')
+    self.assertEqual(questions.longest_common_substring(str1, str2), bZ)
+
+    def test_empty_strings(self):
+        str1, str2 = ('a2a', 'a2a')
+    self.assertEqual(questions.longest_common_substring(str1, str2), a)
 
 #Shani
 class TestLongestCommonPrefix(unittest.TestCase):
