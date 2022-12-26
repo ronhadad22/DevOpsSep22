@@ -275,26 +275,33 @@ class TestPascalTriangle(unittest.TestCase):
         lines = ''
         self.assertRaises(ValueError, questions.pascal_triangle, lines)
 
+#Arthur
 class TestListFlatten(unittest.TestCase):
     """
     2 Katas
     """
+    def TestListFlatten(self):
+        lst = [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
+        self.assertEqual(questions.TestListFlatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
 
-    def test_sample(self):
-        # your code here
-        pass
+        lst = []
+        self.assertEqual(questions.TestListFlatten(lst), [])
 
 
-
+#Arthur
 class TestStrCompression(unittest.TestCase):
     """
     2 Katas
     """
-    def test_sample(self):
-        # your code here
-        pass
+    def TestStrCompression(text):
+        return (text)
 
-
+    def SampleTextTest(self):
+        text = 'aaaaabbcaasbbgvccf'
+        self.assertEqual(questions.TestStrCompression(text), ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f'])
+    def EmptyTextTest(self):
+        text = ''
+        self.assertEqual(questions.TestStrCompression(text), '')
 
 class TestStrongPass(unittest.TestCase):
     """
