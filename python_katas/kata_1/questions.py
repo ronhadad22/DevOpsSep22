@@ -11,7 +11,7 @@ def sum_of_element(elements):
 
     return s
 
-test
+
 
 def verbing(word):
     """
@@ -29,7 +29,21 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+
+
+    num = len(word)
+
+
+    if num >=3 and word.endswith("ing") == True:
+
+        return word + 'ly'
+
+    elif num >= 3:
+
+        return word + "ing"
+    else:
+        return word
+
 
 
 def words_concatenation(words):
