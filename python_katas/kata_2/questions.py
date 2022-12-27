@@ -62,8 +62,8 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
     return a
@@ -81,6 +81,27 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+    file = open("names.txt", "r")
+    frequent_name = ""
+    frequency = 0
+    names = []
+
+    for line in file:
+        names.append(line);
+
+    for i in range(0, len(names)):
+        count = 1;
+        for j in range(i + 1, len(names)):
+            if (names[i] == names[j]):
+                count = count + 1;
+        if (count > frequency):
+            frequency = count;
+            frequent_name = names[i];
+
+    print("Most frequent name: " + frequent_name)
+    print("Frequency: " + str(frequency))
+    file.close();
+
     return None
 
 

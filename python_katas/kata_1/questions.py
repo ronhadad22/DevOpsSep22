@@ -5,13 +5,10 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    elements = input("Enter a list of integers with spaces in between:\n")
-    elements = elements.split()
     s = 0
     type(elements)
     for num in elements:
         s = s + int(num)
-    print(f'The sum is {s}')
 
     return s
 
@@ -31,16 +28,12 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    word = input("Enter a word, please:\n")
-    word_ing = word[-3:]
-    if word_ing == 'ing':
-        print(word + 'ly')
+    if word[-3:] == 'ing':
+        return word + 'ly'
     elif len(word) >= 3:
-        print(word + 'ing')
+        return word + 'ing'
     if len(word) <= 2:
-        print(word)
-
-    return None
+        return word
 
 
 def words_concatenation(words):
@@ -55,13 +48,7 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    input_list = input("Enter a list of words separated by comma:\n")
-    list = input_list.split(",")
-    print(f"The list you added is this:", list)
-    x = ' '.join(list)
-    print(f"The concatenated list you added is this:", x)
-
-    return None
+    return ' '.join(words)
 
 
 def reverse_words_concatenation(words):
@@ -76,15 +63,9 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    input_list = input("Enter a list of words seperated by comma:\n")
-    list = input_list.split(",")
-    print(f"The list you added is this:", list)
-    list.reverse()
-    x = ' '.join(list)
-    print(f"The concatenated reversed list you added is this:", x)
 
-    return None
-
+    words.reverse()
+    return ' '.join(words)
 
 def is_unique_string(some_str):
     """
@@ -100,17 +81,8 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    some_str = input("Enter some string:\n")
-    x3 = True
-    for x1 in some_str:
-        if x3 == True:
-            for x2 in some_str:
-                if x1 != x2:
-                    x3 = False
-                    break
-    print({x3})
-
-    return None
+    unique_chars = set(some_str)
+    return len(unique_chars) == len(some_str)
 
 
 def list_diff(elements):
@@ -128,23 +100,17 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    elements = input("Enter list of integers:\n")
-    elements = elements.split()
     diff_list = [None]
     mpty_list = []
     x = 0
-    type(elements)
     for num in elements:
         diff_list.append(int(num) - x)
         x = int(num)
     if elements != []:
         diff_list.pop(1)
-        print(diff_list)
+        return diff_list
     else:
-        print(mpty_list)
-
-    return None
-
+        return mpty_list
 
 def prime_number(num):
     """
@@ -156,22 +122,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    number = input("Enter a whole number:\n")
-    number = int(number)
-    bool_out = False
-    if number > 1:
-        for n in range(2, number):
-            if number % n == 0:
-                bool_out = True
-                break
-
-    if bool_out:
-        print("Not prime")
-    else:
-        print("Prime")
-
-    return None
-
+    if num <= 1 or isinstance(num, float):
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
 
 def palindrome_num(num):
     """
@@ -186,23 +142,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    number = input("Check if a number is a palindrome:\n")
-    number = list(number)
-    bool_out = False
-    l1 = int(len(number))
-    l2 = l1 // 2
-    if l1 % 2 != 0:
-        number.pop(l2)
-    number1 = number[:l2]
-    number2 = number[l2:]
-    number2.reverse()
-    if (number1 == number2):
-        bool_out = True
-        print(bool_out)
+    num_str = str(num)
+    if num_str == num_str[::-1]:
+        return True
     else:
-        print(bool_out)
+        return False
 
-    return None
 
 
 def pair_match(men, women):
@@ -233,7 +178,15 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    min_diff = float('inf')
+    min_pair = (None, None)
+    for man_name, man_age in men.items():
+        for woman_name, woman_age in women.items():
+            age_diff = abs(man_age - woman_age)
+            if age_diff < min_diff:
+                min_diff = age_diff
+                min_pair = (man_name, woman_name)
+    return min_pair
 
 
 def bad_average(a, b, c):
@@ -245,14 +198,8 @@ def bad_average(a, b, c):
 
     :return:
     """
-    input_nums = input("Enter a list of numbers seperated by comma:\n")
-    list = input_nums.split(",")
-    a = int(list.pop(2))
-    b = int(list.pop(1))
-    c = int(list.pop(0))
-    (a + b + c) / 3
 
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -275,7 +222,13 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    best_grade_ever = 0
+    best_student_ever = None
+    for student_name, student_grade in grades.items():
+        if student_grade > best_grade_ever:
+            best_student_ever = student_name
+            best_grade_ever = student_grade
+    return best_student_ever
 
 
 def print_dict_as_table(some_dict):
@@ -304,7 +257,13 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("Key     Value")
+    print("-------------")
+    newString = ""
+    for k, v in some_dict.items():
+        newString = newString + ("{:<10} {:<10}\n".format(k, v))
+    print(newString)
+    return newString
 
 
 def merge_dicts(dict1, dict2):
@@ -324,6 +283,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1.update(dict2)
     return dict1
 
 
@@ -339,7 +299,11 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boom = []
+    for i in range(1, n + 1):
+        if i % 7 == 0 or '7' in str(i):
+            boom.append(i)
+    return boom
 
 
 def caesar_cipher(str_to_encrypt):
@@ -354,7 +318,14 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    cipher_text = ""
+    for ch in str_to_encrypt:
+        if ch.isalpha():
+            shift_ch = chr((ord(ch.lower()) - 97 + 3) % 26 + 97)
+            cipher_text += shift_ch if ch.islower() else shift_ch.upper()
+        else:
+            cipher_text += ch
+    return cipher_text
 
 
 def sum_of_digits(digits_str):
@@ -372,7 +343,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    digits_int=0
+    for i in digits_str:
+        digits_int+=int(i)
+    return digits_int
 
 
 if __name__ == '__main__':
