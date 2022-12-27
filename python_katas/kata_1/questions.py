@@ -105,8 +105,17 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
 
+
+    s= some_str.isidentifier()
+    bool = True
+    if s is bool:
+        print('All characters is differnt in string')
+    else:
+        bool= False
+        print('You have the same characters in the string')
+
+    return bool
 
 def list_diff(elements):
     """
