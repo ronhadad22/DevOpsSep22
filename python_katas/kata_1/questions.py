@@ -33,7 +33,6 @@ def verbing(word):
 
     num = len(word)
 
-
     if num >=3 and word.endswith("ing") == True:
 
         return word + 'ly'
@@ -58,7 +57,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    sentence = ''
+    x =0
+
+    for x in  words:
+       sentence += ' ' + x
+
+
+    return sentence
 
 
 def reverse_words_concatenation(words):
