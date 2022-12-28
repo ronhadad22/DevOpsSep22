@@ -80,7 +80,23 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    name_frequency = {}
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            line = line.strip()
+
+            if line in name_frequency:
+                name_frequency[line] += 1
+            else:
+                name_frequency[line] = 1
+    most_frequent_name = None
+    highest_frequency = 0
+    for name, frequency in name_frequency.items():
+        if frequency > highest_frequency:
+            most_frequent_name = name
+            highest_frequency = frequency
+    return most_frequent_name
 
 
 def files_backup(dir_path):
@@ -100,7 +116,16 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    import os
+    import time
+    import tarfile
+    dir_name = os.path.basename(dir_path)
+    current_date = time.strftime("%Y-%m-%d")
+
+    backup_file_name = f"backup_{dir_name}_{current_date}.tar.gz"
+
+    with tarfile.open(backup_file_name, "w:gz") as tar:
+        tar.add(dir_path, arcname=dir_name)
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -117,7 +142,17 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
-    return None
+    import os
+    if not os.path.exists(file_path):
+        raise ValueError("File does not exist: {}".format(file_path))
+
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    content = content.replace(text, replace_text)
+
+    with open(file_path, 'w') as f:
+        f.write(content)
 
 
 def json_configs_merge(*json_paths):
