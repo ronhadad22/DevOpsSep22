@@ -170,20 +170,20 @@ class TestPalindromeNum(unittest.TestCase):
         self.assertEqual(questions.palindrome_num(num),True)
 
 
-# class TestPairMatch(unittest.TestCase):
-#     """
-#     3 Katas
-#     """
-#
-#     def test_Pair1(self):
-#         men = {'Ben': 34, 'Ronaldo': 37, 'Ancelotti': 62}
-#         women = {'Yasmin': 22, 'Inbar': 18, 'Angelina': 52}
-#         self.assertEqual(questions.pair_match(men, women), ('Ancelotti', 'Angelina'))
-#
-#     def test_Pair2(self):
-#         men = {'Roi': 65, 'Eran': 82, 'Ido': 20}
-#         women = {'Sivan': 70, 'Orly': 18, 'Neta': 65}
-#         self.assertEqual(questions.pair_match(men, women), ('Roi', 'Neta'))
+class TestPairMatch(unittest.TestCase):
+    """
+    3 Katas
+    """
+
+    def test_Pair1(self):
+        men = {'Ben': 34, 'Ronaldo': 37, 'Ancelotti': 62}
+        women = {'Yasmin': 22, 'Inbar': 18, 'Angelina': 52}
+        self.assertEqual(questions.pair_match(men, women), ('Ancelotti', 'Angelina'))
+
+    def test_Pair2(self):
+        men = {'Roi': 65, 'Eran': 82, 'Ido': 20}
+        women = {'Sivan': 70, 'Orly': 18, 'Neta': 65}
+        self.assertEqual(questions.pair_match(men, women), ('Roi', 'Neta'))
 #
 
 class TestBadAverage(unittest.TestCase):
@@ -288,26 +288,26 @@ class TestPrintDictAsTable(unittest.TestCase):
         self.assertEqual(questions.print_dict_as_table(dict1), newString)
 
 
-# class TestMergeDicts(unittest.TestCase):
-#     """
-#     1 Katas
-#     """
-#
-#     def test_merge_dicts(self):
-#         # Test two empty dictionaries
-#         self.assertEqual(questions.merge_dicts({}, {}), {})
-#
-#         # Test a dictionary with keys and values and an empty dictionary
-#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
-#
-#         # Test an empty dictionary and a dictionary with keys and values
-#         self.assertEqual(questions.merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
-#
-#         # Test two dictionaries with the same keys
-#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
-#
-#         # Test two dictionaries with different keys
-#         self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
+class TestMergeDicts(unittest.TestCase):
+    """
+    1 Katas
+    """
+
+    def test_merge_dicts(self):
+        # Test two empty dictionaries
+        self.assertEqual(questions.merge_dicts({}, {}), {})
+
+        # Test a dictionary with keys and values and an empty dictionary
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {}), {"a": 1, "b": 2})
+
+        # Test an empty dictionary and a dictionary with keys and values
+        self.assertEqual(questions.merge_dicts({}, {"a": 1, "b": 2}), {"a": 1, "b": 2})
+
+        # Test two dictionaries with the same keys
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"a": 3, "b": 4}), {"a": 3, "b": 4})
+
+        # Test two dictionaries with different keys
+        self.assertEqual(questions.merge_dicts({"a": 1, "b": 2}, {"c": 3, "d": 4}), {"a": 1, "b": 2, "c": 3, "d": 4})
 #
 
 class TestSevenBoom(unittest.TestCase):

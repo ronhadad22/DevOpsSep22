@@ -179,8 +179,15 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    menList = list(men.keys()) + list(men.values())
-    print(menList)
+    min_age_diff = float('inf')
+    closest_match = None
+    for man in men:
+        for woman in women:
+            age_diff = abs(men[man] - women[woman])
+            if age_diff < min_age_diff:
+                min_age_diff = age_diff
+                closest_match = (man, woman)
+    return closest_match
 
 
 def bad_average(a, b, c):
@@ -270,6 +277,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    for key, value in dict2.items():
+        dict1[key] = value
     return dict1
 
 
