@@ -166,7 +166,12 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    merged_dict = {}
+    for path in json_paths:
+      with open(path, 'r') as f:
+        file_dict = json.load(f)
+        merged_dict.update(file_dict)
+    return merged_dict
 
 
 def monotonic_array(lst):
