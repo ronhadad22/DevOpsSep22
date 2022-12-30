@@ -87,20 +87,20 @@ def most_frequent_name(file_path):
     names = []
 
     for line in file:
-        names.append(line);
+        names.append(line)
 
     for i in range(0, len(names)):
-        count = 1;
+        count = 1
         for j in range(i + 1, len(names)):
             if (names[i] == names[j]):
-                count = count + 1;
+                count = count + 1
         if (count > frequency):
-            frequency = count;
-            frequent_name = names[i];
+            frequency = count
+            frequent_name = names[i]
 
     print("Most frequent name: " + frequent_name)
     print("Frequency: " + str(frequency))
-    file.close();
+    file.close()
 
     return None
 
@@ -122,6 +122,16 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
+    import os
+    import gzip
+
+    def compress_directory(dir_path):
+        with gzip.open(dir_path + '.gz', 'wb') as f:
+            for root, dirs, files in os.walk(dir_path):
+                for file in files:
+                    with open(os.path.join(root, file), 'rb') as file_to_compress:
+                        f.write(file_to_compress.read())
+
     return None
 
 
