@@ -284,6 +284,7 @@ class TestListFlatten(unittest.TestCase):
         lst = [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
         self.assertEqual(questions.TestListFlatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
 
+    def EmptyListFlatten(self):
         lst = []
         self.assertEqual(questions.TestListFlatten(lst), [])
 
@@ -293,24 +294,35 @@ class TestStrCompression(unittest.TestCase):
     """
     2 Katas
     """
-    def TestStrCompression(text):
-        return (text)
-
     def SampleTextTest(self):
         text = 'aaaaabbcaasbbgvccf'
         self.assertEqual(questions.TestStrCompression(text), ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f'])
     def EmptyTextTest(self):
         text = ''
         self.assertEqual(questions.TestStrCompression(text), '')
-
+#Arthur
 class TestStrongPass(unittest.TestCase):
     """
     1 Katas
     """
-
-    def test_sample(self):
-        # your code here
-        pass
+    def NotEnoughChars(self):
+        password = 'Ad5&'
+        self.assertEqual(questions.TestStrongPass(password), False)
+    def NoDigitsAtAll(self):
+        password = 'Ajs!@gr@@#'
+        self.assertEqual(questions.TestStrongPass(password), False)
+    def NoLowerCase(self):
+        password = 'AJK!@VO9@#'
+        self.assertEqual(questions.TestStrongPass(password), False)
+    def NoUpperCase(self):
+        password = 'tja!@jq7@#'
+        self.assertEqual(questions.TestStrongPass(password), False)
+    def NoSpecialChar(self):
+        password = 'ASDrh12647'
+        self.assertEqual(questions.TestStrongPass(password), False)
+    def StrongPassFTW(self):
+        password = 'A@Drh12$47'
+        self.assertEqual(questions.TestStrongPass(password), True)
 
 
 
