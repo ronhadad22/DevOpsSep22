@@ -166,6 +166,7 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
+    import json
     merged_dict = {}
     for path in json_paths:
       with open(path, 'r') as f:
