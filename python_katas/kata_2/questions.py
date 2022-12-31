@@ -74,7 +74,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-'''
+
     file_path = open("names.txt", "r")
     frequent_name = ""
     frequency = 0
@@ -97,9 +97,7 @@ def most_frequent_name(file_path):
             frequency = count;
             frequent_name = words[i];
     file_path.close();
-    return ("Most repeated name: " + frequent_name)
-
-'''
+    return (frequent_name)
 
 
 
@@ -310,7 +308,19 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+
+import re
+regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+def is_valid_email(mail_str):
+
+    if (re.fullmatch(regex, mail_str)):
+        return(True)
+
+    else:
+        return(False)
+
+
 
 
 def pascal_triangle(lines):
@@ -346,7 +356,13 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+
+    n = lines
+
+    for i in range(n):
+
+        print(' ' * (n - i), end='')
+        print(' '.join(map(str, str(11 ** i))))
 
 
 def list_flatten(lst):
@@ -383,7 +399,20 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    index = 0
+    compressed_string = " "
+    string_len = len(text)
+    while index != string_len:
+        count = 1
+        while (index < string_len - 1) and (text[index] == text[index+1]):
+            count = count + 1
+            index = index + 1
+        if count == 1:
+            compressed_string += str(text[index])
+        else:
+            compressed_string += str(text[index]) + str(count)
+        index = index + 1
+    return compressed_string
 
 
 def strong_pass(password):
@@ -399,7 +428,29 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    l, u, p, d = 0, 0, 0, 0
+    capitalalphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    smallalphabets = "abcdefghijklmnopqrstuvwxyz"
+    specialchar = "!@#$%^&*()-+"
+    digits = "0123456789"
+    if (len(password) >= 6):
+        for i in password:
+
+            if (i in smallalphabets):
+                l += 1
+
+            if (i in capitalalphabets):
+                u += 1
+
+            if (i in digits):
+                d += 1
+
+            if (i in specialchar):
+                p += 1
+    if (l >= 1 and u >= 1 and p >= 1 and d >= 1 and l + p + u + d == len(password)):
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
@@ -455,6 +506,7 @@ if __name__ == '__main__':
 
     print('\nstr_compression:\n--------------------')
     print(str_compression('aaaabdddddhgf'))
+
 
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
