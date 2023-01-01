@@ -108,8 +108,17 @@ class TestReplaceInFile(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+        number = 6
+        self.assertEqual(questions.fibonacci_fixme(number), 8)
+
+        number = 5
+        self.assertEqual(questions.fibonacci_fixme(number), 5)
+
+        number = 0
+        self.assertEqual(questions.fibonacci_fixme(number), 0)
+
+        number = 7
+        self.assertEqual(questions.fibonacci_fixme(number), 13)
 
 
 class TestJsonConfigsMerge(unittest.TestCase):
@@ -117,25 +126,47 @@ class TestJsonConfigsMerge(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def NoSpecialChar(self):
+        password = 'ASDrh12647'
+        self.assertEqual(questions.strong_pass(password), False)
+
+    def StrongPassFTW(self):
+        password = 'A@Drh12$47'
+        self.assertEqual(questions.strong_pass(password), True)
 
 
 class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
     """
+    def NotEnoughChars(self):
+        password = 'Ad5&'
+        self.assertEqual(questions.strong_pass(password), False)
 
-    def test_sample(self):
-        # your code here
-        pass
+    def NoDigitsAtAll(self):
+        password = 'Ajs!@gr@@#'
+        self.assertEqual(questions.strong_pass(password), False)
+
+    def NoLowerCase(self):
+        password = 'AJK!@VO9@#'
+        self.assertEqual(questions.strong_pass(password), False)
+
+    def NoUpperCase(self):
+        password = 'tja!@jq7@#'
+        self.assertEqual(questions.strong_pass(password), False)
+
+    def EmptyListFlatten(self):
+        lst = []
+        self.assertEqual(questions.list_flatten(lst), [])
 
 
 class TestMatrixAvg(unittest.TestCase):
     """
     2 Katas
     """
+    def TestListFlatten(self):
+        lst = [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
+        self.assertEqual(questions.list_flatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
 
     def test_sample(self):
         # your code here
@@ -282,11 +313,11 @@ class TestListFlatten(unittest.TestCase):
     """
     def TestListFlatten(self):
         lst = [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
-        self.assertEqual(questions.TestListFlatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
+        self.assertEqual(questions.list_flatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
 
     def EmptyListFlatten(self):
         lst = []
-        self.assertEqual(questions.TestListFlatten(lst), [])
+        self.assertEqual(questions.list_flatten(lst), [])
 
 
 #Arthur
@@ -296,10 +327,10 @@ class TestStrCompression(unittest.TestCase):
     """
     def SampleTextTest(self):
         text = 'aaaaabbcaasbbgvccf'
-        self.assertEqual(questions.TestStrCompression(text), ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f'])
+        self.assertEqual(questions.str_compression(text), ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f'])
     def EmptyTextTest(self):
         text = ''
-        self.assertEqual(questions.TestStrCompression(text), '')
+        self.assertEqual(questions.str_compression(text), '')
 #Arthur
 class TestStrongPass(unittest.TestCase):
     """
@@ -307,22 +338,22 @@ class TestStrongPass(unittest.TestCase):
     """
     def NotEnoughChars(self):
         password = 'Ad5&'
-        self.assertEqual(questions.TestStrongPass(password), False)
+        self.assertEqual(questions.strong_pass(password), False)
     def NoDigitsAtAll(self):
         password = 'Ajs!@gr@@#'
-        self.assertEqual(questions.TestStrongPass(password), False)
+        self.assertEqual(questions.strong_pass(password), False)
     def NoLowerCase(self):
         password = 'AJK!@VO9@#'
-        self.assertEqual(questions.TestStrongPass(password), False)
+        self.assertEqual(questions.strong_pass(password), False)
     def NoUpperCase(self):
         password = 'tja!@jq7@#'
-        self.assertEqual(questions.TestStrongPass(password), False)
+        self.assertEqual(questions.strong_pass(password), False)
     def NoSpecialChar(self):
         password = 'ASDrh12647'
-        self.assertEqual(questions.TestStrongPass(password), False)
+        self.assertEqual(questions.strong_pass(password), False)
     def StrongPassFTW(self):
         password = 'A@Drh12$47'
-        self.assertEqual(questions.TestStrongPass(password), True)
+        self.assertEqual(questions.strong_pass(password), True)
 
 
 
