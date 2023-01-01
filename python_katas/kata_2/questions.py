@@ -181,7 +181,18 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    sum = 0
+    if rows == None:
+       num_of_elem = 9;
+       rows = [0, 1, 2]
+    else:
+       num_of_elem = len(rows) * 3
+
+    for row in rows:
+        for column in range(3):
+            sum += mat[row][column]
+    return sum / num_of_elem
+
 
 
 def merge_sorted_lists(l1, l2):
@@ -303,7 +314,7 @@ def rotate_matrix(mat):
 
 
 
-#def is_valid_email(mail_str):
+def is_valid_email(mail_str):
     """
     3 Kata
 
@@ -496,6 +507,7 @@ if __name__ == '__main__':
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
 
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
