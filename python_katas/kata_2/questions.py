@@ -61,7 +61,7 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
+    for i in range(0, n):
         tmp = a + b
         a = b
         b = tmp
@@ -97,12 +97,8 @@ def most_frequent_name(file_path):
         if (count > frequency):
             frequency = count
             frequent_name = names[i]
-
-    print("Most frequent name: " + frequent_name)
-    print("Frequency: " + str(frequency))
     file.close()
-
-    return None
+    return frequent_name
 
 
 def files_backup(dir_path):
@@ -124,15 +120,17 @@ def files_backup(dir_path):
     """
     import os
     import gzip
+    import datetime
 
-    def compress_directory(dir_path):
-        with gzip.open(dir_path + '.gz', 'wb') as f:
+    now = datetime.datetime.now()
+    dir_name = os.path.basename(os.getcwd())
+    file_name = "backup_{}_{}.tar".format(dir_name, now.strftime("%Y-%m-%d"))
+    with gzip.GzipFile(file_name, 'w') as f:
             for root, dirs, files in os.walk(dir_path):
                 for file in files:
                     with open(os.path.join(root, file), 'rb') as file_to_compress:
                         f.write(file_to_compress.read())
-
-    return None
+    return f
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -342,8 +340,10 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    import itertools
 
+    flattened_lst = list(itertools.chain(*lst))
+    return flattened_lst
 
 def str_compression(text):
     """
@@ -378,7 +378,11 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+
+    if len(password) >= 6 and any(char.isupper() for char in password) and any(char.islower() for char in password) and any(char.isdigit() for char in password) and any(not char.isalnum() for char in password):
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
