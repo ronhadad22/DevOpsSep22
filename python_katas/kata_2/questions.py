@@ -74,7 +74,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-
+'''
     file_path = open("names.txt", "r")
     frequent_name = ""
     frequency = 0
@@ -98,7 +98,7 @@ def most_frequent_name(file_path):
             frequent_name = words[i];
     file_path.close();
     return (frequent_name)
-
+'''
 
 
 def files_backup(dir_path):
@@ -289,10 +289,21 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    rotate_mat = []
+    rot_row = []
+    num_rows = len(mat)
+    num_col = len(mat[1])
+    for i in range(num_col):
+        for j in range(num_rows):
+            rot_row.append(mat[j][i])
+        rot_row.reverse()
+        rotate_mat.append(rot_row)
+        rot_row = []
+    return rotate_mat
 
 
-def is_valid_email(mail_str):
+
+#def is_valid_email(mail_str):
     """
     3 Kata
 
@@ -310,7 +321,7 @@ def is_valid_email(mail_str):
     """
 
 import re
-regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+regex = r'\b[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
 def is_valid_email(mail_str):
 
@@ -319,7 +330,6 @@ def is_valid_email(mail_str):
 
     else:
         return(False)
-
 
 
 
@@ -379,7 +389,14 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flat_list = []
+    for element in lst:
+        if type(element) is list:
+            for item in element:
+                flat_list.append(item)
+        else:
+            flat_list.append(element)
+    return flat_list
 
 
 def str_compression(text):
@@ -503,6 +520,7 @@ if __name__ == '__main__':
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
+
 
     print('\nstr_compression:\n--------------------')
     print(str_compression('aaaabdddddhgf'))
