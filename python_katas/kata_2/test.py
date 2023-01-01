@@ -1,6 +1,6 @@
 import unittest
-from DevOpsSep22.python_katas.kata_2 import questions
-from DevOpsSep22.python_katas.utils import unittest_runner
+from python_katas.kata_2 import questions
+from python_katas.utils import unittest_runner
 
 testers = ['dariakalugny',
  'gilberger1234',
@@ -40,13 +40,13 @@ class TestFibonacciFixme(unittest.TestCase):
             self.assertEqual(questions.fibonacci_fixme(number), 8)
 
             number = 5
-            self.assertEqual(questions.fibonacci_fixme(number), 8)
+            self.assertEqual(questions.fibonacci_fixme(number), 5)
 
             number = 0
             self.assertEqual(questions.fibonacci_fixme(number), 0)
 
             number = 7
-            self.assertEqual(questions.fibonacci_fixme(number), 8)
+            self.assertEqual(questions.fibonacci_fixme(number), 13)
 #Gil
 class TestMostFrequentName(unittest.TestCase):
 
@@ -108,17 +108,8 @@ class TestReplaceInFile(unittest.TestCase):
     """
 
     def test_sample(self):
-        number = 6
-        self.assertEqual(questions.fibonacci_fixme(number), 8)
-
-        number = 5
-        self.assertEqual(questions.fibonacci_fixme(number), 5)
-
-        number = 0
-        self.assertEqual(questions.fibonacci_fixme(number), 0)
-
-        number = 7
-        self.assertEqual(questions.fibonacci_fixme(number), 13)
+        # your code here
+        pass
 
 
 class TestJsonConfigsMerge(unittest.TestCase):
@@ -126,47 +117,25 @@ class TestJsonConfigsMerge(unittest.TestCase):
     2 Katas
     """
 
-    def NoSpecialChar(self):
-        password = 'ASDrh12647'
-        self.assertEqual(questions.strong_pass(password), False)
-
-    def StrongPassFTW(self):
-        password = 'A@Drh12$47'
-        self.assertEqual(questions.strong_pass(password), True)
+    def test_sample(self):
+        # your code here
+        pass
 
 
 class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
     """
-    def NotEnoughChars(self):
-        password = 'Ad5&'
-        self.assertEqual(questions.strong_pass(password), False)
 
-    def NoDigitsAtAll(self):
-        password = 'Ajs!@gr@@#'
-        self.assertEqual(questions.strong_pass(password), False)
-
-    def NoLowerCase(self):
-        password = 'AJK!@VO9@#'
-        self.assertEqual(questions.strong_pass(password), False)
-
-    def NoUpperCase(self):
-        password = 'tja!@jq7@#'
-        self.assertEqual(questions.strong_pass(password), False)
-
-    def EmptyListFlatten(self):
-        lst = []
-        self.assertEqual(questions.list_flatten(lst), [])
+    def test_sample(self):
+        # your code here
+        pass
 
 
 class TestMatrixAvg(unittest.TestCase):
     """
     2 Katas
     """
-    def TestListFlatten(self):
-        lst = [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
-        self.assertEqual(questions.list_flatten(lst), [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3])
 
     def test_sample(self):
         # your code here
@@ -248,13 +217,13 @@ class TestRotateMatrix(unittest.TestCase):
         """
         def TestRotateMatrix(self):
             mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-            self.assertEqual(questions.TestRotateMatrix(mat), [[10, 7, 4, 1], [11, 8, 5, 2], [12, 9, 6, 3]])
+            self.assertEqual(questions.rotate_matrix(mat), [[10, 7, 4, 1], [11, 8, 5, 2], [12, 9, 6, 3]])
 
             mat = []
-            self.assertEqual(questions.TestRotateMatrix(mat), [])
+            self.assertEqual(questions.rotate_matrix(mat), [])
 
             mat = [[1, 8, 9], [20, 60, 5], [2, 39, 5], [19, 100, 12]]
-            self.assertEqual(questions.TestRotateMatrix(mat), [[19, 2, 20, 1], [100, 39, 60, 8], [12, 5, 5, 9]])
+            self.assertEqual(questions.rotate_matrix(mat), [[19, 2, 20, 1], [100, 39, 60, 8], [12, 5, 5, 9]])
 
 #Dani
 class TestIsValidEmail(unittest.TestCase):
