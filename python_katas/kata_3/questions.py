@@ -9,8 +9,8 @@ def knapsack(items, knapsack_limit=50):
     5 Kata
 
     Consider a thief gets into a home to rob and he carries a knapsack.
-    There are fixed number of items in the home — each with its own weight and value —
-    Jewelry, with less weight and highest value vs tables, with less value but a lot heavy.
+    There are a fixed number of items in the home — each with its own weight and value —
+    Jewelry, with less weight and highest value vs tables, with less value but a lot of weight.
     To add fuel to the fire, the thief has an old knapsack which has limited capacity.
     Obviously, he can’t split the table into half or jewelry into 3/4ths. He either takes it or leaves it
 
@@ -21,7 +21,21 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    return None
+    table = [[0 for _ in range(knapsack_limit + 1)] for _ in range(len(items) + 1)]
+    for i in range(1, len(items) + 1):
+        item, weight, value = items[i - 1]
+        for w in range(knapsack_limit + 1):
+            if weight > w:
+                table[i][w] = table[i - 1][w]
+            else:
+                table[i][w] = max(table[i - 1][w], table[i - 1][w - weight] + value)
+    w = knapsack_limit
+    included = []
+    for i in range(len(items), 0, -1):
+        if table[i][w] != table[i - 1][w]:
+            included.append(items[i - 1])
+            w -= items[i - 1][1]
+    return table[len(items)][knapsack_limit], included
 
 
 def time_me(func):

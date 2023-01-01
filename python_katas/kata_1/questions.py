@@ -307,7 +307,7 @@ def seven_boom(n):
     return result
 
 
-def caesar_cipher(str_to_encrypt, shift):
+def caesar_cipher(str_to_encrypt):
     """
     2 Kata
 
@@ -326,9 +326,9 @@ def caesar_cipher(str_to_encrypt, shift):
         else:
             ascii_code = ord(ch)
             if ch.isupper():
-                ascii_code = (ascii_code - 65 + shift) % 26 + 65
+                ascii_code = (ascii_code - 65 + 3) % 26 + 65
             else:
-                ascii_code = (ascii_code - 97 + shift) % 26 + 97
+                ascii_code = (ascii_code - 97 + 3) % 26 + 97
             encrypted_str += chr(ascii_code)
     return encrypted_str
 

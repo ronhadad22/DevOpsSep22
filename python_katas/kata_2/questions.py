@@ -39,6 +39,8 @@ def valid_parentheses(s):
             s = s.replace('[]', '')
         else:
             return not s
+        if not s:
+            return True
 
 
 def fibonacci_fixme(n):
@@ -59,11 +61,11 @@ def fibonacci_fixme(n):
     But it doesn't (it has some bad lines in it...)
     You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
     """
-    a = 0
+    a = 1
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(2, n):
         tmp = a + b
+        a = b
         b = tmp
 
     return a
@@ -81,7 +83,28 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+
+    with open(file_path, 'r') as f:
+        # Read all the lines from the file
+        names = f.readlines()
+
+    # Create a dictionary to count the frequency of each name
+    name_count = {}
+    for name in names:
+        if name in name_count:
+            name_count[name] += 1
+        else:
+            name_count[name] = 1
+
+    # Find the name with the highest frequency
+    most_frequent = None
+    max_count = 0
+    for name, count in name_count.items():
+        if count > max_count:
+            most_frequent = name
+            max_count = count
+
+    return most_frequent
 
 
 def files_backup(dir_path):
@@ -101,7 +124,17 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    import os
+    import tarfile
+    import gzip
+    from datetime import datetime
+    dir_name = os.path.basename(dir_path)
+    date_str = datetime.now().strftime('%Y-%m-%d')
+    backup_file_name = f'backup_{dir_name}_{date_str}.tar.gz'
+    tar = tarfile.open(backup_file_name, 'w:gz')
+    tar.add(dir_path, arcname=dir_name)
+    tar.close()
+    return backup_file_name
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -118,6 +151,17 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+    import os
+    if not os.path.exists(file_path):
+        raise ValueError(f"{file_path} does not exist")
+
+    with open(file_path, "r") as f:
+        content = f.read()
+
+    content = content.replace(text, replace_text)
+
+    with open(file_path, "w") as f:
+        f.write(content)
     return None
 
 
@@ -132,7 +176,15 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    import json
+    merged_config = {}
+
+    for path in json_paths:
+        with open(path, "r") as f:
+            config = json.load(f)
+            merged_config.update(config)
+
+    return merged_config
 
 
 def monotonic_array(lst):
@@ -144,7 +196,19 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    if len(lst) <= 1:
+        return True
+    elif lst[0] < lst[1]:
+        # check for monotonically increasing array
+        for i in range(1, len(lst)):
+            if lst[i] < lst[i - 1]:
+                return False
+    else:
+        # check for monotonically decreasing array
+        for i in range(1, len(lst)):
+            if lst[i] > lst[i - 1]:
+                return False
+    return True
 
 
 def matrix_avg(mat, rows=None):
@@ -158,7 +222,17 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    if rows is None:
+        rows = [0, 1, 2]
+
+    total = 0
+    count = 0
+    for i in rows:
+        for j in range(3):
+            total += mat[i][j]
+            count += 1
+
+    return total / count
 
 
 def merge_sorted_lists(l1, l2):
@@ -174,7 +248,19 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    result = []
+    i = 0
+    j = 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] < l2[j]:
+            result.append(l1[i])
+            i += 1
+        else:
+            result.append(l2[j])
+            j += 1
+    result.extend(l1[i:])
+    result.extend(l2[j:])
+    return result
 
 
 def longest_common_substring(str1, str2):
@@ -213,7 +299,11 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    min_len = min(len(str1), len(str2))
+    for i in range(min_len):
+        if str1[i] != str2[i]:
+            return str1[:i]
+    return str1[:min_len]
 
 
 def rotate_matrix(mat):
@@ -311,7 +401,13 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flattened_list = []
+    for item in lst:
+        if isinstance(item, list):
+            flattened_list.extend(list_flatten(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
 
 
 def str_compression(text):
