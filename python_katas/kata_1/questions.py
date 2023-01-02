@@ -106,7 +106,6 @@ def is_unique_string(some_str):
     :return: bool
     """
 
-
     s= some_str.isidentifier()
     bool = True
     if s is bool:
@@ -131,9 +130,16 @@ def list_diff(elements):
 
     :param elements: list of integers
     :return: the diff list
-    """
-    return None
 
+    """
+
+    print(elements)
+    difflist = [None]
+    for i in range(1, len(elements)):
+
+          difflist.append(elements[i] - elements[i - 1])
+
+    return difflist
 
 def prime_number(num):
     """
@@ -161,7 +167,21 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+
+    #num = int(input("Enter a number:"))
+    temp = num
+    rev = 0
+    while (num > 0):
+        dig = num % 10
+        rev = rev * 10 + dig
+        num = num // 10
+    if (temp == rev):
+        return True
+    else:
+        return False
+
+
+
 
 
 def pair_match(men, women):
@@ -204,7 +224,9 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+
+    s= a+b+c
+    return s/3
 
 
 def best_student(grades):
@@ -227,8 +249,15 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    '''
+    g= 0
+    for x in len(grades):
+        if g < grades[x]:
+            g= grades[x]
 
+
+    return g
+'''
 
 def print_dict_as_table(some_dict):
     """
