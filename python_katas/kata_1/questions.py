@@ -249,15 +249,15 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    '''
+
     g= 0
-    for x in len(grades):
+    for x in grades:
         if g < grades[x]:
             g= grades[x]
 
 
     return g
-'''
+
 
 def print_dict_as_table(some_dict):
     """
@@ -285,7 +285,9 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    for x,y in some_dict.items():
+        print(x,y)
+    return
 
 
 def merge_dicts(dict1, dict2):
