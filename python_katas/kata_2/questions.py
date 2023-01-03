@@ -13,6 +13,7 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = ']}'          -> False
     """
+    """
     stack = []
     for char in s:
         if char in '([{':
@@ -39,7 +40,7 @@ def valid_parentheses(s):
             s = s.replace('[]', '')
         else:
             return not s
-
+"""
 
 def fibonacci_fixme(n):
     """
@@ -81,24 +82,17 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    file = open("names.txt", "r")
-    frequent_name = ""
-    frequency = 0
-    names = []
-
-    for line in file:
-        names.append(line)
-
-    for i in range(0, len(names)):
-        count = 1
-        for j in range(i + 1, len(names)):
-            if (names[i] == names[j]):
-                count = count + 1
-        if (count > frequency):
-            frequency = count
-            frequent_name = names[i]
-    file.close()
-    return frequent_name
+    d = {    }
+    most_frequent = None
+    with open(file_path,'r') as file:
+        for name in file:
+            if name in d:
+                d[name] += 1
+            else:
+                d[name] = 1
+            if most_frequent is None or d[name] > d[most_frequent]:
+                most_frequent = name
+    return most_frequent
 
 
 def files_backup(dir_path):
@@ -124,13 +118,13 @@ def files_backup(dir_path):
 
     now = datetime.datetime.now()
     dir_name = os.path.basename(os.getcwd())
-    file_name = "backup_{}_{}.tar".format(dir_name, now.strftime("%Y-%m-%d"))
+    file_name = "backup_{}_{}.tar.gz".format(dir_name, now.strftime("%Y-%m-%d"))
     with gzip.GzipFile(file_name, 'w') as f:
             for root, dirs, files in os.walk(dir_path):
                 for file in files:
                     with open(os.path.join(root, file), 'rb') as file_to_compress:
                         f.write(file_to_compress.read())
-    return f
+    return f.name
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -173,7 +167,15 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    increasing = True
+    decreasing = True
+
+    for i in range(len(lst) - 1):
+        if lst[i] > lst[i + 1]:
+            increasing = False
+        if lst[i] < lst[i + 1]:
+            decreasing = False
+    return increasing or decreasing
 
 
 def matrix_avg(mat, rows=None):
@@ -203,7 +205,15 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    l1.extend(l2)
+    sorted = False
+    while not sorted:
+        sorted = True
+        for i in range(len(l1) - 1):
+            if l1[i] > l1[i + 1]:
+                l1[i], l1[i + 1] = l1[i + 1], l1[i]
+                sorted = False
+    return l1
 
 
 def longest_common_substring(str1, str2):
@@ -340,10 +350,13 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    import itertools
-
-    flattened_lst = list(itertools.chain(*lst))
-    return flattened_lst
+    flattened_list = []
+    for item in lst:
+        if isinstance(item, list):
+            flattened_list.extend(list_flatten(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
 
 def str_compression(text):
     """
@@ -362,7 +375,24 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    compressed_text = []
+    current_char = text[0]
+    count = 1
+    for i in range(1, len(text)):
+            if text[i] == current_char:
+                count += 1
+            else:
+                compressed_text.append(current_char + str(count))
+                current_char = text[i]
+                count = 1
+    count = 1
+    for i in range(len(text) - 2, -1, -1):
+            if text[i] == current_char:
+                count += 1
+            else:
+                compressed_text.append(current_char + str(count))
+                break
+    return compressed_text
 
 
 def strong_pass(password):
