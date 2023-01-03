@@ -2,6 +2,17 @@ import unittest
 from python_katas.kata_3 import questions
 from python_katas.utils import unittest_runner
 
+testers = ['Albarda',
+ 'shulamitkuper',
+ 'shayabudi',
+ 'avibendersky',
+ 'shohamazulay2123',
+ 'Arkadi Kovarsky',
+ 'avi yaaqov',
+ 'coralAlexander',
+ 'ayam999',
+ 'ChessShark']
+
 
 class TestKnapsack(unittest.TestCase):
     """
