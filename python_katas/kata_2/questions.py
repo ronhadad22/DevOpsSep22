@@ -160,25 +160,6 @@ def longest_common_substring(str1, str2):
     # return the longest common substring
     return str1[ending_index - max_len + 1:ending_index + 1]
 
-'''
-def longest_common_prefix(str1, str2):
-    """
-    1 Kata
-
-    This functions gets two strings and returns their longest common prefix
-
-    e.g. for
-    str1 = 'The Linux kernel is an amazing software'
-    str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
-
-    The returned value would be 'The Linux kernel is a'
-
-    :param str1: str
-    :param str2: str
-    :return: str - the longest common prefix
-    """
-    return None
-'''
 
 def rotate_matrix(mat):
 

@@ -7,6 +7,7 @@ def sum_of_element(elements):
 
     return s
 
+
 def verbing(word):
 
     length = len(word)
@@ -24,7 +25,7 @@ def words_concatenation(words):
 
     concatenation = ' '
     for i in words:
-        concatenation = concatenation + ' '+i
+        concatenation = concatenation + ' ' +i
     return concatenation
 
 
@@ -58,9 +59,8 @@ def list_diff(elements):
 
 def prime_number(num):
 
-
     for i in range(2, num):
-        if (num  % i) == 0:
+        if (num % i) == 0:
             return False
         return True
 
@@ -77,42 +77,11 @@ def palindrome_num(num):
         return True
     return False
 
-'''
-def pair_match(men, women):
-    """
-    3 Kata
-
-    This function gets two dictionaries of the type:
-    {
-        "<name>": <age>
-    }
-
-    Where <name> is a string name, and <age> is an integer representing the age
-    The function returns a pair of names (tuple), of from men dict, the other from women dict,
-    where their absolute age differences is the minimal
-
-    e.g.
-    men = {"John": 20, "Abraham": 45}
-    women = {"July": 18, "Kim": 26}
-
-    The returned value should be a tuple ("John", "July") since:
-
-    abs(John - Kim) = abs(20 - 26) = abs(-6) = 6
-    abs(John - July) = abs(20 - 18) = abs(2) = 2
-    abs(Abraham - Kim) = abs(45 - 26) = abs(19) = 19
-    abs(Abraham - July) = abs(45 - 18) = abs(27) = 27
-
-    :param men: dict mapping name -> age
-    :param women: dict mapping name -> age
-    :return: tuple (men_name, women_name) such their age absolute difference is the minimal
-    """
-
-    return None
-'''
 
 def bad_average(a, b, c):
 
     return (a + b + c) / 3
+
 
 def best_student(grades):
 
@@ -127,10 +96,12 @@ def print_dict_as_table(some_dict):
         final += (("{:<10} {:<10}".format(key, value)) + "\n")
     return final
 
+
 def merge_dicts(dict1, dict2):
 
     dict1.update(dict2)
     return dict1
+
 
 def seven_boom(n):
 
@@ -140,21 +111,6 @@ def seven_boom(n):
             SevenBoomList.append(j)
     return SevenBoomList
 
-'''
-def caesar_cipher(str_to_encrypt):
-    """
-    2 Kata
-
-    This function encrypts the given string according to caesar cipher (a - d, b - e, ..., y - b, z - c etc...).
-    Spaces remain as they are. You can assume the string contain a-z and A-Z chars only.
-
-    e.g.
-    Fly Me To The Moon -> Iob Ph Wr Wkh Prrq
-
-    :return:
-    """
-    return None
-'''
 
 def sum_of_digits(digits_str):
 
@@ -224,20 +180,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
-'''
-    print('\npair_match:\n--------------------')
-    print(pair_match(
-        {
-            "John": 20,
-            "Abraham": 45
-        },
-        {
-            "July": 18,
-            "Kim": 26
-        }
-    ))
-    
-    print('\ncaesar_cipher:\n--------------------')
-    print(caesar_cipher('Fly Me To The Moon'))
-'''
