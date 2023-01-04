@@ -122,24 +122,38 @@ class TestJsonConfigsMerge(unittest.TestCase):
         pass
 
 
+#vitaly
 class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_empty_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([ ])), True)
+
+    def test_zero_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([0])), True)
+
+    def test_negative_num_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([[-1, -3, -5]])), True)
+
+    def self.test_negative_and_positive_monotonic_array(self):
+            self.assertEqual(questions.monotonic_array([[[-10, -5, 11, 1000]]])), True)
 
 
+#vitaly
 class TestMatrixAvg(unittest.TestCase):
     """
     2 Katas
     """
+    def test_negativenum_matrix_avg(mat, rows=None):
+        self.assertEqual(questions.matrix_avg([[1, 2, 3], [4, -5, 6], [7, 8, 9]]), [3.888888888888889])
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_empty_matrix_avg(mat, rows=None):
+            self.assertEqual(questions.matrix_avg([[], [], []]), [])
+
+    def test_allzeros_matrix_avg(mat, rows=None):
+        self.assertEqual(questions.matrix_avg([[0, 0, 0], [0, 0, 0], [0, 0, 0]]), [0])
 
 #Vitaly
 class TestMergeSortedLists(unittest.TestCase):
