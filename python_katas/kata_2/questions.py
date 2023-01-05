@@ -81,7 +81,25 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+
+    file1 = open(file_path, 'r')
+    Lines = file1.readlines()
+    names = {}
+    max_count = 0
+    name_of_max = ""
+    for line in Lines:
+        # count += 1
+        # print("Line{}: {}".format(count, line.strip()))
+        if line in names:
+            names[line] += 1
+        else:
+            names[line] = 1
+    for key, val in names.items():
+        if val > max_count:
+            max_count = val
+            name_of_max = key
+    print(f"most frequent name: {name_of_max}")
+    return max_count
 
 
 def files_backup(dir_path):
@@ -101,7 +119,21 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+
+    now = datetime.now()
+    year = now.strftime("%Y")
+    print("year:", year)
+
+    month = now.strftime("%m")
+    print("month:", month)
+
+    day = now.strftime("%d")
+    print("day:", day)
+
+    path = pathlib.PurePath(dir_path)
+    cmd = f"cd {dir_path} ; tar -czvf backup_{path.name}_{year}-{month}-{day}.tar.gz *"
+    os.system(cmd)
+    return cmd
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -118,6 +150,19 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+
+    path = pathlib.Path(file_path)
+    if not path.is_file():
+        print("file not found")
+        return
+    else:
+        fin = open(file_path, "rt")
+        data = fin.read()
+        data = data.replace(text, replace_text)
+        fin.close()
+        fin = open(file_path, "wt")
+        fin.write(data)
+        fin.close()
     return None
 
 
@@ -132,7 +177,14 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+
+    combine_json = {}
+    for my_json_file in json_paths:
+        with open(my_json_file) as json_file:
+            data = json.load(json_file)
+            for k, v in data.items():  # use d.iteritems() in python 2
+                combine_json[k] = v
+    return combine_json
 
 
 def monotonic_array(lst):
@@ -144,7 +196,16 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+
+    if all(x >= y for x, y in zip(lst, lst[1:])):
+        non_inc = True
+    else:
+        non_inc = False
+    if all(x <= y for x, y in zip(lst, lst[1:])):
+        non_dec = True
+    else:
+        non_dec = False
+    return non_inc or non_dec
 
 
 def matrix_avg(mat, rows=None):
@@ -158,7 +219,17 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+
+    if rows == None:
+        num_of_elem = 9;
+        rows = [0, 1, 2]
+    else:
+        num_of_elem = len(rows) * 3
+    sum = 0
+    for raw in rows:
+        for col in range(3):
+            sum += mat[raw][col]
+    return sum / num_of_elem
 
 
 def merge_sorted_lists(l1, l2):
@@ -174,7 +245,22 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+
+    c = []
+    while l1 and l2:
+        if l1[0] <= l2[0]:
+            c.append(l1[0])
+            l1.pop(0)
+        else:
+            c.append(l2[0])
+            l2.pop(0)
+    while l1:
+        c.append(l1[0])
+        l1.pop(0)
+    while l2:
+        c.append(l2[0])
+        l2.pop(0)
+    return c
 
 
 def longest_common_substring(str1, str2):
@@ -194,7 +280,17 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+
+    longestString = ""
+    maxLength = 0
+    for i in range(0, len(str1)):
+        if str1[i] in str2:
+            for j in range(i + 1, len(str1)):
+                if str1[i:j] in str2:
+                    if (len(str1[i:j]) > maxLength):
+                        maxLength = len(str1[i:j])
+                        longestString = str1[i:j]
+    return longestString
 
 
 def longest_common_prefix(str1, str2):
@@ -213,7 +309,18 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+
+    len1, len2 = len(str1), len(str2)
+
+    if len1 > len2:
+        str1, str2 = str2, str1
+        len1, len2 = len2, len1
+    longest_prefix = ""
+    for i in range(len1):
+        if str1[i] == str2[i]:
+            longest_prefix += str1[i]
+        else:
+            return longest_prefix
 
 
 def rotate_matrix(mat):
@@ -239,7 +346,18 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+
+    rotate_mat = []
+    rot_raw = []
+    num_rows = len(mat)
+    num_col = len(mat[1])
+    for i in range(num_col):
+        for j in range(num_rows):
+            rot_raw.append(mat[j][i])
+        rot_raw.reverse()
+        rotate_mat.append(rot_raw)
+        rot_raw = []
+    return rotate_mat
 
 
 def is_valid_email(mail_str):
@@ -258,7 +376,18 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+
+    result = re.search("(^[a-zA-Z0-9]+[a-zA-Z_0-9.]*)@([a-zA-Z]+.{1}[a-z]+)", mail_str)
+    if result == None:
+        return False
+    username = result.group(1)
+    domainname = result.group(2)
+    try:
+        ipAddress = socket.gethostbyname(domainname)
+        print(f"domain IP: {ipAddress}")
+        return True
+    except gaierror:
+        return False
 
 
 def pascal_triangle(lines):
@@ -294,7 +423,31 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+
+    line1 = [1]
+    line2 = [1, 1]
+    if lines == 1:
+        print(*line1)
+        return
+    elif lines == 2:
+        print(*line1)
+        print(*line2)
+        return
+    print(*line1)
+    print(*line2)
+    prev_line = line2
+    cur_line = []
+    for i in range(2, lines, 1):
+        for j in range(len(prev_line) + 1):
+            if j == 0:
+                cur_line.append(1)
+            elif j == len(prev_line):
+                cur_line.append(1)
+            else:
+                cur_line.append(prev_line[j - 1] + prev_line[j])
+        prev_line = cur_line
+        print(*cur_line)
+        cur_line = []
 
 
 def list_flatten(lst):
@@ -311,7 +464,18 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+
+    ret_list = []
+    str_lst = str(lst)
+    tmp_str = ""
+    for i in str_lst:
+        if i != ' ' and i != '[' and i != ']' and i != ',':
+            tmp_str += i
+        else:
+            if tmp_str != "":
+                ret_list.append(int(tmp_str))
+                tmp_str = ""
+    return ret_list
 
 
 def str_compression(text):
@@ -331,7 +495,29 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+
+    ret_list = []
+    if text == "":
+        return ret_list
+    count = 0
+    prev_char = ""
+    for i in text:
+        if i == prev_char and count != 0:
+            count += 1
+            prev_char = i
+        elif count == 0:
+            count = 1
+            prev_char = i
+        elif i != prev_char:
+            ret_list.append(prev_char)
+            if count != 1:
+                ret_list.append(count)
+            count = 1
+            prev_char = i
+    ret_list.append(prev_char)
+    if count != 1:
+        ret_list.append(count)
+    return ret_list
 
 
 def strong_pass(password):
@@ -347,7 +533,22 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+
+    if len(password) < 6:
+        return False
+    result = re.search("[0-9]+", password)
+    if result == None:
+        return False
+    result = re.search("[a-z]+", password)
+    if result == None:
+        return False
+    result = re.search("[A-Z]+", password)
+    if result == None:
+        return False
+    result = re.search("[!@#$%^&*()-+]+", password)
+    if result == None:
+        return False
+    return True
 
 
 if __name__ == '__main__':
