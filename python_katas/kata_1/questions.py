@@ -1,366 +1,404 @@
-def sum_of_element(elements):
-    """
-    1 Kata
-
-    :param elements: list of integers
-    :return: Return int - the sum of all elements.
-    """
-    s = 0
-    for num in elements:
-        s = s + num
-
-    return s
-
-
-def verbing(word):
-    """
-    1 Kata
-
-    Given a string 'word', if its length is at least 3, add 'ing' to its end.
-    Unless it already ends in 'ing', in which case add 'ly' instead.
-    If the string length is less than 3, leave it unchanged.
-
-    e.g.
-    teach -> teaching
-    do -> do
-    swimming -> swimmingly
-
-    :param word: str
-    :return: Return the resulting string.
-    """
-    return None
-
-
-def words_concatenation(words):
-    """
-    1 Kata
-
-    Given a list of words, write a program that concatenates the words.
-
-    For example:
-    words_concatenation(['take', 'me', 'home']) returns 'take me home'
-
-    :param words: list of str
-    :return: Return the resulting string.
-    """
-    return None
-
-
-def reverse_words_concatenation(words):
-    """
-    1 Kata
-
-    Given a list of words, write a program that concatenates the words in a reverse way
-
-    For example:
-    reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
-
-    :param words: list of str
-    :return: Return the resulting string.
-    """
-    return None
-
-
-def is_unique_string(some_str):
-    """
-    2 Kata
-
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
-
-    e.g
-    'abcd' -> True
-    'aaabcd' -> False
-    '' -> True      (empty string)
-
-    :param some_str:
-    :return: bool
-    """
-    return None
-
-
-def list_diff(elements):
-    """
-    1 Kata
-
-    Given a list of integers as an input, return the "diff" list - each element is
-    reduces by its previous one. The first element should be None
-
-    e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
-    [] -> []
-    [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
-
-    :param elements: list of integers
-    :return: the diff list
-    """
-    return None
-
-
-def prime_number(num):
-    """
-    1 Kata
-
-    Check if the given number is prime or not.
-
-    hint: use the built-in function "range"
-    :param num: the number to check
-    :return: bool. True if prime, else False
-    """
-    return None
-
-
-def palindrome_num(num):
-    """
-    1 Kata
-
-    Check whether a number is palindrome or not
-
-    e.g.
-    1441 -> True
-    123 -> False
-
-    :param num: int
-    :return: bool. True is palindrome, else False
-    """
-    return None
-
-
-def pair_match(men, women):
+def valid_parentheses(s):
     """
     3 Kata
 
-    This function gets two dictionaries of the type:
-    {
-        "<name>": <age>
-    }
+    This function gets a string containing just the characters '(', ')', '{', '}', '[' and ']',
+    and determines if the input string is valid.
 
-    Where <name> is a string name, and <age> is an integer representing the age
-    The function returns a pair of names (tuple), of from men dict, the other from women dict,
-    where their absolute age differences is the minimal
+    An input string is valid if:
+        Open brackets must be closed by the same type of brackets.
+        Open brackets must be closed in the correct order.
 
     e.g.
-    men = {"John": 20, "Abraham": 45}
-    women = {"July": 18, "Kim": 26}
-
-    The returned value should be a tuple ("John", "July") since:
-
-    abs(John - Kim) = abs(20 - 26) = abs(-6) = 6
-    abs(John - July) = abs(20 - 18) = abs(2) = 2
-    abs(Abraham - Kim) = abs(45 - 26) = abs(19) = 19
-    abs(Abraham - July) = abs(45 - 18) = abs(27) = 27
-
-    :param men: dict mapping name -> age
-    :param women: dict mapping name -> age
-    :return: tuple (men_name, women_name) such their age absolute difference is the minimal
+    s = '[[{()}](){}]'  -> True
+    s = ']}'          -> False
     """
-    return None
+    stack = []
+    for char in s:
+        if char in '([{':
+            stack.append(char)
+        elif not stack:  # closing char
+            top = stack.pop(-1)
+            if top == '(' and char != ')':
+                return False
+            if top == '[' and char != ']':
+                return False
+            if top == '{' and char != '}':
+                return False
+        else:
+            return False
+    return True
+
+    # David's solution
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 
-def bad_average(a, b, c):
-    """
-    1 Kata
-
-    This function gets 3 numbers and calculates the average.
-    There is a mistake in the following implementation, you are required to fix it
-
-    :return:
-    """
-    return a + b + c / 3
-
-
-def best_student(grades):
-    """
-    1 Kata
-
-    This function gets a dict of students -> grades mapping, and returns the student with the highest grade
-
-    e.g.
-    {
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }
-
-    will return "Natan"
-
-    :param grades: dict of name -> grade mapping
-    :return: str. some key from the dict
-    """
-    return None
-
-
-def print_dict_as_table(some_dict):
-    """
-    1 Kata
-
-    Prints dictionary keys and values as the following format. For:
-    {
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }
-
-    The output will be:
-
-    Key     Value
-    -------------
-    Ben     78
-    Hen     88
-    Natan   99
-    Efraim  65
-    Rachel  95
-
-    :param some_dict:
-    :return:
-    """
-    return None
-
-
-def merge_dicts(dict1, dict2):
-    """
-    1 Kata
-
-    This functions merges dict2's keys and values into dict1, and returns dict1
-
-    e.g.
-    dict1 = {'a': 1}
-    dict2 = {'b': 2}
-
-    The results will by
-    dict1 = {'a': 1, 'b': 2}
-
-    :param dict1:
-    :param dict2:
-    :return:
-    """
-    return dict1
-
-
-def seven_boom(n):
-    """
-    1 Kata
-
-    This functions returns a list of all "Booms" for a 7-boom play starting from 1 to n
-
-    e.g. For n = 30
-    The return value will be [7, 14, 17, 21, 27, 28]
-
-    :param n: int. The last number for count for a 7-boom play
-    :return: list of integers
-    """
-    return None
-
-
-def caesar_cipher(str_to_encrypt):
+def fibonacci_fixme(n):
     """
     2 Kata
 
-    This function encrypts the given string according to caesar cipher (a - d, b - e, ..., y - b, z - c etc...).
-    Spaces remain as they are. You can assume the string contain a-z and A-Z chars only.
+    A Fibonacci sequence is the integer sequence of 1, 1, 2, 3, 5, 8, 13....
+    The first two terms are 1 and 1. All other terms are obtained by adding the preceding two terms.
 
-    e.g.
-    Fly Me To The Moon -> Iob Ph Wr Wkh Prrq
+    This function should return the n'th element of fibonacci sequence. As following:
 
-    :return:
+    fibonacci_fixme(1) -> 1
+    fibonacci_fixme(2) -> 1
+    fibonacci_fixme(3) -> 2
+    fibonacci_fixme(4) -> 3
+    fibonacci_fixme(5) -> 5
+
+    But it doesn't (it has some bad lines in it...)
+    You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
+    """
+    a = 0
+    b = 1
+    for i in range(1, n):
+        a = b
+        tmp = a + b
+        b = tmp
+
+    return a
+
+
+def most_frequent_name(file_path):
+    """
+    2 Kata
+
+    This function gets a path to a file containing names (name in each line)
+    The function should return the most frequent name in the file
+
+    You can assume file_path exists in the file system
+
+    :param file_path: str - absolute or relative file to read names from
+    :return: str - the mose frequent name. If there are many, return one of them
     """
     return None
 
 
-def sum_of_digits(digits_str):
+def files_backup(dir_path):
+    """
+    3 Kata
+
+    This function gets a path to a directory and generated a .gz file containing all the files the directory contains
+    The backup .gz file name should be in the form:
+
+    'backup_<dir_name>_<yyyy-mm-dd>.tar.gz'
+
+    Where <dir_name> is the directory name (only the directory, not the full path given in dir_path)
+    and <yyyy-mm-dd> is the date e.g. 2022-04-10
+
+    You can assume dir_path exists in the file system
+
+    :param dir_path: string - path to a directory
+    :return: str - the backup file name
+    """
+    return None
+
+
+def replace_in_file(file_path, text, replace_text):
+    """
+    2 Kata
+
+    This function gets a path of text file, it replaces all occurrences of 'text' by 'replace_text'.
+    The function saves the replaces content on the same path (overwrites the file's content)
+
+    You MUST check that file_path exists in the file system before you try to open it
+
+    :param file_path: relative or absolute path to a text file
+    :param text: text to search
+    :param replace_text: text to replace with
+    :return: None
+    """
+    return None
+
+
+def json_configs_merge(*json_paths):
+    """
+    2 Kata
+
+    This function gets an unknown number of paths to json files (represented as tuple in json_paths argument)
+    it reads the files content as a dictionary, and merges all of them into a single dictionary,
+    in the same order the files have been sent to the function!
+
+    :param json_paths:
+    :return: dict - the merges json files
+    """
+    return None
+
+
+def monotonic_array(lst):
     """
     1 Kata
 
-    Calculates the sum of digits in a string (you can assume the input is a string containing numeric digits only)
+    This function returns True/False if the given list is monotonically increased or decreased
 
+    :param lst: list of numbers (int, floats)
+    :return: bool: indicating for monotonicity
+    """
+    return None
+
+
+def matrix_avg(mat, rows=None):
+    """
+    2 Kata
+
+    This function gets a 3*3 matrix (list of 3 lists) and returns the average of all elements
+    The 'rows' optional argument (with None as default) indicating which rows should be included in the average calculation
+
+    :param mat: 3*3 matrix
+    :param rows: list of unique integers in the range [0, 2] and length of maximum 3
+    :return: int - the average values
+    """
+    return None
+
+
+def merge_sorted_lists(l1, l2):
+    """
+    1 Kata
+
+    This function gets two sorted lists (each one of them is sorted)
+    and returns a single sorted list combining both of them.
+
+    Try to be as efficient as you can (hint - don't use Python's built in sort() or sorted() functions)
+
+    :param l1: list of integers
+    :param l2: list of integers
+    :return: list: sorted list combining l1 and l2
+    """
+    return None
+
+
+def longest_common_substring(str1, str2):
+    """
+    4 Kata
+
+    This functions gets two strings and returns their longest common substring
+
+    e.g. for
+    str1 = 'Introduced in 1991, The Linux kernel is an amazing software'
+    str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
+
+    The returned value would be 'The Linux kernel is a'
+    since it's the longest string contained both in str1 and str2
+
+    :param str1: str
+    :param str2: str
+    :return: str - the longest common substring
+    """
+    return None
+
+
+def longest_common_prefix(str1, str2):
+    """
+    1 Kata
+
+    This functions gets two strings and returns their longest common prefix
+
+    e.g. for
+    str1 = 'The Linux kernel is an amazing software'
+    str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
+
+    The returned value would be 'The Linux kernel is a'
+
+    :param str1: str
+    :param str2: str
+    :return: str - the longest common prefix
+    """
+    return None
+
+
+def rotate_matrix(mat):
+    """
+    2 Kata
+
+    This function gets a matrix n*m (list of m lists of length n) and rotate the matrix clockwise
     e.g.
-    '2524' -> 13
-    '' -> 0
-    '00232' -> 7
+    for [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]] which represent the matrix
+
+    1   2   3
+    4   5   6
+    7   8   9
+    10  11  12
+
+    The output should be:
+    [[10, 7, 4, 1], [11, 8, 5, 2], [12, 9, 6, 3]]
+
+    10  7   4   1
+    11  8   5   2
+    12  9   6   3
+
+    :param mat:
+    :return: list of lists - rotate matrix
+    """
+    return None
 
 
-    :param digits_str: str of numerical digits only
-    :return: int representing the sum of digits
+def is_valid_email(mail_str):
+    """
+    3 Kata
+
+    This function returns True if the given mail is in the form:
+    (username)@(domainname)
+
+    Where
+    * (username) must start with digit or an English character, and can contains only 0-9 a-z A-Z . or _
+    * (domainname) is a real, existed domain - one that resolves to an actual ip address
+
+    Hint: use socket.gethostbyname() to resolve a DNS in Python code
+
+    :param mail_str: mail to check
+    :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
+    """
+    return None
+
+
+def pascal_triangle(lines):
+    """
+    3 Kata
+
+    This function gets an integer representing the number of lines to print in a Pascal Triangle
+    e.g. For n = 10 then following would be printed
+
+                 1
+                1 1
+               1 2 1
+              1 3 3 1
+             1 4 6 4 1
+           1 5 10 10 5 1
+         1 6 15 20 15 6 1
+        1 7 21 35 35 21 7 1
+      1 8 28 56 70 56 28 8 1
+    1 9 36 84 126 126 84 36 9 1
+
+    You are allowed to print the numbers not in a triangle shape:
+    1
+    1 1
+    1 2 1
+    1 3 3 1
+    1 4 6 4 1
+    1 5 10 10 5 1
+    1 6 15 20 15 6 1
+    1 7 21 35 35 21 7 1
+    1 8 28 56 70 56 28 8 1
+    1 9 36 84 126 126 84 36 9 1
+
+    :param lines: int
+    :return: None
+    """
+    return None
+
+
+def list_flatten(lst):
+    """
+    2 Kata
+
+    This function gets a list of combination of integers or nested lists
+    e.g.
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
+
+    The functions should return a flatten list (including all nested lists):
+    [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
+
+    :param lst: list of integers of another list
+    :return: flatten list
+    """
+    return None
+
+
+def str_compression(text):
+    """
+    2 Kata
+
+    This function gets a text (string) and returns a list representing the compressed form of the text.
+    e.g.
+    text = 'aaaaabbcaasbbgvccf'
+
+    The output will be:
+    ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f']
+
+    Since 'a' appears 5 times in consecutively, 'b' 2 times etc...
+    Note that sequences of length 1 don't necessarily have the number 1 after the character (like 'c' before 'a')
+
+    :param text: str
+    :return: list representing the compressed form of the string
+    """
+    return None
+
+
+def strong_pass(password):
+    """
+    1 Kata
+
+    A password is considered strong if it satisfies the following criteria:
+    1) Its length is at least 6.
+    2) It contains at least one digit.
+    3) It contains at least one lowercase English character.
+    4) It contains at least one uppercase English character.
+    5) It contains at least one special character. The special characters are: !@#$%^&*()-+
+
+    This function returns True if the given password is strong enough
     """
     return None
 
 
 if __name__ == '__main__':
+    print('\nvalid_parentheses:\n--------------------')
+    print(valid_parentheses('[[{()}](){}]'))
 
-    print('\nsum_of_element:\n--------------------')
-    print(sum_of_element([1, 2, 3, 4, 5, 6]))
+    print('\nfibonacci_fixme:\n--------------------')
+    print(fibonacci_fixme(6))
 
-    print('\nverbing:\n--------------------')
-    print(verbing('walk'))
-    print(verbing('swimming'))
-    print(verbing('do'))
+    print('\nmost_frequent_name:\n--------------------')
+    print(most_frequent_name('names.txt'))
 
-    print('\nwords_concatenation:\n--------------------')
-    print(words_concatenation(['take', 'me', 'home']))
+    print('\nfiles_backup:\n--------------------')
+    print(files_backup('files_to_backup'))
 
-    print('\nreverse_words_concatenation:\n--------------------')
-    print(reverse_words_concatenation(['take', 'me', 'home']))
+    print('\nreplace_in_file:\n--------------------')
+    print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
-    print('\nis_unique_string:\n--------------------')
-    print(is_unique_string('aasdssdsederd'))
-    print(is_unique_string('12345tgbnh'))
+    print('\njson_configs_merge:\n--------------------')
+    print(json_configs_merge('default.json', 'local.json'))
 
-    print('\nlist_diff:\n--------------------')
-    print(list_diff([1, 2, 3, 8, 77, 0]))
+    print('\nmonotonic_array:\n--------------------')
+    print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
 
-    print('\nprime_number:\n--------------------')
-    print(prime_number(5))
-    print(prime_number(22))
+    print('\nmatrix_avg:\n--------------------')
+    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
+    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
-    print('\npalindrome_num:\n--------------------')
-    print(palindrome_num(12221))
-    print(palindrome_num(577))
+    print('\nmerge_sorted_lists:\n--------------------')
+    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
-    print('\npair_match:\n--------------------')
-    print(pair_match(
-        {
-            "John": 20,
-            "Abraham": 45
-        },
-        {
-            "July": 18,
-            "Kim": 26
-        }
-    ))
+    print('\nlongest_common_substring:\n--------------------')
+    print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
-    print('\nbad_average:\n--------------------')
-    print(bad_average(1, 2, 3))
+    print('\nlongest_common_prefix:\n--------------------')
+    print(longest_common_prefix('abcd', 'ttty'))
 
-    print('\nbest_student:\n--------------------')
-    print(best_student({
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }))
+    print('\nrotate_matrix:\n--------------------')
+    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
 
-    print('\nprint_dict_as_table:\n--------------------')
-    print(print_dict_as_table({
-        "Ben": 78,
-        "Hen": 88,
-        "Natan": 99,
-        "Efraim": 65,
-        "Rachel": 95
-    }))
+    print('\nis_valid_email:\n--------------------')
+    print(is_valid_email('israel.israeli@gmail.com'))
 
-    print('\nmerge_dicts:\n--------------------')
-    print(merge_dicts({'a': 1}, {'b': 2}))
+    print('\npascal_triangle:\n--------------------')
+    print(pascal_triangle(4))
 
-    print('\nseven_boom:\n--------------------')
-    print(seven_boom(30))
+    print('\nlist_flatten:\n--------------------')
+    print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
 
-    print('\ncaesar_cipher:\n--------------------')
-    print(caesar_cipher('Fly Me To The Moon'))
+    print('\nstr_compression:\n--------------------')
+    print(str_compression('aaaabdddddhgf'))
 
-    print('\nsum_of_digits:\n--------------------')
-    print(sum_of_digits('1223432'))
-
+    print('\nstrong_pass:\n--------------------')
+    print(strong_pass('##$FgC7^^5a'))
