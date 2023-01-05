@@ -346,8 +346,17 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+    import socket
+    import re
 
+    if not re.match(r'^[a-zA-Z0-9]+(\.[a-zA-Z0-9_]+)*@[0-9a-zA-Z_]*\.[a-zA-Z]*$', mail_str):
+        return False
+    username, domain_name = mail_str.split('@')
+    try:
+        socket.gethostbyname(domain_name)
+        return True
+    except:
+        return False
 
 def pascal_triangle(lines):
     """
@@ -382,7 +391,26 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+
+    triangle = []
+
+    for i in range(lines):
+        if i == 0:
+            triangle.append([1])
+        else:
+            row = []
+            for j in range(i + 1):
+                if j == 0 or j == i:
+                    row.append(1)
+                else:
+                    row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+            triangle.append(row)
+
+    triangle_str = ""
+    for row in triangle:
+        row_str = " ".join(str(x) for x in row)
+        triangle_str += row_str + "\n"
+    return triangle_str
 
 
 def list_flatten(lst):
@@ -399,7 +427,13 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flatten_lst = []
+    for item in lst:
+        if isinstance(item, list):
+            flatten_lst.extend(list_flatten(item))
+        else:
+            flatten_lst.append(item)
+    return flatten_lst
 
 
 def str_compression(text):
@@ -485,9 +519,13 @@ if __name__ == '__main__':
 
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
+    print(is_valid_email('.s1s@gmail.com'))
+    print(is_valid_email('israel123@gmail.com'))
+    print(is_valid_email('123ia@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
     print(pascal_triangle(4))
+    print(pascal_triangle(10))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
