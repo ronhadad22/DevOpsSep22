@@ -184,8 +184,12 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
-
+    if len(lst) < 2:
+        return True
+    elif lst[0] < lst[1]:
+        return all(x < y for x, y in zip(lst, lst[1:]))
+    else:
+        return all(x > y for x, y in zip(lst, lst[1:]))
 
 def matrix_avg(mat, rows=None):
     """
@@ -198,7 +202,15 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    if rows is None:
+        rows = range(3)
+    total = 0
+    count = 0
+    for i in rows:
+        for j in range(3):
+            total += mat[i][j]
+            count += 1
+    return total / count
 
 
 def merge_sorted_lists(l1, l2):
@@ -214,7 +226,19 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    merged_sorted_list = []
+    i = 0
+    j = 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] < l2[j]:
+            merged_sorted_list.append(l1[i])
+            i += 1
+        else:
+            merged_sorted_list.append(l2[j])
+            j += 1
+    merged_sorted_list += l1[i:]
+    merged_sorted_list += l2[j:]
+    return merged_sorted_list
 
 
 def longest_common_substring(str1, str2):
@@ -234,7 +258,20 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    longest_common_substring = ""
+
+    for i, char1 in enumerate(str1):
+        for j, char2 in enumerate(str2):
+            if char1 == char2:
+                temp_common_substring = char1
+                temp_i, temp_j = i, j
+                while temp_i < len(str1) and temp_j < len(str2) and str1[temp_i] == str2[temp_j]:
+                    temp_common_substring += str1[temp_i]
+                    temp_i += 1
+                    temp_j += 1
+                if len(temp_common_substring) > len(longest_common_substring):
+                    longest_common_substring = temp_common_substring
+    return longest_common_substring
 
 
 def longest_common_prefix(str1, str2):
@@ -253,7 +290,14 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    min_len = min(len(str1), len(str2))
+    common_prefix = ""
+    for i in range(min_len):
+        if str1[i] == str2[i]:
+            common_prefix += str1[i]
+        else:
+            return common_prefix
+    return common_prefix
 
 
 def rotate_matrix(mat):
@@ -279,7 +323,11 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    m = len(mat[0])
+    rotated_matrix = []
+    for i in range(m):
+        rotated_matrix.append([row[i] for row in mat[::-1]])
+    return rotated_matrix
 
 
 def is_valid_email(mail_str):
@@ -429,6 +477,8 @@ if __name__ == '__main__':
 
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('Checking if this is working', 'Checking if this is working properly'))
+
 
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
