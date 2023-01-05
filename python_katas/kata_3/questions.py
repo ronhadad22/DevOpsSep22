@@ -21,8 +21,16 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    return None
-
+    sorted_items = sorted(items.items(), key=lambda x: x[1][1] / x[1][0], reverse=True)
+    knapsack = set()
+    weight = 0
+    value = 0
+    for item, (item_weight, item_value) in sorted_items:
+        if weight + item_weight <= knapsack_limit:
+            knapsack.add(item)
+            weight += item_weight
+            value += item_value
+    return knapsack
 
 def time_me(func):
     """
@@ -109,9 +117,8 @@ def img_blur(img_filename):
     """
     4 Kata
 
-    Blurs an image (every pixel is an average of its nearest neighbors)
 
-    :param img_filename: image file path (png or jpeg)
+    param img_filename: image file path (png or jpeg)
     :return: None, the rotated image should be saved as 'rotated_<original image filename>'
     """
     image = open_img(img_filename)
@@ -222,6 +229,25 @@ class CacheList(list):
     print(x)
     >> [3, 1, 1]
     """
+
+    def __init__(self, n):
+        self.cache_size = n
+        self.cache = []
+
+    def append(self, value):
+        self.cache.append(value)
+        if len(self.cache) > self.cache_size:
+            self.cache.pop(0)
+
+    def __iter__(self):
+        return iter(self.cache)
+
+    def __len__(self):
+        return len(self.cache)
+
+    def __getitem__(self, index):
+        return self.cache[index]
+
     def __init__(self, cache_size=5):
         super().__init__()
         pass
