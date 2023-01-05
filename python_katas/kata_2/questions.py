@@ -81,7 +81,25 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    with open(file_path, 'r') as f:
+        names = f.readlines()
+
+    name_counts = {}
+    for name in names:
+        name = name.strip()
+        if name in name_counts:
+            name_counts[name] += 1
+        else:
+            name_counts[name] = 1
+
+    most_frequent_name = None
+    max_count = 0
+    for name, count in name_counts.items():
+        if count > max_count:
+            most_frequent_name = name
+            max_count = count
+
+    return most_frequent_name
 
 
 def files_backup(dir_path):
@@ -144,8 +162,12 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
-
+    if len(lst) < 2:
+        return True
+    if lst[0] < lst[1]:
+        return all(x < y for x, y in zip(lst, lst[1:]))
+    else:
+        return all(x > y for x, y in zip(lst, lst[1:]))
 
 def matrix_avg(mat, rows=None):
     """
@@ -158,7 +180,15 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    if rows is None:
+        rows = [0, 1, 2]
+    total = 0
+    count = 0
+    for i in rows:
+        for j in range(3):
+            total += mat[i][j]
+            count += 1
+    return total / count
 
 
 def merge_sorted_lists(l1, l2):
@@ -174,7 +204,20 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    merged_list = []
+    i, j = 0, 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] < l2[j]:
+            merged_list.append(l1[i])
+            i += 1
+        else:
+            merged_list.append(l2[j])
+            j += 1
+    if i < len(l1):
+        merged_list.extend(l1[i:])
+    if j < len(l2):
+        merged_list.extend(l2[j:])
+    return merged_list
 
 
 def longest_common_substring(str1, str2):
@@ -194,7 +237,24 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    m = len(str1)
+    n = len(str2)
+    result = 0
+    end = 0
+    L = [[0] * (n + 1) for i in range(m + 1)]
+    for i in range(m + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                L[i][j] = 0
+            elif str1[i - 1] == str2[j - 1]:
+                L[i][j] = L[i - 1][j - 1] + 1
+                if L[i][j] > result:
+                    result = L[i][j]
+                    end = i - 1
+            else:
+                L[i][j] = 0
+    return str1[end - result + 1: end + 1]
+
 
 
 def longest_common_prefix(str1, str2):
@@ -213,7 +273,19 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    n1 = len(str1)
+    n2 = len(str2)
+    i = 0
+    j = 0
+    result = ""
+    while i <= n1 - 1 and j <= n2 - 1:
+        if str1[i] == str2[j]:
+            result += str1[i]
+            i += 1
+            j += 1
+        else:
+            break
+    return result
 
 
 def rotate_matrix(mat):
@@ -239,7 +311,7 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    return [[row[i] for row in mat[::-1]] for i in range(len(mat[0]))]
 
 
 def is_valid_email(mail_str):
@@ -294,7 +366,11 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    for line in range(1, lines + 1):
+        values = [1]
+        for i in range(1, line):
+            values.append(values[i - 1] * (line - i) // i)
+        print(*values)
 
 
 def list_flatten(lst):
@@ -311,7 +387,13 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flattened_list = []
+    for item in lst:
+        if isinstance(item, list):
+            flattened_list.extend(flatten_list(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
 
 
 def str_compression(text):
@@ -331,7 +413,23 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    compressed_text = []
+    count = 1
+    for i in range(len(text) - 1):
+        if text[i] == text[i + 1]:
+            count += 1
+        else:
+            if count > 1:
+                compressed_text.extend([text[i], count])
+            else:
+                compressed_text.append(text[i])
+            count = 1
+    if count > 1:
+        compressed_text.extend([text[-1], count])
+    else:
+        compressed_text.append(text[-1])
+    return compressed_text
+
 
 
 def strong_pass(password):
@@ -347,7 +445,22 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    if len(password) < 6:
+        return False
+    has_digit = False
+    has_lower = False
+    has_upper = False
+    has_special = False
+    for c in password:
+        if c.isdigit():
+            has_digit = True
+        elif c.islower():
+            has_lower = True
+        elif c.isupper():
+            has_upper = True
+        elif c in "!@#$%^&*()-+":
+            has_special = True
+    return has_digit and has_lower and has_upper and has_special
 
 
 if __name__ == '__main__':
