@@ -13,6 +13,16 @@ testers = ['Albarda',
  'ayam999',
  'ChessShark']
 
+testers = ['Albarda',
+ 'shulamitkuper',
+ 'shayabudi',
+ 'avibendersky',
+ 'shohamazulay2123',
+ 'Arkadi Kovarsky',
+ 'avi yaaqov',
+ 'coralAlexander',
+ 'ayam999',
+ 'ChessShark']
 
 class TestKnapsack(unittest.TestCase):
     """

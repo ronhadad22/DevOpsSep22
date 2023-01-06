@@ -3,25 +3,36 @@ def sudoku_solver():
 
 
 class Singleton:
-
     _instance = None
 
     @staticmethod
-    def get_instance():
+    def getInstance():
+        print(f"class attribute is {Singleton._instance}")
         if Singleton._instance is not None:
+            print("instance exist your welcome")
             return Singleton._instance
 
+        print("instance not exist creating...")
         return Singleton()
 
     def __init__(self):
-        if Singleton._instance is not None:
-            raise RuntimeError('Class Singleton can be instantiated only once')
+        if Singleton._instance is not None: #instance exist
+            raise RuntimeError('class singleton instance already exist')
+        else:   #instance not exist run only once
+            Singleton._instance = self
 
-        Singleton._instance = self
 
 
-# my_singleton2 = Singleton.get_instance()
-# my_singleton = Singleton()
+
+my_singleton2 = Singleton.getInstance()
+
+print(my_singleton2)
+
+my_singleton3 = Singleton.getInstance()
+
+print(my_singleton3)
+#
+# print(my_singleton3)
 
 
 def binary_search():
@@ -54,5 +65,9 @@ def pyjwt_demo():
 
 def pyaudio():
     pass
+
+def pyaudio():
+    pass
+
 
 
