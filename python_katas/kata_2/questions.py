@@ -2,7 +2,9 @@
 
 #class Soul:
 
-
+import os.path
+import time
+import tarfile
 
 def valid_parentheses(s: str) -> bool:
 #    s = input("your bracects here: ")
@@ -73,9 +75,6 @@ def valid_parentheses(s: str) -> bool:
 
 def fibonacci_fixme(n):
 
-
-
-
     if n < 0:
         print("Incorrect input")
 
@@ -132,7 +131,27 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    '''
+    d = {
+        'apple': 'תפוח',
+        'a': 7,
+        'Chimera': 2
+
+    }
+'''
+    d={}
+    most= None
+    with  open(file_path,'r') as file:
+     for line in file:
+       if line in d:
+         d[line] += 1
+       else:
+           d[line]=1
+
+     if most is None or d[line]>d[most]:
+         most=line
+
+     return most
 
 
 def files_backup(dir_path):
@@ -152,7 +171,20 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    '''
+    backup = []
+    backup2 = os.listdir(dir_path)
+    '''
+
+    daten =  time.strftime("%Y-%m-%d")
+
+    filename='backup_'+os.path.basename(dir_path)+'_'+daten+ '.tar.gz'
+
+    with tarfile.open(filename, "w:gz") as tar:
+        tar.add(dir_path, arcname=os.path.basename(dir_path))
+
+
+    return filename
 
 
 def replace_in_file(file_path, text, replace_text):
