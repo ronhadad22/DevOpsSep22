@@ -5,10 +5,8 @@ from python_katas.utils import unittest_runner
 
 class TestKnapsack(unittest.TestCase):
     """
-    5 Kata
-    """
-    def test_sample(self):
-        # your code here
+
+
         pass
 
 

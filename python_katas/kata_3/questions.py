@@ -1,7 +1,6 @@
 from python_katas.kata_3.utils import open_img, save_img
 import requests   # to be used in simple_http_request()
 
-ISO_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
 def knapsack(items, knapsack_limit=50):
@@ -21,11 +20,30 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    return None
+    sorted_items = sorted(items.items(), key=lambda x: x[1][1], reverse=True)
+
+    weight = 0
+    value = 0
+    knapsack = set()
 
 
-def time_me(func):
-    """
+    for item, (w, v) in sorted_items:
+        # If the weight of the item plus the current weight is less than or equal to the knapsack limit
+        if weight + w <= knapsack_limit:
+            # Add the item to the knapsack
+            knapsack.add(item)
+            # Update the weight and value
+            weight += w
+            value += v
+
+    return knapsack
+
+
+
+
+import time
+
+def time_me(func):    """
     2 Kata
 
     Given func - a pointer to sime function which can be executed by func()
@@ -35,8 +53,22 @@ def time_me(func):
     :param func:
     :return:
     """
-    return None
 
+    times = []
+
+    for i in range(100):
+        start_time = time.perf_counter()
+        func()
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+        times.append(elapsed_time)
+
+    mean_time = sum(times) / len(times)
+
+    return mean_time
+
+
+import pytube
 
 def youtube_download(video_id):
     """
@@ -50,9 +82,13 @@ def youtube_download(video_id):
     :param video_id: str
     :return: None
     """
-    from youtube_dl import YoutubeDL
+    url = f'https://www.youtube.com/watch?v={video_id}'
 
-    return None
+    yt = pytube.YouTube(url)
+
+    stream = yt.streams.first()
+
+    stream.download()
 
 
 def tasks_scheduling(tasks):

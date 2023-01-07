@@ -1,3 +1,7 @@
+import linecache
+from typing import List
+
+
 def valid_parentheses(s):
     """
     3 Kata
@@ -62,29 +66,41 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
-    return a
+    return b
 
 
 def most_frequent_name(file_path):
-    """
-    2 Kata
+"""
+2 Kata
 
-    This function gets a path to a file containing names (name in each line)
-    The function should return the most frequent name in the file
+This function gets a path to a file containing names (name in each line)
+The function should return the most frequent name in the file
 
-    You can assume file_path exists in the file system
+You can assume file_path exists in the file system
 
-    :param file_path: str - absolute or relative file to read names from
-    :return: str - the mose frequent name. If there are many, return one of them
-    """
-    return None
+:param file_path: str - absolute or relative file to read names from
+:return: str - the mose frequent name. If there are many, return one of them
+"""
+from collections import Counter
+
+    with open(file_path) as f:
+        names = f.readlines()
+    name_counts = Counter(names)
+    return name_counts.most_common(1)
+
+
+
+
+
 
 
 def files_backup(dir_path):
+
+
     """
     3 Kata
 
@@ -101,8 +117,24 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
 
+import gzip
+import os
+from datetime import datetime
+    dir_name = os.path.dirname(dir_path)
+    now = datetime.now()
+    date_stamp = now.strftime('%Y-%m-%d')
+    file_out = f'backup_{dir_name}_{date_stamp}'
+
+    with gzip.open(f'{dir_path}','wb') as file_out:
+        for root, dirs, files in os.walk(dir_path):
+            for file in files:
+                with open(os.path.join(root, file), 'rb')as file_in:
+                    chunk = fiel_in.read(1024)
+                    while chunk:
+                        file_out.write(chunk)
+                        chunk = file_in.read(1024)
+        return file_out
 
 def replace_in_file(file_path, text, replace_text):
     """
@@ -136,6 +168,7 @@ def json_configs_merge(*json_paths):
 
 
 def monotonic_array(lst):
+
     """
     1 Kata
 
@@ -144,8 +177,19 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+ a = 0
+    b = 1
+    long = len(lst)
 
+    while long > 1:
+        long -= 1
+        if lst[a] < lst[b]:
+            a += 1
+            b += 1
+
+        else:
+            return False
+    return True
 
 def matrix_avg(mat, rows=None):
     """
@@ -178,6 +222,24 @@ def merge_sorted_lists(l1, l2):
 
 
 def longest_common_substring(str1, str2):
+    max_str = ['']
+
+    for i, char1 in enumerate(str1):
+        for j, char2 in enumerate(str2):
+            if char1 == char2:
+                length = 0
+                i_indx = i
+                j_indx = j
+                while i_indx < len(str1) and j_indx < len(str2) and str1[i_indx] == str2[j_indx]:
+                    length += 1
+                    i_indx += 1
+                    j_indx += 1
+                if length > len(max_str):
+                    max_str = str1[i:i + length]
+    return max_str
+
+
+
     """
     4 Kata
 
@@ -194,7 +256,6 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
 
 
 def longest_common_prefix(str1, str2):
