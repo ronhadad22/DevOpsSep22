@@ -1,4 +1,4 @@
-from matplotlib.image import imread, imsave
+#from matplotlib.image import imread, imsave
 
 
 def rgb2gray(rgb):

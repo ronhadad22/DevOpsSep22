@@ -70,25 +70,38 @@ class TestJsonConfigsMerge(unittest.TestCase):
         # your code here
         pass
 
-
+vitaly
 class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_empty_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([ ])), True)
 
+    def test_zero_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([0])), True)
 
+    def test_negative_num_monotonic_array(self):
+        self.assertEqual(questions.monotonic_array([[-1, -3, -5]])), True)
+
+    def self.test_negative_and_positive_monotonic_array(self):
+            self.assertEqual(questions.monotonic_array([[[-10, -5, 11, 1000]]])), True)
+
+vitaly
 class TestMatrixAvg(unittest.TestCase):
     """
     2 Katas
     """
+    def test_negativenum_matrix_avg(mat, rows=None):
+        self.assertEqual(questions.matrix_avg([[1, 2, 3], [4, -5, 6], [7, 8, 9]]), [3.888888888888889])
 
-    def test_sample(self):
-        print(merge_sorted_lists([1, a, 9, 77, 13343], [-7, 0, 7, 23]))our code here
-        pass
+    def test_empty_matrix_avg(mat, rows=None):
+            self.assertEqual(questions.matrix_avg([[], [], []]), [])
+
+    def test_allzeros_matrix_avg(mat, rows=None):
+        self.assertEqual(questions.matrix_avg([[0, 0, 0], [0, 0, 0], [0, 0, 0]]), [0])
+
 
 #vitaly
 class TestMergeSortedLists(unittest.TestCase):
@@ -134,7 +147,7 @@ class TestLongestCommonSubstring(unittest.TestCase):
         str1, str2 = ('AbbZD', 'abZd')
     self.assertEqual(questions.longest_common_substring(str1, str2), bZ)
 
-    def test_empty_strings(self):
+    def test_number_in_strings(self):
         str1, str2 = ('a2a', 'a2a')
     self.assertEqual(questions.longest_common_substring(str1, str2), a)
 

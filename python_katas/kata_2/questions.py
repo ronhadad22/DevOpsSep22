@@ -19,8 +19,7 @@
 
 
 def valid_parentheses(s: str) -> bool:
-   # s = input("your bracects here: ")
-    if len(s) % 2 != 0:
+     if len(s) % 2 != 0:
         return False
     dict = {'(' : ')', '[' : ']', '{' : '}'}
     stack = []
@@ -74,7 +73,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-'''
+
     file_path = open("names.txt", "r")
     frequent_name = ""
     frequency = 0
@@ -98,7 +97,7 @@ def most_frequent_name(file_path):
             frequent_name = words[i];
     file_path.close();
     return (frequent_name)
-'''
+
 
 
 def files_backup(dir_path):
