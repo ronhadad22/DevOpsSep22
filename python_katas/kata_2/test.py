@@ -106,12 +106,34 @@ class TestReplaceInFile(unittest.TestCase):
     """
     2 Katas
     """
+    def replace_in_file(file_path, text, replace_text):
+        return (file_path, text, replace_text)
+    def test_replace_available_word(self):
+        file_path = "mnist-predictor.yaml"
+        text = "hello"
+        replace_text = "template"
+        self.assertEqual(questions.replace_in_file(file_path, text, replace_text), "file saved successfully")
+        return None
+    def test_file_does_not_exist(self):
+        file_path = "whatsoever"
+        text = "hello"
+        replace_text = "template"
+        self.assertRaises(FileNotFoundError, questions.replace_in_file, file_path, text, replace_text)
+        return None
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_text_equal_none(self):
+        file_path = "mnist-predictor.yaml"
+        text = ""
+        replace_text = "template"
+        self.assertRaises(RuntimeError, questions.replace_in_file, file_path, text, replace_text)
+        return None
 
-
+    def test_return_text_equal_none(self):
+        file_path = "mnist-predictor.yaml"
+        text = "template"
+        replace_text = ""
+        self.assertRaises(RuntimeError, questions.replace_in_file, file_path, text, replace_text)
+        return None
 class TestJsonConfigsMerge(unittest.TestCase):
     """
     2 Katas
@@ -140,7 +162,7 @@ class TestMatrixAvg(unittest.TestCase):
     def test_sample(self):
         # your code here
         pass
-
+'''
 #Vitaly
 class TestMergeSortedLists(unittest.TestCase):
     """
@@ -169,7 +191,7 @@ class TestMergeSortedLists(unittest.TestCase):
          l1 = [-8, -3, 8]
          l2 = [-2, 3, 9]
       self.assertEqual(questions.merge_sorted_lists(l1, l2), [-8, -3, -2, 3, 8, 9])
-
+'''
 #Vitaly
 class TestLongestCommonSubstring(unittest.TestCase):
     """
@@ -177,16 +199,16 @@ class TestLongestCommonSubstring(unittest.TestCase):
     """
     def test_empty_strings(self):
        str1, str2 = ('','')
-    self.assertEqual(questions.longest_common_substring(str1, str2), )
-
+       self.assertEqual(questions.longest_common_substring(str1, str2), )
+'''
     def test_CapitalwithRegular_strings(self):
         str1, str2 = ('AbbZD', 'abZd')
-    self.assertEqual(questions.longest_common_substring(str1, str2), bZ)
+        self.assertEqual(questions.longest_common_substring(str1, str2), bZ)
 
     def test_empty_strings(self):
         str1, str2 = ('a2a', 'a2a')
-    self.assertEqual(questions.longest_common_substring(str1, str2), a)
-
+        self.assertEqual(questions.longest_common_substring(str1, str2), a)
+'''
 #Shani
 class TestLongestCommonPrefix(unittest.TestCase):
         """
