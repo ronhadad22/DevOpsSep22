@@ -107,9 +107,34 @@ class TestReplaceInFile(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+      def replace_in_file(file_path, text, replace_text):
+        return (file_path, text, replace_text)
+    def test_replace_available_word(self):
+        file_path = "mnist-predictor.yaml"
+        text = "hello"
+        replace_text = "template"
+        self.assertEqual(questions.replace_in_file(file_path, text, replace_text), "file saved successfully")
+        return None
+    def test_file_does_not_exist(self):
+        file_path = "whatsoever"
+        text = "hello"
+        replace_text = "template"
+        self.assertRaises(FileNotFoundError, questions.replace_in_file, file_path, text, replace_text)
+        return None
+
+    def test_text_equal_none(self):
+        file_path = "mnist-predictor.yaml"
+        text = ""
+        replace_text = "template"
+        self.assertRaises(RuntimeError, questions.replace_in_file, file_path, text, replace_text)
+        return None
+
+    def test_return_text_equal_none(self):
+        file_path = "mnist-predictor.yaml"
+        text = "template"
+        replace_text = ""
+        self.assertRaises(RuntimeError, questions.replace_in_file, file_path, text, replace_text)
+        return None
 
 
 class TestJsonConfigsMerge(unittest.TestCase):
