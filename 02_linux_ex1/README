@@ -1,15 +1,51 @@
-arikgraif@gmail.com
-<  arik >
+shulamit9000@gmail.com
+<  shulamit >
 
+shulamit9000@gmail.com
 
 Kernel System Calls
 -------------------
-< x86_64 linux 5.15.0-52-generic >
 
+So the program is very simple, first we download a file which called whatIdo using wget command,
+then we simply change the mode of the file to executable so it becomes usable.
+then we execute the file whatIdo
+
+# stat("./welcomeToDevOpsMay22", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+
+first it does a stat command on ./welcomeToDevOpsMay22
+
+# openat(AT_FDCWD, "welcomeToDevOpsMay22/goodLuck", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+
+then it goes to welcomeToDevOpsMay22/goodLuck
+
+# write(3, "There you go... tell me what I d"..., 36) = 36
+
+and write to the file "There you go... tell me what I do..."
+
+############################################
+
+mkdir welcomeToDevOpsMay22
+cd welcomeToDevOpsMay22
+nano goodLuck
+echo “There you go… tell me what I do…”
+
+############################################
 
 Binary Numbers
 --------------
-< Your Answer ???>
+
+1.  7,4,22
+2.  0 through 255
+3.  In order to represent a negative 8 bit binary number, we can use the 9th bit to declare whether the number is positive or negative (0 = positive, 1 = negative)
+4.  To convert fraction to binary, start with the fraction in question and multiply it by 2,  Continue multiplying by 2 until you get a resulting fractional part equal to zero. Then just write out the integer parts from the results of each multiplication.
+
+
+File System Manipulations
+-------------------------
+the secret is: 814c5723c21e7e90a3eae36c8df3c513 -
+
+
+
 
 
 

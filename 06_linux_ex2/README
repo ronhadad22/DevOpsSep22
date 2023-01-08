@@ -1,2 +1,64 @@
-name@example.com
+bibi.efrat@gmail.com
+Processes handling
+##########################################
+Q1
+nohup
+Q2
+no --> just send a signal
+Q3
+jobs
+Q4
+CTRL+c
+Q5
+CTRL+z
+Q6
+sleep 10
+Q7
+kill 4846
+Q8
+kill -9 4846
+Q9
+kill -CHLD 4828
+Q10
+k
+Q11
+The program has implemented a custom signal handler for the SIGINT signal.
+
+Process states
+##########################################
+
+
+top:
+
+ Mem :  31840.6 total,    385.9 free,  30518.6 used,    936.1 buff/cache
+MiB Swap:   2048.0 total,      0.1 free,   2047.9 used.    557.3 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    231 root      20   0       0      0      0 R  98.6   0.0   3:43.90 kswapd0
+ 798439 bibi      20   0   68296  49872   2956 R  29.1   0.2   0:46.26 top
+ 886702 bibi      20   0   28368  13448   3328 D  29.1   0.0   0:00.95 multi_process_f       <<<<<<<<<<<---------  D = uninterruptible sleep (usually IO)
+
+
+ps aux: waiting for io to finish
+
+bibi     1025856  0.0  0.0  18640  3572 pts/1    D    16:38   0:00 /bin/bash ./write_to_file_sequentially.sh
+bibi     1025859  0.0  0.0  18640  3572 pts/1    D    16:38   0:00 /bin/bash ./write_to_file_sequentially.sh
+bibi     1025860  0.0  0.0  18640  3656 pts/1    D    16:38   0:00 /bin/bash ./write_to_file_sequentially.sh
+bibi     1025863  0.0  0.0  18640  3568 pts/1    D    16:38   0:00 /bin/bash ./write_to_file_sequentially.sh
+bibi     1025865  0.0  0.0  18640  3600 pts/1    D    16:38   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+
+ps -ef : running state
+
+1057754  0.0  0.0  18260  3756 pts/3    S+   16:44   0:00 watch -n2 ps aux | grep  R
+bibi     1057827  0.0  0.0  18260  1716 pts/3    S+   16:44   0:00 watch -n2 ps aux | grep  R
+bibi     1057828  0.0  0.0   2736   960 pts/3    S+   16:44   0:00 sh -c ps aux | grep  R
+bibi     1057829  0.0  0.0  21128  3448 pts/3    R+   16:44   0:00 ps aux          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------------------- R    running or runnable (on run queue)
+bibi     1057830  0.0  0.0  17580  2264 pts/3    S+   16:44   0:00 grep R
+
+
+
+
+
+
 
