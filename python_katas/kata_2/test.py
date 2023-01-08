@@ -56,8 +56,8 @@ class TestMostFrequentName(unittest.TestCase):
        return file_path
 
    def test_out_of_folder_directory(self):
-       file_path = "names2.txt"
-       self.assertEqual(questions.most_frequent_name(file_path), "Most repeated name: danny")
+       file_path = "DevopsSep22/06_linux_ex2/README"
+       self.assertEqual(questions.most_frequent_name(file_path), "Most repeated name: name@example.com")
        return file_path
 
    def test_in_folder_directory(self):
