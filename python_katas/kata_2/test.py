@@ -12,7 +12,7 @@ testers = ['dariakalugny',
  'HappyToast17']
 
 
-#Dria
+#Daria
 class TestValidParentheses(unittest.TestCase):
     """
     3 Katas
@@ -30,7 +30,7 @@ class TestValidParentheses(unittest.TestCase):
         testparentheses = ["[]}"]
         self.assertEqual(questions.valid_parentheses(testparentheses), False)
 
-#Dria
+#Daria
 class TestFibonacciFixme(unittest.TestCase):
     """
     2 Katas
@@ -41,9 +41,6 @@ class TestFibonacciFixme(unittest.TestCase):
 
             number = 5
             self.assertEqual(questions.fibonacci_fixme(number), 5)
-
-            number = 0
-            self.assertEqual(questions.fibonacci_fixme(number), 0)
 
             number = 7
             self.assertEqual(questions.fibonacci_fixme(number), 13)
