@@ -5,6 +5,7 @@
 import os.path
 import time
 import tarfile
+import json
 
 def valid_parentheses(s: str) -> bool:
 #    s = input("your bracects here: ")
@@ -179,8 +180,8 @@ def files_backup(dir_path):
     daten =  time.strftime("%Y-%m-%d")
 
     filename='backup_'+os.path.basename(dir_path)+'_'+daten+ '.tar.gz'
-
-    with tarfile.open(filename, "w:gz") as tar:
+    if os.path.isfile(filename) == False:
+     with tarfile.open(filename, "w:gz") as tar:
         tar.add(dir_path, arcname=os.path.basename(dir_path))
 
 
@@ -201,7 +202,11 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
-    return None
+
+    if os.path.isfile(file_path) == True:
+        with  open(file_path, 'r') as file:
+             for line in file:
+                print(line.replace(text,replace_text))
 
 
 def json_configs_merge(*json_paths):
@@ -215,8 +220,15 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
 
+
+    d = {}
+    for x in json_paths:
+        with open(x, 'r', encoding='utf-8') as file:
+            datap = json.loads(file.read())
+
+        d.update(datap)
+    return d
 
 def monotonic_array(lst):
     """
@@ -227,7 +239,23 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+
+    print(lst)
+
+    if len(lst)== 1:
+        return True
+
+    for x in range(1,len(lst)):
+
+         if lst[x] >= lst[x-1]:
+            return False
+
+         elif lst[x] <= lst[x-1]:
+            return True
+
+    return True
+
+
 
 
 def matrix_avg(mat, rows=None):
@@ -241,8 +269,18 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    '''
+    sum=0
+    print(mat)
+    for i in rows:
 
+     for x in range(3):
+      sum= mat[i][x]
+
+     avg= sum/len(rows)
+
+    return avg
+'''
 
 def merge_sorted_lists(l1, l2):
     """
@@ -257,7 +295,11 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+
+    list=l1 +l2
+    slist=sorted(list)
+
+    return slist
 
 
 def longest_common_substring(str1, str2):
@@ -277,8 +319,20 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    '''
 
+    substr = ""
+    for i in range(len(str1)):
+         for j in range(i + 1, len(str1) + 1):
+          substring = str1[i:j]
+          if substring in str2 and len(substring) > len(substr):
+             substr = substring
+
+
+
+    return substr
+
+'''
 
 def longest_common_prefix(str1, str2):
     """
@@ -296,8 +350,18 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+'''
 
+    lprefix = ""
+    for i in range(min(len(str), len(str2))):
+            if str1[i] == str2[i]:
+                lprefix += str1[i]
+            else:
+                break
+
+
+    return lprefix
+'''
 
 def rotate_matrix(mat):
     """
@@ -322,6 +386,14 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
+    mat2=[]
+
+    for i in range(len(mat)):
+
+
+
+
+
     return None
 
 
@@ -454,6 +526,7 @@ if __name__ == '__main__':
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
