@@ -1,29 +1,30 @@
-#from python_katas.kata_2.test import print
+# from python_katas.kata_2.test import print
 
-#class Soul:
+# class Soul:
 
 import os.path
 import time
 import tarfile
 import json
+import re
+
 
 def valid_parentheses(s: str) -> bool:
-#    s = input("your bracects here: ")
+    #    s = input("your bracects here: ")
     if len(s) % 2 != 0:
         return False
-    dict = {'(' : ')', '[' : ']', '{' : '}'}
+    dict = {'(': ')', '[': ']', '{': '}'}
     stack = []
     for i in s:
-            if i in dict.keys():
-                stack.append(i)
-            else:
-                if stack == []:
-                    return False
-                s = stack.pop()
-                if i != dict[s]:
-                    return False
+        if i in dict.keys():
+            stack.append(i)
+        else:
+            if stack == []:
+                return False
+            s = stack.pop()
+            if i != dict[s]:
+                return False
     return stack == []
-
 
 
 '''
@@ -72,10 +73,7 @@ def valid_parentheses(s: str) -> bool:
 '''
 
 
-
-
 def fibonacci_fixme(n):
-
     if n < 0:
         print("Incorrect input")
 
@@ -88,7 +86,6 @@ def fibonacci_fixme(n):
 
     else:
         return fibonacci_fixme(n - 1) + fibonacci_fixme(n - 2)
-
 
     """
     2 Kata
@@ -119,7 +116,6 @@ def fibonacci_fixme(n):
 '''
 
 
-
 def most_frequent_name(file_path):
     """
     2 Kata
@@ -140,19 +136,19 @@ def most_frequent_name(file_path):
 
     }
 '''
-    d={}
-    most= None
-    with  open(file_path,'r') as file:
-     for line in file:
-       if line in d:
-         d[line] += 1
-       else:
-           d[line]=1
+    d = {}
+    most = None
+    with  open(file_path, 'r') as file:
+        for line in file:
+            if line in d:
+                d[line] += 1
+            else:
+                d[line] = 1
 
-     if most is None or d[line]>d[most]:
-         most=line
+        if most is None or d[line] > d[most]:
+            most = line
 
-     return most
+        return most
 
 
 def files_backup(dir_path):
@@ -177,13 +173,12 @@ def files_backup(dir_path):
     backup2 = os.listdir(dir_path)
     '''
 
-    daten =  time.strftime("%Y-%m-%d")
+    daten = time.strftime("%Y-%m-%d")
 
-    filename='backup_'+os.path.basename(dir_path)+'_'+daten+ '.tar.gz'
+    filename = 'backup_' + os.path.basename(dir_path) + '_' + daten + '.tar.gz'
     if os.path.isfile(filename) == False:
-     with tarfile.open(filename, "w:gz") as tar:
-        tar.add(dir_path, arcname=os.path.basename(dir_path))
-
+        with tarfile.open(filename, "w:gz") as tar:
+            tar.add(dir_path, arcname=os.path.basename(dir_path))
 
     return filename
 
@@ -205,8 +200,8 @@ def replace_in_file(file_path, text, replace_text):
 
     if os.path.isfile(file_path) == True:
         with  open(file_path, 'r') as file:
-             for line in file:
-                print(line.replace(text,replace_text))
+            for line in file:
+                print(line.replace(text, replace_text))
 
 
 def json_configs_merge(*json_paths):
@@ -221,7 +216,6 @@ def json_configs_merge(*json_paths):
     :return: dict - the merges json files
     """
 
-
     d = {}
     for x in json_paths:
         with open(x, 'r', encoding='utf-8') as file:
@@ -229,6 +223,7 @@ def json_configs_merge(*json_paths):
 
         d.update(datap)
     return d
+
 
 def monotonic_array(lst):
     """
@@ -242,20 +237,18 @@ def monotonic_array(lst):
 
     print(lst)
 
-    if len(lst)== 1:
+    if len(lst) == 1:
         return True
 
-    for x in range(1,len(lst)):
+    for x in range(1, len(lst)):
 
-         if lst[x] >= lst[x-1]:
+        if lst[x] >= lst[x - 1]:
             return False
 
-         elif lst[x] <= lst[x-1]:
+        elif lst[x] <= lst[x - 1]:
             return True
 
     return True
-
-
 
 
 def matrix_avg(mat, rows=None):
@@ -282,6 +275,7 @@ def matrix_avg(mat, rows=None):
     return avg
 '''
 
+
 def merge_sorted_lists(l1, l2):
     """
     1 Kata
@@ -296,8 +290,8 @@ def merge_sorted_lists(l1, l2):
     :return: list: sorted list combining l1 and l2
     """
 
-    list=l1 +l2
-    slist=sorted(list)
+    list = l1 + l2
+    slist = sorted(list)
 
     return slist
 
@@ -334,6 +328,7 @@ def longest_common_substring(str1, str2):
 
 '''
 
+
 def longest_common_prefix(str1, str2):
     """
     1 Kata
@@ -350,18 +345,17 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-'''
 
     lprefix = ""
-    for i in range(min(len(str), len(str2))):
-            if str1[i] == str2[i]:
-                lprefix += str1[i]
-            else:
-                break
+    for i in range(len(str1)+1):
 
+        if str1[i] == str2[i]:
+            lprefix += str1[i]
+        else:
+            break
 
     return lprefix
-'''
+
 
 def rotate_matrix(mat):
     """
@@ -386,16 +380,17 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    mat2=[]
 
-    for i in range(len(mat)):
+    rows = len(mat)
+    cols = len(mat[0])
 
+    rotate = [[0 for _ in range(rows)] for _ in range(cols)]
 
+    for i in range(rows):
+        for j in range(cols):
+            rotate[j][rows - 1 - i] = mat[i][j]
 
-
-
-    return None
-
+    return rotate
 
 def is_valid_email(mail_str):
     """
@@ -413,6 +408,8 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
     return None
 
 
@@ -466,7 +463,18 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+
+    lst2=[]
+    print(len(lst))
+    for x in range(len(lst)):
+        if (x,int) ==True:
+          lst2== [lst[x]]
+        elif isinstance(x,list):
+            for i in len(lst[x]):
+                lst2=[lst[i]]
+
+    print(lst2)
+
 
 
 def str_compression(text):
@@ -486,7 +494,26 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    listtext=[]
+    count=1
+    print(text)
+    for x in range(0,len(text)-1):
+      if text[x] == text[x+1]:
+          count += 1
+      else:
+          listtext.append(text[x])
+          listtext.append(count)
+          count=0
+
+
+
+    listtext.append(text[-1])
+    listtext.append(count)
+
+
+
+    return listtext
+
 
 
 def strong_pass(password):
@@ -527,7 +554,6 @@ if __name__ == '__main__':
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
 
-
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
@@ -537,6 +563,7 @@ if __name__ == '__main__':
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
+
 
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
