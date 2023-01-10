@@ -9,6 +9,7 @@ import json
 import re
 
 
+
 def valid_parentheses(s: str) -> bool:
     #    s = input("your bracects here: ")
     if len(s) % 2 != 0:
@@ -262,18 +263,22 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    '''
+
     sum=0
-    print(mat)
+
+    count=0
+    rows=range(len(mat))
+
     for i in rows:
 
-     for x in range(3):
-      sum= mat[i][x]
+     for x in range(len(mat[i])):
+      sum += mat[i][x]
+      count+=1
 
-     avg= sum/len(rows)
+     avg= sum/count
 
     return avg
-'''
+
 
 
 def merge_sorted_lists(l1, l2):
@@ -463,19 +468,18 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-
+'''
     lst2=[]
     print(len(lst))
     for x in range(len(lst)):
-        if (x,int) ==True:
-          lst2== [lst[x]]
+        if isinstance(x, Iterable) and not isinstance(el, (str, bytes)):          lst2== [lst[x]]
         elif isinstance(x,list):
             for i in len(lst[x]):
                 lst2=[lst[i]]
 
     print(lst2)
 
-
+'''
 
 def str_compression(text):
     """
@@ -529,6 +533,7 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
+
     return None
 
 
