@@ -57,7 +57,8 @@ def fibonacci_fixme(n):
 
 
 def most_frequent_name(file_path):
-    '''
+    pass
+
     """
     2 Kata
 
@@ -70,11 +71,8 @@ def most_frequent_name(file_path):
     :return: str - the most frequent name. If there are many, return one of them
     """
 
-'''
 
-    #file_path = input("put your filename here:",)
-    file_location = open(file_path, "r")
-    file_path = file_location
+    file_path = open("names.txt", "r")
     frequent_name = ""
     frequency = 0
     words = []
@@ -85,18 +83,18 @@ def most_frequent_name(file_path):
         for w in line_word:
             words.append(w);
 
-        for i in range(0, len(words)):
-            count = 1;
+    for i in range(0, len(words)):
+        count = 1;
 
-            for j in range(i + 1, len(words)):
-                if (words[i] == words[j]):
-                    count = count + 1;
+        for j in range(i + 1, len(words)):
+            if (words[i] == words[j]):
+                count = count + 1;
 
-            if (count > frequency):
-                frequency = count;
-                frequent_name = words[i];
-                file_path.close();
-        return ("Most repeated name: " + frequent_name).rstrip()
+        if (count > frequency):
+            frequency = count;
+            frequent_name = words[i];
+    file_path.close();
+    return (frequent_name)
 
 def files_backup(dir_path):
     """
@@ -124,7 +122,7 @@ def files_backup(dir_path):
     dir_name = ("backup_{}".format(dir_str+"_"+ date_str))
     shutil.make_archive(dir_name, 'gztar',dir_str )
 
-    return (dir_str)
+    return (dir_name)
 
 
 import os
@@ -222,7 +220,7 @@ def matrix_avg(mat, rows=None):
             sum += mat[row][column]
     return sum / num_of_elem
 
-#Vitaly
+
 def merge_sorted_lists(l1, l2):
     """
     1 Kata
@@ -342,7 +340,7 @@ def rotate_matrix(mat):
         rot_row = []
     return rotate_mat
 
-#Dani
+
 def is_valid_email(mail_str):
     """
     3 Kata
@@ -408,7 +406,7 @@ def is_valid_email(mail_str):
         return False
     return mail_str
 
-#Dani
+
 def pascal_triangle(lines):
     """
     3 Kata
@@ -530,7 +528,29 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    l, u, p, d = 0, 0, 0, 0
+    capitalalphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    smallalphabets = "abcdefghijklmnopqrstuvwxyz"
+    specialchar = "!@#$%^&*()-+"
+    digits = "0123456789"
+    if (len(password) >= 6):
+        for i in password:
+
+            if (i in smallalphabets):
+                l += 1
+
+            if (i in capitalalphabets):
+                u += 1
+
+            if (i in digits):
+                d += 1
+
+            if (i in specialchar):
+                p += 1
+    if (l >= 1 and u >= 1 and p >= 1 and d >= 1 and l + p + u + d == len(password)):
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
