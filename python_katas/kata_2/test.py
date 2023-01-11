@@ -224,7 +224,7 @@ class TestLongestCommonSubstring(unittest.TestCase):
         str1, str2 = ('AbbZD', 'abZd')
         self.assertEqual(questions.longest_common_substring(str1, str2), bZ)
 
-    def test_empty_strings(self):
+    def test_leters _vs_numbers_strings(self):
         str1, str2 = ('a2a', 'a2a')
         self.assertEqual(questions.longest_common_substring(str1, str2), a)
 '''
