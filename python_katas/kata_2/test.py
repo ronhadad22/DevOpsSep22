@@ -131,15 +131,26 @@ class TestReplaceInFile(unittest.TestCase):
         replace_text = ""
         self.assertRaises(RuntimeError, questions.replace_in_file, file_path, text, replace_text)
         return None
+#Dani
 class TestJsonConfigsMerge(unittest.TestCase):
     """
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def json_configs_merge(*json_paths):
+        return (json_paths)
 
+    def test_Defaultfirst_localsecond(self):
+        json_paths = 'default.json', 'local.json'
+        self.assertEqual(questions.json_configs_merge(*json_paths), ('default.json', 'local.json'))
+
+    def test_localFirst_DefaultSecond(self):
+        json_paths = 'local.json','default.json'
+        self.assertEqual(questions.json_configs_merge(*json_paths), ('local.json','default.json'))
+
+    def test_no_such_file(self):
+        json_paths = 'whatever.json','whatsoever.json'
+        self.assertRaises(FileNotFoundError, questions.json_configs_merge, *json_paths)
 
 #vitaly
 class TestMonotonicArray(unittest.TestCase):
