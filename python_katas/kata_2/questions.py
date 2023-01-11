@@ -451,7 +451,26 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+
+    for line in range(0,lines ) :
+        for i in range(0, lines+1):
+            print(binomialCoeff(line, i),
+                  " ", end="")
+            print()
+
+
+
+
+def binomialCoeff(n, k):
+    res = 1
+    if (k > n - k):
+        k = n - k
+    for i in range(0, k):
+        res = res * (n - i)
+        res = res // (i + 1)
+
+
+    return res
 
 
 def list_flatten(lst):
