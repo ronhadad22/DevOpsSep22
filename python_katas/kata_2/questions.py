@@ -189,7 +189,14 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    x, y = [], []
+    x.extend(lst)
+    y.extend(lst)
+    x.sort()
+    y.sort(reverse=True)
+    if (x == lst or y == lst):
+        return True
+    return False
 
 
 def matrix_avg(mat, rows=None):
@@ -203,7 +210,17 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    sum = 0
+    if rows == None:
+        num_of_elem = 9;
+        rows = [0, 1, 2]
+    else:
+        num_of_elem = len(rows) * 3
+
+    for row in rows:
+        for column in range(3):
+            sum += mat[row][column]
+    return sum / num_of_elem
 
 #Vitaly
 def merge_sorted_lists(l1, l2):
@@ -242,7 +259,17 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    answer = ""
+    len1, len2 = len(str1), len(str2)
+    for i in range(len1):
+        match = ""
+        for j in range(len2):
+            if (i + j < len1 and str1[i + j] == str2[j]):
+                match += str2[j]
+            else:
+                if (len(match) > len(answer)): answer = match
+
+    return (answer)
 
 
 def longest_common_prefix(str1, str2):
@@ -261,7 +288,23 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+
+    result = ""
+    n1 = len(str1)
+    n2 = len(str2)
+
+    i = 0
+    j = 0
+    while i <= n1 - 1 and j <= n2 - 1:
+
+        if (str1[i] == str2[j]):
+            break
+
+        result += str1[i]
+        i += 1
+        j += 1
+
+    return (result)
 
 
 def rotate_matrix(mat):
