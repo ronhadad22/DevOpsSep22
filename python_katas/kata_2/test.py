@@ -272,7 +272,7 @@ class TestPascalTriangle(unittest.TestCase):
      """
 
     def pascal_triangle(lines):
-        return None
+        return (lines)
 
     def test_positive_lines(self):
         lines = 7
