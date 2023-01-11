@@ -275,6 +275,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    for i in dict2.keys():
+        dict1[i] = dict2[i]
     return dict1
 
 
