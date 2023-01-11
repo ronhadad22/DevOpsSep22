@@ -180,7 +180,13 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    min_age = 10
+    for man, man_age in men.items():
+        for woman, woman_age in women.items():
+            if abs(man_age - woman_age) < min_age:
+                min_age = abs(man_age - woman_age)
+                couple = (man, woman)
+    return couple
 
 
 def bad_average(a, b, c):
@@ -192,7 +198,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
