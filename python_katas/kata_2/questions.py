@@ -19,7 +19,8 @@
 
 
 def valid_parentheses(s: str) -> bool:
-     if len(s) % 2 != 0:
+
+    if len(s) % 2 != 0:
         return False
     dict = {'(' : ')', '[' : ']', '{' : '}'}
     stack = []
@@ -32,7 +33,7 @@ def valid_parentheses(s: str) -> bool:
                 s = stack.pop()
                 if i != dict[s]:
                     return False
-    return stack == []
+    return True
 
 def fibonacci_fixme(n):
     """
@@ -117,8 +118,32 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
 
+    def files_backup(dir_path):
+        """
+        3 Kata
+
+        This function gets a path to a directory and generated a .gz file containing all the files the directory contains
+        The backup .gz file name should be in the form:
+
+        'backup_<dir_name>_<yyyy-mm-dd>.tar.gz'
+
+        Where <dir_name> is the directory name (only the directory, not the full path given in dir_path)
+        and <yyyy-mm-dd> is the date e.g. 2022-04-10
+
+        You can assume dir_path exists in the file system
+
+        :param dir_path: string - path to a directory
+        :return: str - the backup file name
+        """
+        import shutil
+        import datetime
+        date_str = datetime.datetime.now().strftime('%Y-%m-%d')
+        dir_str = dir_path
+        dir_name = ("backup_{}".format(dir_str + "_" + date_str))
+        shutil.make_archive(dir_name, 'gztar', dir_str)
+
+        return (dir_str)
 
 def replace_in_file(file_path, text, replace_text):
     """
@@ -134,7 +159,28 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
-    return None
+    import os
+    def replace_in_file(file_path, text, replace_text):
+
+
+        with open(file_path, 'r') as file:
+            content = file.read()
+            if not os.path.exists(file_path):
+                # File does not exist, return
+                return ("file does not exist")
+
+        content = content.replace(text, replace_text)
+        if not text:
+            # if text== none this will raise a textnotfound print
+            raise RuntimeError("text can't be None")
+            # if replace_text == none this will raise a runtime error
+        elif not replace_text:
+            raise RuntimeError("replace text can't be None")
+        else:
+            # Write the file out again
+            with open(file_path, 'w') as file:
+                file.write(content)
+            return None
 
 
 def json_configs_merge(*json_paths):
@@ -148,7 +194,22 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+
+    def json_configs_merge(*json_paths):
+        """
+        2 Kata
+
+        This function gets an unknown number of paths to json files (represented as tuple in json_paths argument)
+        it reads the files content as a dictionary, and merges all of them into a single dictionary,
+        in the same order the files have been sent to the function!
+
+        :param json_paths:
+        :return: dict - the merges json files
+        """
+        # json_paths = input('your first file', ), input('your second file', )
+        with open('merged_file.json', "w") as outfile:
+            outfile.write('{}'.format('\n'.join([open(f, "r").read() for f in json_paths])))
+        return json_paths
 
 
 def monotonic_array(lst):
