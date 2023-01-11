@@ -104,7 +104,7 @@ def fibonacci_fixme(n):
 
 
 #def most_frequent_name(file_path):
-    #pass
+ #   pass
     '''
     """
     2 Kata
@@ -215,21 +215,30 @@ def files_backup(dir_path):
     return (dir_str)
 
 
-def replace_in_file(file_path, text, replace_text):
-    """
-    2 Kata
-
-    This function gets a path of text file, it replaces all occurrences of 'text' by 'replace_text'.
-    The function saves the replaces content on the same path (overwrites the file's content)
-
-    You MUST check that file_path exists in the file system before you try to open it
-
-    :param file_path: relative or absolute path to a text file
-    :param text: text to search
-    :param replace_text: text to replace with
-    :return: None
-    """
-    return None
+import os
+ def replace_in_file(file_path, text, replace_text):
+     #file_path = input("put your path here:", )
+         # Read in the file
+     with open(file_path, 'r') as file:
+         content = file.read()
+         if not os.path.exists(file_path):
+                 # File does not exist, return
+             return ("file does not exist")
+     #text = input("put your text to locate here: ",)
+     #replace_text = input("put your text to replace here: ", )
+         # Replace the target string
+     content = content.replace(text, replace_text)
+     if not text:
+         #if text== none this will raise a textnotfound print
+        raise RuntimeError("text can't be None")
+         #if replace_text == none this will raise a runtime error
+     elif not replace_text:
+         raise RuntimeError("replace text can't be None")
+     else:
+         # Write the file out again
+         with open(file_path, 'w') as file:
+             file.write(content)
+         return ("file saved successfully")
 
 
 def json_configs_merge(*json_paths):
