@@ -1,5 +1,4 @@
-def valid_parentheses(s: str):
-
+def valid_parentheses(s: str) -> bool:
     """
     3 Kata
 
@@ -14,67 +13,22 @@ def valid_parentheses(s: str):
     s = '[[{()}](){}]'  -> True
     s = ']}'          -> False
     """
-   # s = input("print")
+    #s = input("your bracects here: ")
+    if len(s) % 2 != 0:
+        return False
+    dict = {'(' : ')', '[' : ']', '{' : '}'}
     stack = []
-    opening = set('([{')
-    closing = set(')]}')
-    pair = {')' : '(' , ']' : '[' , '}' : '{'}
-    for char in s:
-        if char in opening:
-            stack.append(char)
-            if char in closing:
-                if not stack:
-                    return False
-                elif stack.pop() != pair[char]:
-                    return False
-                else:
-                    continue
-            if not stack:
-             return True
+    for i in s:
+            if i in dict.keys():
+                stack.append(i)
             else:
-                return False
-    return stack
-'''
-            if top == '(' and char != ')':
-                return False
-            if top == '[' and char != ']':
-                return False
-            if top == '{' and char != '}':
-                return False
-        else:
-            return False
+                if stack == []:
+                    return False
+                s = stack.pop()
+                if i != dict[s]:
+                    return False
     return True
 
-    # David's solution
-    while True:
-        if '()' in s:
-            s = s.replace('()', '')
-        elif '{}' in s:
-            s = s.replace('{}', '')
-        elif '[]' in s:
-            s = s.replace('[]', '')
-        else:
-            return not s
-
-    stack = []
-    opening = set('([{')
-    closing = set(')]}')
-    pair = {')' : '(' , ']' : '[' , '}' : '{'}
-    for i in s :
-        if i in opening :
-            stack.append(i)
-        if i in closing :
-               if not stack :
-                   return False
-               elif stack.pop() != pair[i] :
-                   return False
-               else :
-                   continue
-       if not stack :
-            return True
-       else :
-           return False
-'''
 def fibonacci_fixme(n):
     """
     2 Kata
@@ -95,11 +49,10 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(1, n + 1):
         tmp = a + b
+        a = b
         b = tmp
-
     return a
 
 
