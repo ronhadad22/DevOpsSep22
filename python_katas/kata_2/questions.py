@@ -330,7 +330,17 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    rotate_mat = []
+    rot_row = []
+    num_rows = len(mat)
+    num_col = len(mat[1])
+    for i in range(num_col):
+        for j in range(num_rows):
+            rot_row.append(mat[j][i])
+        rot_row.reverse()
+        rotate_mat.append(rot_row)
+        rot_row = []
+    return rotate_mat
 
 #Dani
 def is_valid_email(mail_str):
