@@ -119,31 +119,14 @@ def files_backup(dir_path):
     :return: str - the backup file name
     """
 
-    def files_backup(dir_path):
-        """
-        3 Kata
+    import shutil
+    import datetime
+    date_str = datetime.datetime.now().strftime('%Y-%m-%d')
+    dir_str = dir_path
+    dir_name = ("backup_{}".format(dir_str + "_" + date_str))
+    shutil.make_archive(dir_name, 'gztar', dir_str)
 
-        This function gets a path to a directory and generated a .gz file containing all the files the directory contains
-        The backup .gz file name should be in the form:
-
-        'backup_<dir_name>_<yyyy-mm-dd>.tar.gz'
-
-        Where <dir_name> is the directory name (only the directory, not the full path given in dir_path)
-        and <yyyy-mm-dd> is the date e.g. 2022-04-10
-
-        You can assume dir_path exists in the file system
-
-        :param dir_path: string - path to a directory
-        :return: str - the backup file name
-        """
-        import shutil
-        import datetime
-        date_str = datetime.datetime.now().strftime('%Y-%m-%d')
-        dir_str = dir_path
-        dir_name = ("backup_{}".format(dir_str + "_" + date_str))
-        shutil.make_archive(dir_name, 'gztar', dir_str)
-
-        return (dir_str)
+    return (dir_name)
 
 def replace_in_file(file_path, text, replace_text):
     """
@@ -195,21 +178,12 @@ def json_configs_merge(*json_paths):
     :return: dict - the merges json files
     """
 
-    def json_configs_merge(*json_paths):
-        """
-        2 Kata
 
-        This function gets an unknown number of paths to json files (represented as tuple in json_paths argument)
-        it reads the files content as a dictionary, and merges all of them into a single dictionary,
-        in the same order the files have been sent to the function!
 
-        :param json_paths:
-        :return: dict - the merges json files
-        """
         # json_paths = input('your first file', ), input('your second file', )
-        with open('merged_file.json', "w") as outfile:
+    with open('merged_file.json', "w") as outfile:
             outfile.write('{}'.format('\n'.join([open(f, "r").read() for f in json_paths])))
-        return json_paths
+    return json_paths
 
 
 def monotonic_array(lst):
