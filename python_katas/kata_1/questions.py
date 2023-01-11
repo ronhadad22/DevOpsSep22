@@ -144,7 +144,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    reverse = int(str(num)[::-1])
+
+    if num == reverse:
+        return True
+    else:
+        return False
 
 
 def pair_match(men, women):
