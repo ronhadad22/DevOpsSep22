@@ -243,7 +243,10 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    #json_paths = input('your first file', ), input('your second file', )
+    with open('merged_file_name.json', "w") as outfile:
+        outfile.write('{}'.format('\n'.join([open(f, "r").read() for f in json_paths])))
+    return json_paths
 
 
 def monotonic_array(lst):
@@ -470,7 +473,7 @@ def pascal_triangle(lines):
          print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
         # for new line
         print()
-    return (lines)
+    return None
 
 
 def list_flatten(lst):
