@@ -311,7 +311,15 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    result = ""
+    s = 3
+    for i in range(len(str_to_encrypt)):
+        char = str_to_encrypt[i]
+        if (char.isupper()):
+            result += chr((ord(char) + s - 65) % 26 + 65)
+        else:
+            result += chr((ord(char) + s - 97) % 26 + 97)
+    return result
 
 
 def sum_of_digits(digits_str):
