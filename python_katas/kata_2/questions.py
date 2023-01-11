@@ -474,7 +474,14 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flat_list = []
+    for element in lst:
+        if type(element) is list:
+            for item in element:
+                flat_list.append(item)
+        else:
+            flat_list.append(element)
+    return flat_list
 
 
 def str_compression(text):
@@ -494,7 +501,20 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    index = 0
+    compressed_string = " "
+    string_len = len(text)
+    while index != string_len:
+        count = 1
+        while (index < string_len - 1) and (text[index] == text[index + 1]):
+            count = count + 1
+            index = index + 1
+        if count == 1:
+            compressed_string += str(text[index])
+        else:
+            compressed_string += str(text[index]) + str(count)
+        index = index + 1
+    return compressed_string
 
 
 def strong_pass(password):
