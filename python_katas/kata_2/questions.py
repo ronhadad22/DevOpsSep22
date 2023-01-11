@@ -216,7 +216,7 @@ def files_backup(dir_path):
 
 
 import os
- def replace_in_file(file_path, text, replace_text):
+def replace_in_file(file_path, text, replace_text):
      #file_path = input("put your path here:", )
          # Read in the file
      with open(file_path, 'r') as file:
