@@ -180,7 +180,7 @@ def json_configs_merge(*json_paths):
 
 
 
-        # json_paths = input('your first file', ), input('your second file', )
+
     with open('merged_file.json', "w") as outfile:
             outfile.write('{}'.format('\n'.join([open(f, "r").read() for f in json_paths])))
     return json_paths
