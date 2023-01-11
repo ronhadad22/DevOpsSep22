@@ -250,7 +250,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("Key      Value")
+    print("--------------")
+    table = ""
+    for key, value in some_dict.items():
+        table = table + ("{:<10} {:<10}\n".format(key, value))
+    return table
 
 
 def merge_dicts(dict1, dict2):
