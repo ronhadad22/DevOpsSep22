@@ -9,7 +9,6 @@ import json
 import re
 
 
-
 def valid_parentheses(s: str) -> bool:
     #    s = input("your bracects here: ")
     if len(s) % 2 != 0:
@@ -264,21 +263,20 @@ def matrix_avg(mat, rows=None):
     :return: int - the average values
     """
 
-    sum=0
+    sum = 0
 
-    count=0
-    rows=range(len(mat))
+    count = 0
+    rows = range(len(mat))
 
     for i in rows:
 
-     for x in range(len(mat[i])):
-      sum += mat[i][x]
-      count+=1
+        for x in range(len(mat[i])):
+            sum += mat[i][x]
+            count += 1
 
-     avg= sum/count
+        avg = sum / count
 
     return avg
-
 
 
 def merge_sorted_lists(l1, l2):
@@ -352,7 +350,7 @@ def longest_common_prefix(str1, str2):
     """
 
     lprefix = ""
-    for i in range(len(str1)+1):
+    for i in range(len(str1) + 1):
 
         if str1[i] == str2[i]:
             lprefix += str1[i]
@@ -397,6 +395,7 @@ def rotate_matrix(mat):
 
     return rotate
 
+
 def is_valid_email(mail_str):
     """
     3 Kata
@@ -413,9 +412,12 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    regex = regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
-    return None
+    if re.fullmatch(regex, mail_str):
+        print("valid Email")
+    else:
+        print("Invalid Email")
 
 
 def pascal_triangle(lines):
@@ -452,25 +454,43 @@ def pascal_triangle(lines):
     :return: None
     """
 
+
+'''
     for line in range(0,lines ) :
         for i in range(0, lines+1):
             print(binomialCoeff(line, i),
                   " ", end="")
             print()
 
+'''
+'''
+    arr = [[0 for x in range(lines)]
+           for y in range(lines)]
+
+	# Iterate through every line
+	# and print integer(s) in it
+	 for line in range (0, lines):
+
+		# Every line has number of
+		# integers equal to line number
+		for i in range (0, line + 1):
+
+			# First and last values
+			# in every row are 1
+			if(i is 0 or i is line):
+				arr[line][i] = 1
+				print(arr[line][i], end = " ")
+
+			# Other values are sum of values
+			# just above and left of above
+			else:
+				arr[line][i] = (arr[line - 1][i - 1] +
+								arr[line - 1][i])
+				print(arr[line][i], end = " ")
+		print("\n", end = "")
 
 
-
-def binomialCoeff(n, k):
-    res = 1
-    if (k > n - k):
-        k = n - k
-    for i in range(0, k):
-        res = res * (n - i)
-        res = res // (i + 1)
-
-
-    return res
+'''
 
 
 def list_flatten(lst):
@@ -487,18 +507,17 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-'''
-    lst2=[]
-    print(len(lst))
-    for x in range(len(lst)):
-        if isinstance(x, Iterable) and not isinstance(el, (str, bytes)):          lst2== [lst[x]]
-        elif isinstance(x,list):
-            for i in len(lst[x]):
-                lst2=[lst[i]]
 
-    print(lst2)
+    lst2 = []
+    print(lst)
+    for x in lst:
+        if type(x) is list:
+            for i in x:
+                lst2.append(i)
 
-'''
+        else:
+            lst2.append(x)
+    return lst2
 
 def str_compression(text):
     """
@@ -517,26 +536,21 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    listtext=[]
-    count=1
+    listtext = []
+    count = 1
     print(text)
-    for x in range(0,len(text)-1):
-      if text[x] == text[x+1]:
-          count += 1
-      else:
-          listtext.append(text[x])
-          listtext.append(count)
-          count=0
-
-
+    for x in range(0, len(text) - 1):
+        if text[x] == text[x + 1]:
+            count += 1
+        else:
+            listtext.append(text[x])
+            listtext.append(count)
+            count = 0
 
     listtext.append(text[-1])
     listtext.append(count)
 
-
-
     return listtext
-
 
 
 def strong_pass(password):
@@ -553,8 +567,25 @@ def strong_pass(password):
     This function returns True if the given password is strong enough
     """
 
-    return None
 
+    l, u, p, d = 0, 0, 0, 0
+    s = "R@m@_f0rtu9e$"
+    if (len(s) >= 6):
+          for i in s:
+              if (i.islower()):
+                  l += 1
+              if (i.isupper()):
+                  u += 1
+              if (i.isdigit()):
+                  d += 1
+
+              if (i == '@' or i == '$' or i == '_'):
+                   p += 1
+
+    if (l >= 1 and u >= 1 and p >= 1 and d >= 1 and l + p + u + d == len(s)):
+        print("Valid Password")
+    else:
+        print("Invalid Password")
 
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
@@ -587,7 +618,6 @@ if __name__ == '__main__':
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
-
 
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
